@@ -1,0 +1,3 @@
+C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\DebugView XNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Hugh\Downloads\xna\Prototype2\DebugView XNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Prototype2\DebugView XNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
