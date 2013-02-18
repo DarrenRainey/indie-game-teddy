@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>background1.png</Source>
+      <Name>background1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>circleSprite.png</Source>
+      <Name>circleSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>groundSprite.png</Source>
+      <Name>groundSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>jump.png</Source>
+      <Name>jump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>jumping.png</Source>
+      <Name>jumping</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>player1.png</Source>
+      <Name>player1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>run.png</Source>
+      <Name>run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>square.png</Source>
+      <Name>square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb</Output>
+      <Time>2012-11-09T20:51:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>gun.png</Source>
+      <Name>gun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\gun.xnb</Output>
+      <Time>2013-01-06T14:19:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>shooting.png</Source>
+      <Name>shooting</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\shooting.xnb</Output>
+      <Time>2013-01-06T15:07:02+00:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Xbox360</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>E:\Prototype2\Prototype2\Prototype2\Prototype2Content\</RootDirectory>
+      <LoggerRootDirectory>E:\Prototype2\Prototype2\Prototype2\Prototype2\</LoggerRootDirectory>
+      <IntermediateDirectory>E:\Prototype2\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Debug\</IntermediateDirectory>
+      <OutputDirectory>E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-07-09T20:03:28.4557553+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
