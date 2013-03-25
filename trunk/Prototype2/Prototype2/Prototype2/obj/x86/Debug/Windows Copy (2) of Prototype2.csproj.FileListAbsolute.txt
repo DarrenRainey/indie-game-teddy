@@ -19,3 +19,42 @@ C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\x86\
 C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.exe
 C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\font.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\background1.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\circleSprite.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\groundSprite.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jump.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jumping.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\player1.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\run.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\square.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\armgun.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\head.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bullet.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\prototype_Tile2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\crosshair.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\marker.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Prototype2.exe
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Prototype2.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\DebugViewXNA.dll
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\DebugViewXNA.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\DebugViewXNA.xml
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\FarseerPhysicsXNA.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\FarseerPhysicsXNA.xml
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.exe
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.pdb

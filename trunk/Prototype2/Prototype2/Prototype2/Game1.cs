@@ -256,46 +256,13 @@ namespace Prototype1
             impassableEdge.Restitution = 0.1f;
             impassableEdge.Friction = 0.7f;
 
-            /*OLD COLLISIONS
-            //TILE1...........
-            //bottom left piece
-            FixtureFactory.AttachEdge(new Vector2(0.25f, 3f), new Vector2(0.25f, 6f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(0.25f, 6f), new Vector2(5f, 6f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(5f, 6f), new Vector2(5f, 7.2f), impassableEdge);
 
-            //bottom right piece
-            FixtureFactory.AttachEdge(new Vector2(7f, 7.2f), new Vector2(7f, 5f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(7f, 5f), new Vector2(12.8f, 5f), impassableEdge);
-
-            //raised platform right
-            //FixtureFactory.AttachEdge(new Vector2(12.8f, 3f), new Vector2(10f, 3f), impassableEdge);
-            //FixtureFactory.AttachEdge(new Vector2(10f, 3f), new Vector2(10f, 2.5f), impassableEdge);
-            //FixtureFactory.AttachEdge(new Vector2(10f, 2.5f), new Vector2(12.8f, 2.5f), impassableEdge);
-
-            //raised platform middle
-            //FixtureFactory.AttachEdge(new Vector2(4f, 1.5f), new Vector2(8f, 1.5f), impassableEdge);
-           // FixtureFactory.AttachEdge(new Vector2(8f, 1.5f), new Vector2(8f, 2f), impassableEdge);
-           // FixtureFactory.AttachEdge(new Vector2(8f, 2f), new Vector2(4f, 2f), impassableEdge);
-           // FixtureFactory.AttachEdge(new Vector2(4f, 2f), new Vector2(4f, 1.5f), impassableEdge);   
-            
- 
-            //code gen test            
-            FixtureFactory.AttachEdge(new Vector2(12.79f, 4.995f), new Vector2(13.89f, 5.105f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(13.89f, 5.105f), new Vector2(15.14f, 5.365f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(15.14f, 5.365f), new Vector2(16.23f, 5.745f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(16.23f, 5.745f), new Vector2(17.3f, 6.095f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(17.3f, 6.095f), new Vector2(18.65f, 6.345f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(18.65f, 6.345f), new Vector2(19.85f, 6.495f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(19.85f, 6.495f), new Vector2(21.78f, 6.515f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(21.78f, 6.515f), new Vector2(25.6f, 5.185f), impassableEdge);
-            */
-
-            //passable edges
+            /*//passable edges
             passableEdges = new List<PassableEdge>();
 
             passableEdges.Add(new PassableEdge(_world, new Vector2(10f, 2.5f), new Vector2(12.8f, 2.5f)));    //right rased platform
             passableEdges.Add(new PassableEdge(_world, new Vector2(4f, 1.5f), new Vector2(8f, 1.5f)));    //centred raised platform
-            
+            */
 
             
             //From top of first cliff---------------------------------------------------------------------------------------
@@ -459,15 +426,15 @@ namespace Prototype1
 
             oldActivity = box.activity;              
 
-            box.Update(gameTime);
+            box.Update(gameTime);            
             
             playerAnimation.Update(gameTime);
 
-            //update all passable edges
+            /*//update all passable edges
             for (int i = 0; i < passableEdges.Count; i++) 
             {
                 passableEdges[i].Update(box);              
-            }
+            }*/
 
             //We update the world
             _world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
@@ -584,6 +551,15 @@ namespace Prototype1
                     armgunAngle = 0.0f;
                     headAngle = 0.0f;                   
                 }
+
+                //run animation speed is determined by the degree to which the analog stick is tilted
+                if(box.activity == Activity.Running)
+                {                    
+                    if (padState.ThumbSticks.Left.X < -0.1f || padState.ThumbSticks.Left.X > 0.1f)
+                    {
+                        playerAnimation.frameTime = (int)(playerAnimation.minFrameTime * (1 / Math.Abs(padState.ThumbSticks.Left.X)));
+                    }                    
+                } 
 
                 //camera follow player  
                 if (freeViewOn == false)

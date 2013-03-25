@@ -21,7 +21,10 @@ namespace Prototype1
 
 
         // The time we display a frame until the next one
-        int frameTime;
+        public int frameTime;
+
+        // The time we display a frame until the next one
+        public int minFrameTime;
 
 
         // The number of frames that the animation contains
@@ -79,6 +82,7 @@ int frametime, Color color, float scale, bool looping, Vector2 origin)
             this.FrameHeight = frameHeight;
             this.frameCount = frameCount;
             this.frameTime = frametime;
+            this.minFrameTime = frametime;
             this.scale = scale;
             this.origin = origin;            
 
