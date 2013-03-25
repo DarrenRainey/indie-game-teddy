@@ -32,7 +32,9 @@ namespace Prototype1
 
         private const float nextJumpDelayTime = 0f;
         private const float runSpeed = 20;
-        private const float jumpImpulse = -2f;
+        private const float jumpImpulse = -1.5f;
+        private const float maxAirVelocity = 6f;
+        private const float inAirImpluse = 0.06f;
 
         public CompositeCharacter(World world, Vector2 position, float width, float height, float mass, Texture2D texture)
             : base(world, position, width, height, mass, texture)
@@ -56,7 +58,7 @@ namespace Prototype1
             //fixture = FixtureFactory.AttachRectangle((float)ConvertUnits.ToSimUnits(width), (float)ConvertUnits.ToSimUnits(upperBodyHeight), mass / 2, Vector2.Zero, body); //CreateRectangle(world, (float)ConvertUnits.ToSimUnits(width), (float)ConvertUnits.ToSimUnits(upperBodyHeight), mass / 2);
             body = BodyFactory.CreateRectangle(world, (float)ConvertUnits.ToSimUnits(width), (float)ConvertUnits.ToSimUnits(upperBodyHeight), mass / 2); //fixture.Body;
             body.BodyType = BodyType.Dynamic;
-            body.Restitution = 0.3f;
+            body.Restitution = 0.0f;
             body.Friction = 0.5f;
             //also shift it up a tiny bit to keey the new object's center correct
             body.Position = ConvertUnits.ToSimUnits(position - (Vector2.UnitY * (width / 4)));
@@ -73,7 +75,7 @@ namespace Prototype1
             //And position its center at the bottom of the upper body
             wheel.Position = body.Position + ConvertUnits.ToSimUnits(Vector2.UnitY * (upperBodyHeight / 2));
             wheel.BodyType = BodyType.Dynamic;
-            wheel.Restitution = 0.3f;
+            wheel.Restitution = 0.0f;
             wheel.Friction = 0.5f;
 
             //These two bodies together are width wide and height high :)
@@ -89,7 +91,8 @@ namespace Prototype1
 
             //Set the friction of the wheel to float.MaxValue for fast stopping/starting
             //or set it higher to make the character slip.
-            wheel.Friction = float.MaxValue;
+            //wheel.Friction = float.MaxValue;
+            wheel.Friction = 9f;
         }
 
         //Fired when we collide with another object. Use this to stop jumping
@@ -111,6 +114,9 @@ namespace Prototype1
             oldActivity = activity;
             keyState = Keyboard.GetState();
             padState = GamePad.GetState(0);
+
+            //Console.WriteLine("CURRENT LINEAR VELOCITY: X= " + body.LinearVelocity.X + "   Y= " + body.LinearVelocity.Y);
+                    
 
             HandleJumping(keyState, oldState, padState, oldPadState, gameTime);
 
@@ -149,35 +155,47 @@ namespace Prototype1
 
             if (activity == Activity.Jumping)
             {
-                if (keyState.IsKeyDown(Keys.Right) || padState.ThumbSticks.Left.X > 0.3)
+                if (keyState.IsKeyDown(Keys.Right) || padState.ThumbSticks.Left.X > 0.1)
                 {
-                    if (body.LinearVelocity.X < 0)
+                    Console.WriteLine("result impulse: " + inAirImpluse * Math.Abs(padState.ThumbSticks.Left.X));
+                    if (body.LinearVelocity.X < maxAirVelocity)
                     {
-                        body.LinearVelocity = new Vector2(-body.LinearVelocity.X * 2, body.LinearVelocity.Y);
+                        body.ApplyLinearImpulse(new Vector2(inAirImpluse * Math.Abs(padState.ThumbSticks.Left.X * padState.ThumbSticks.Left.X), 0f), body.Position);
+                    }                
+                }
+                else if (keyState.IsKeyDown(Keys.Left) || padState.ThumbSticks.Left.X < -0.1)
+                {
+                    if (body.LinearVelocity.X > -maxAirVelocity)
+                    {
+                        body.ApplyLinearImpulse(new Vector2(-inAirImpluse * Math.Abs(padState.ThumbSticks.Left.X * padState.ThumbSticks.Left.X), 0f), body.Position);
                     }
                 }
-                else if (keyState.IsKeyDown(Keys.Left) || padState.ThumbSticks.Left.X < -0.3)
-                {
-                    if (body.LinearVelocity.X > 0)
-                    {
-                        body.LinearVelocity = new Vector2(-body.LinearVelocity.X * 2, body.LinearVelocity.Y);
-                    }
-                }
-            }
-
-            
+            }            
         }
 
         private void HandleRunning(KeyboardState state, KeyboardState oldState, GamePadState padState, GamePadState oldPadState, GameTime gameTime)
         {
-            if (keyState.IsKeyDown(Keys.Right) || padState.ThumbSticks.Left.X > 0.3f)
-            {                
+            //keyboard
+            if (keyState.IsKeyDown(Keys.Right))
+            {
                 motor.MotorSpeed = runSpeed;
                 activity = Activity.Running;
             }
-            else if (keyState.IsKeyDown(Keys.Left) || padState.ThumbSticks.Left.X < -0.3f)
+            else if (keyState.IsKeyDown(Keys.Left))
             {                
                 motor.MotorSpeed = -runSpeed;
+                activity = Activity.Running;
+            }
+
+            //joypad
+            if (padState.ThumbSticks.Left.X > 0.1f)           //the speed gets exponentially slower the less the analog stick is tilted
+            {
+                motor.MotorSpeed = runSpeed * (padState.ThumbSticks.Left.X * padState.ThumbSticks.Left.X);
+                activity = Activity.Running;
+            }
+            else if (padState.ThumbSticks.Left.X < -0.1f)
+            {
+                motor.MotorSpeed = -runSpeed * (padState.ThumbSticks.Left.X * padState.ThumbSticks.Left.X);
                 activity = Activity.Running;
             }
 

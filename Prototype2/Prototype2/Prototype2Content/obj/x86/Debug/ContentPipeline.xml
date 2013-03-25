@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\background1.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\background1.xnb</Output>
       <Time>2013-02-19T00:28:46+00:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\circleSprite.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\circleSprite.xnb</Output>
       <Time>2013-02-19T00:29:44+00:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\groundSprite.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\groundSprite.xnb</Output>
       <Time>2013-02-19T00:29:02+00:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jump.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jump.xnb</Output>
       <Time>2013-02-19T00:28:56+00:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jumping.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jumping.xnb</Output>
       <Time>2013-02-19T00:28:56+00:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\player1.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\player1.xnb</Output>
       <Time>2013-02-19T00:28:58+00:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\run.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\run.xnb</Output>
       <Time>2013-02-19T00:28:54+00:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\square.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\square.xnb</Output>
       <Time>2013-02-19T00:28:46+00:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\armgun.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\armgun.xnb</Output>
       <Time>2013-02-19T00:29:46+00:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\head.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\head.xnb</Output>
       <Time>2013-02-19T00:28:48+00:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bullet.xnb</Output>
       <Time>2013-02-19T00:29:42+00:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\prototype_Tile2.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\prototype_Tile2.xnb</Output>
       <Time>2013-02-19T00:28:52+00:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\crosshair.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\crosshair.xnb</Output>
       <Time>2013-02-19T00:28:42+00:00</Time>
     </Item>
     <Item>
@@ -124,35 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\marker.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\marker.xnb</Output>
       <Time>2013-02-19T00:29:00+00:00</Time>
-    </Item>
-    <Item>
-      <Source>font.spritefont</Source>
-      <Name>font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2013-02-19T00:29:00+00:00</Time>
-    </Item>
-    <Item>
-      <Source>level tiles\A_M1280_0.png</Source>
-      <Name>level tiles\A_M1280_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_0.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
-    </Item>
-    <Item>
-      <Source>level tiles\A_M1280_720.png</Source>
-      <Name>level tiles\A_M1280_720</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_720.xnb</Output>
-      <Time>2013-02-28T03:07:52+00:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_0_0.png</Source>
@@ -160,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_0.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_0.xnb</Output>
       <Time>2013-02-28T03:07:52+00:00</Time>
     </Item>
     <Item>
@@ -169,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_720.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_720.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -178,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_0.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_0.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -187,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_720.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_720.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -196,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_1440.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_1440.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -205,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_720.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_720.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -214,7 +187,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_1440.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_1440.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -223,7 +196,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_720.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_720.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -232,7 +205,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_1440.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_1440.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
     </Item>
     <Item>
@@ -241,8 +214,35 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_720.xnb</Output>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_720.xnb</Output>
       <Time>2013-02-28T03:07:54+00:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_M1280_0.png</Source>
+      <Name>level tiles\A_M1280_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_0.xnb</Output>
+      <Time>2013-02-28T03:07:54+00:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_M1280_720.png</Source>
+      <Name>level tiles\A_M1280_720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_720.xnb</Output>
+      <Time>2013-02-28T03:07:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2013-02-19T00:29:00+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -250,10 +250,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\</RootDirectory>
-      <LoggerRootDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\</LoggerRootDirectory>
-      <IntermediateDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\</RootDirectory>
+      <LoggerRootDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\</LoggerRootDirectory>
+      <IntermediateDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

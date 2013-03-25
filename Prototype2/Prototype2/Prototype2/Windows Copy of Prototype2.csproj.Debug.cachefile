@@ -12,9 +12,6 @@ Content\bullet.xnb
 Content\prototype_Tile2.xnb
 Content\crosshair.xnb
 Content\marker.xnb
-Content\font.xnb
-Content\level tiles\A_M1280_0.xnb
-Content\level tiles\A_M1280_720.xnb
 Content\level tiles\A_0_0.xnb
 Content\level tiles\A_0_720.xnb
 Content\level tiles\A_1280_0.xnb
@@ -25,4 +22,7 @@ Content\level tiles\A_3840_1440.xnb
 Content\level tiles\A_3840_720.xnb
 Content\level tiles\A_5120_1440.xnb
 Content\level tiles\A_5120_720.xnb
+Content\level tiles\A_M1280_0.xnb
+Content\level tiles\A_M1280_720.xnb
+Content\font.xnb
 font.xnb

@@ -36,11 +36,11 @@ namespace Prototype1
 
             //Apply force in the arrow key direction
             Vector2 force = Vector2.Zero;
-            if (keyState.IsKeyDown(Keys.Left) || padState.ThumbSticks.Left.X < -0.3)
+            if (keyState.IsKeyDown(Keys.Left) || padState.ThumbSticks.Left.X < -0.1)
             {
                 force.X -= forcePower * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-            if (keyState.IsKeyDown(Keys.Right) || padState.ThumbSticks.Left.X > 0.3)
+            if (keyState.IsKeyDown(Keys.Right) || padState.ThumbSticks.Left.X > 0.1)
             {
                 force.X += forcePower * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
