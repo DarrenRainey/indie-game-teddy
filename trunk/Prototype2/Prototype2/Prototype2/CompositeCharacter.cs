@@ -99,12 +99,13 @@ namespace Prototype1
         //and resume normal movement
         public bool OnCollision(Fixture fix1, Fixture fix2, Contact contact)
         {
+           
             //Check if we are both jumping this frame and last frame
             //so that we ignore the initial collision from jumping away from 
             //the ground
             if (activity == Activity.Jumping && oldActivity == Activity.Jumping)
             {
-                activity = Activity.None;
+                activity = Activity.None;                
             }
             return true;
         }
@@ -157,7 +158,7 @@ namespace Prototype1
             {
                 if (keyState.IsKeyDown(Keys.Right) || padState.ThumbSticks.Left.X > 0.1)
                 {
-                    Console.WriteLine("result impulse: " + inAirImpluse * Math.Abs(padState.ThumbSticks.Left.X));
+                    //Console.WriteLine("result impulse: " + inAirImpluse * Math.Abs(padState.ThumbSticks.Left.X));
                     if (body.LinearVelocity.X < maxAirVelocity)
                     {
                         body.ApplyLinearImpulse(new Vector2(inAirImpluse * Math.Abs(padState.ThumbSticks.Left.X * padState.ThumbSticks.Left.X), 0f), body.Position);

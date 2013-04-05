@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Prototype1
 {
-    class Animation
+    public class Animation
     {
         // The image representing the collection of images used for animation
         Texture2D spriteSheet;

@@ -28,6 +28,7 @@ using System;
 using Prototype2;
 using System.Collections.Generic;
 using System.Collections;
+using System.ComponentModel;
 
 
 namespace Prototype1
@@ -51,6 +52,8 @@ namespace Prototype1
         private MouseState _oldMouseState;
         public SpriteFont _font;
 
+        private Boolean firstGameUpdate = true;
+
         private World _world;
 
         private Body _circleBody;
@@ -65,7 +68,7 @@ namespace Prototype1
         private Texture2D _circleSprite;
         private Texture2D _groundSprite;        
         private Texture2D player;
-        private Texture2D playerTexture;
+        private Texture2D playerTexture;        
         private Texture2D playerJump;
         private Texture2D playerShoot;
         private Texture2D armgun;
@@ -104,8 +107,16 @@ namespace Prototype1
         
 
         private Animation playerAnimation;
+
         
-        private Activity oldActivity;
+        public static Texture2D bearIdle;
+        public static Texture2D bearRunning;
+        public static Texture2D bearJumping;
+        private EnemyCompositeCharacter bearBox;
+
+        private List<EnemyCompositeCharacter> enemies;
+        
+        private Activity oldActivity;       
 
         private Texture2D squareTex;        
 
@@ -176,9 +187,15 @@ namespace Prototype1
             head = Content.Load<Texture2D>("head"); // 41px x 37px   
             bulletTex = Content.Load<Texture2D>("bullet");
 
-            squareTex = Content.Load<Texture2D>("square");
+            squareTex = Content.Load<Texture2D>("square");            
 
             playerJump = Content.Load<Texture2D>("jumping");
+
+            //load bear animations
+            bearIdle = Content.Load<Texture2D>("bearidle");
+            bearRunning = Content.Load<Texture2D>("bearrun");
+            bearJumping = Content.Load<Texture2D>("bearjump");
+
 
             //editing textures
             crosshair = Content.Load<Texture2D>("crosshair");
@@ -201,19 +218,36 @@ namespace Prototype1
             A_M1280_0 = Content.Load<Texture2D>("level tiles/A_M1280_0");
             A_M1280_720 = Content.Load<Texture2D>("level tiles/A_M1280_720");
 
-            //testings
+            //setup main guy
             playerTexture = Content.Load<Texture2D>("run");
             playerAnimation = new Animation();
-            playerAnimation.Initialize(playerTexture, Vector2.Zero, 86, 119, 25, 300, Color.White, 1f, true, new Vector2(0, 0));
-         
+            playerAnimation.Initialize(playerTexture, Vector2.Zero, 86, 119, 25, 30, Color.White, 1f, true, new Vector2(0, 0));
+                        
             box = new CompositeCharacter(_world, new Vector2(300f, 600f), 64, 128, 0.3f, squareTex);
             box.forcePower = 100;
+            
+            //create enemies
+            enemies = new List<EnemyCompositeCharacter>();
+            
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(600f, 600f), 93, 183, 0.15f, squareTex);  //at start
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(1330f, 550f), 93, 183, 0.15f, squareTex);  //on top of first hill
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(3470f, 980f), 93, 183, 0.15f, squareTex);   //just after second rock
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+          
+
 
             //init bullet stuff
             //bulletDirection = new Vector2(0, 0);
             bulletQueue = new Queue<Bullet>();
             tempBulletArray = bulletQueue.ToArray();
-
+            
             //markers = new ArrayList();
 
             /*
@@ -401,17 +435,18 @@ namespace Prototype1
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
-        {            
+        {
             HandleGamePad();
             HandleKeyboard();
             HandleMouse();
 
             fpsCounter.Update(gameTime);
 
+            //handle main player animations
             if (box.activity == Activity.Idle && oldActivity != Activity.Idle)
             {
                 Vector2 temp = playerAnimation.Position;
-                playerAnimation.Initialize(player, temp, 100, 123, 1, 0, Color.White, 1f, true, new Vector2(0, 0));                
+                playerAnimation.Initialize(player, temp, 100, 123, 1, 0, Color.White, 1f, true, new Vector2(0, 0));
             }
             else if (box.activity == Activity.Jumping && oldActivity != Activity.Jumping)
             {
@@ -422,19 +457,29 @@ namespace Prototype1
             {
                 Vector2 temp = playerAnimation.Position;
                 playerAnimation.Initialize(playerTexture, temp, 86, 121, 26, 30, Color.White, 1f, true, new Vector2(0, 0));
-            }            
+            }
 
-            oldActivity = box.activity;              
+            //control bear actions
+            if (firstGameUpdate)
+            {                  
+                enemies[0].runScript1();
+                enemies[1].runScript2();
+                enemies[2].runScript3(); 
+                
 
-            box.Update(gameTime);            
-            
+                firstGameUpdate = false;
+            }      
+                  
+
+            oldActivity = box.activity;           
+
+            box.Update(gameTime);
             playerAnimation.Update(gameTime);
 
-            /*//update all passable edges
-            for (int i = 0; i < passableEdges.Count; i++) 
+            for (int i = 0; i < enemies.Count; i++)
             {
-                passableEdges[i].Update(box);              
-            }*/
+                enemies[i].Update(gameTime);
+            }
 
             //We update the world
             _world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
@@ -672,45 +717,7 @@ namespace Prototype1
 
             fpsCounter.frameCounter++;
 
-            /* Circle position and rotation */
-            // Convert physics position (meters) to screen coordinates (pixels)
-            //Vector2 circlePos = _circleBody.Position * MeterInPixels;
-            //float circleRotation = _circleBody.Rotation;                       
-
-            /* Ground position and origin */
-            //Vector2 groundPos = _groundBody.Position * MeterInPixels;
-            //Vector2 groundOrigin = new Vector2(_groundSprite.Width / 2f, _groundSprite.Height / 2f);
-
-            // Align sprite center to body position
-            //Vector2 circleOrigin = new Vector2(_circleSprite.Width / 2f, _circleSprite.Height / 2f);
-
-            //_batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);
-
-            //_batch.Draw(tile1, new Vector2(0, 0), Color.White);
-
-            //player pos calc
-            //playerPos = (playerBody.Position * MeterInPixels) - new Vector2(player.Width / 2, player.Height / 2);
-
-            //Console.WriteLine("PLAYER BODY POS: x=" + playerBody.Position.X + "  y: " + playerBody.Position.Y);
-
-            //draw player
-            //_batch.Draw(player, playerPos, Color.White);
-            
-            //Draw circle
-            //_batch.Draw(_circleSprite, circlePos, null, Color.White, circleRotation, circleOrigin, 1f, SpriteEffects.None, 0f);
-
-            //Draw ground
-            //_batch.Draw(_groundSprite, groundPos, null, Color.White, 0f, groundOrigin, 1f, SpriteEffects.None, 0f);
-
-            //_batch.End();
-
-            //_batch.Begin();
-
-            _batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);
-
-           // _batch.Draw(tile1, new Vector2(0, 0), Color.White);
-           // _batch.Draw(tile2, new Vector2(1280, 0), Color.White); 
-                      
+            _batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);                      
 
             _batch.Draw(A_0_0, new Vector2(0, 0), Color.White);
             _batch.Draw(A_0_720, new Vector2(0, 720), Color.White);
@@ -723,13 +730,26 @@ namespace Prototype1
             _batch.Draw(A_5120_1440, new Vector2(5120, 1440), Color.White);
             _batch.Draw(A_5120_720, new Vector2(5120, 720), Color.White);
             _batch.Draw(A_M1280_0, new Vector2(-1280, 0), Color.White);
-            _batch.Draw(A_M1280_720, new Vector2(-1280, 720), Color.White);            
-            
+            _batch.Draw(A_M1280_720, new Vector2(-1280, 720), Color.White);                       
 
             if (showBox == true)
             {
                 box.Draw(_batch);
+
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    enemies[i].Draw(_batch);
+                }                
             }
+
+            //draw enemies
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                //enemies[i].Update(gameTime);
+                enemies[i].drawAnimation(gameTime, _batch);
+            }
+
+            
 
             int armgunXOffset = 0;            
             Vector2 armgunOrigin = Vector2.Zero;            
@@ -768,8 +788,7 @@ namespace Prototype1
             //Console.WriteLine("drawangle: " + armgunAngle * 180 / Math.PI);
 
             _batch.Draw(armgun, new Rectangle((int)box.Position.X + armgunXOffset, (int)box.Position.Y - 15, armgun.Width, armgun.Height), new Rectangle(0, 0, armgun.Width, armgun.Height), Color.White, armgunAngle, armgunOrigin, armgunEffects, 0.0f);
-
-
+            
             //testings 
             box.Update(gameTime);
             playerAnimation.Position = box.Position;  
