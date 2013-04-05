@@ -58,3 +58,6 @@ F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\ResolveAssemb
 F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.exe
 F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearidle.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearrun.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearjump.xnb

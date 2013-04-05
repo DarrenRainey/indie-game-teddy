@@ -93,6 +93,7 @@
     <Compile Include="CompositeCharacter.cs" />
     <Compile Include="CompositePhysicsObject.cs" />
     <Compile Include="ConvertUnits.cs" />
+    <Compile Include="EnemyCompositeCharacter.cs" />
     <Compile Include="PassableEdge.cs" />
     <Compile Include="FrameRateCounter.cs" />
     <Compile Include="Game1BACKUP.cs" />
