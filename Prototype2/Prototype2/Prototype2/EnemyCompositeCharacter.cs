@@ -16,6 +16,7 @@ namespace Prototype1
         enemyJumping,
         enemyRunning,
         enemyIdle,
+        enemyKnife,
         enemyNone
     }
 
@@ -26,8 +27,7 @@ namespace Prototype1
         public RevoluteJoint motor;
         private float centerOffset;
 
-        private Animation animation;
-
+        public Animation animation;
         private BackgroundWorker bw;
 
         public EnemyActivity activity;
@@ -119,6 +119,14 @@ namespace Prototype1
 
         protected override void HandleInput(GameTime gameTime)
         {
+            //handle bear knife attacks
+            if (Math.Abs(Position.X - Game1.box.Position.X) < 50 && Math.Abs(Position.Y - Game1.box.Position.Y) < 50 && Game1.box.activity != Activity.Dead)
+            {
+                stopScript();                               
+                
+                activity = EnemyActivity.enemyKnife;                
+            }
+            
             handleAnimation(gameTime);
 
             oldActivity = activity;    
@@ -126,6 +134,7 @@ namespace Prototype1
 
         private void handleAnimation(GameTime gameTime)
         {
+            
             //control bear animation
             if (activity == EnemyActivity.enemyIdle && oldActivity != EnemyActivity.enemyIdle)
             {
@@ -141,6 +150,21 @@ namespace Prototype1
             {                
                 Vector2 temp = animation.Position;
                 animation.Initialize(Game1.bearRunning, Vector2.Zero, 116, 184, 29, 60, Color.White, 1f, true, new Vector2(0, 0));
+            }
+            else if (activity == EnemyActivity.enemyKnife && oldActivity != EnemyActivity.enemyKnife)
+            {                
+                Vector2 temp = animation.Position;
+                animation.Initialize(Game1.bearKnife, Vector2.Zero, 134, 183, 14, 50, Color.White, 1f, false, new Vector2(0, 0));
+
+                Game1.knifeSound.Play();
+
+                Game1.box.activity = Activity.Dead;                
+            }
+  
+            //if the knife animation is finished execute the post attack script
+            if (activity == EnemyActivity.enemyKnife && animation.currentFrame == 13)
+            {                
+                postAttackScript();
             }
 
             animation.Update(gameTime);
@@ -161,7 +185,14 @@ namespace Prototype1
                 animation.frameTime = 30;
             }
 
-            Thread.Sleep(millis);
+            int i = 0;
+
+            while (bw.CancellationPending == false && i < millis)
+            {
+                Thread.Sleep(10);
+
+                i += 10;
+            }
 
             motor.MotorSpeed = 0;
             activity = EnemyActivity.enemyIdle;  
@@ -182,7 +213,14 @@ namespace Prototype1
                 animation.frameTime = 30;
             }
 
-            Thread.Sleep(millis);
+            int i = 0;
+
+            while (bw.CancellationPending == false && i < millis)
+            {
+                Thread.Sleep(10);
+
+                i += 10;
+            }
 
             motor.MotorSpeed = 0;
             activity = EnemyActivity.enemyIdle; 
@@ -191,7 +229,15 @@ namespace Prototype1
         public void idle(int millis)
         {            
             activity = EnemyActivity.enemyIdle;
-            Thread.Sleep(millis); 
+
+            int i = 0;
+
+            while (bw.CancellationPending == false && i < millis)
+            {
+                Thread.Sleep(10);
+
+                i += 10;
+            }
         }
 
         public void jump()
@@ -201,7 +247,7 @@ namespace Prototype1
             jumpForce.Y = jumpImpulse;
             body.ApplyLinearImpulse(jumpForce, body.Position);
 
-            while (activity != EnemyActivity.enemyNone)
+            while (activity != EnemyActivity.enemyNone && bw.CancellationPending == false)
             {
                 Thread.Sleep(30); 
             }
@@ -229,18 +275,78 @@ namespace Prototype1
                 while(true)
                 {
                     moveRight(5000, 3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     idle(2000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     faceLeft();
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     idle(1000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+                    
                     moveLeft(3000, 3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+                    
                     idle(2000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+                    
                     faceRight();
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+                    
                     idle(3000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+                    
                     moveLeft(2000, 3);
-                    idle(3000);                                       
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+                    
+                    idle(3000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
                 }
             });
 
+            bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
 
@@ -254,16 +360,64 @@ namespace Prototype1
                 while(true)
                 {
                     faceRight();
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     idle(4000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     moveRight(1000, 7);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     jump();
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     moveRight(500, 7);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     moveLeft(7000, 2);
-                    idle(2000);                                                          
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(2000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }               
                 } 
             });
 
+            bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
 
@@ -277,19 +431,114 @@ namespace Prototype1
                 while (true)
                 {
                     moveRight(500, 10);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
                     moveLeft(500, 10);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
                 }
             });
 
+            bw.WorkerSupportsCancellation = true;
+            bw.RunWorkerAsync();
+        }
+
+        public void postAttackScript()  //executed after the enemy has attacked
+        {
+            bw = new BackgroundWorker();
+
+            bw.DoWork += new DoWorkEventHandler(
+            delegate(object o, DoWorkEventArgs args)       //randomly pace from left to right
+            {
+                int rand;
+                
+                while (true)
+                {
+                    rand = (new Random()).Next(0, 2);                    
+
+                    if (rand == 1)
+                    {
+                        moveRight(3000, 3);
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+
+                        idle(2000);
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+
+                        faceLeft();
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+
+                        idle(1000);
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        moveLeft(3000, 3);
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+
+                        idle(2000);
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+
+                        faceRight();
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+
+                        idle(1000);
+
+                        if (bw.CancellationPending == true)
+                        {
+                            break;
+                        }
+                    }                                
+                }
+            });
+
+            bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
 
         public void stopScript()
         {
             if (bw != null)
-            {
+            {                                    
                 bw.CancelAsync();
-                activity = EnemyActivity.enemyIdle;
+
+                Thread.Sleep(30);         //wait to make sure the script is stopped
+
+                activity = EnemyActivity.enemyIdle;                
             }
         }
 

@@ -103,3 +103,14 @@ C:\svntest\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Resol
 C:\svntest\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\svntest\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.exe
 C:\svntest\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\x86\Debug\Prototype2.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearknife.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\dead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\dieSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jumpSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\pistolSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\knifeSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\song1.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\song2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\song2.wma
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\song1.wma
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bigFont.xnb
