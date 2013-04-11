@@ -2,7 +2,7 @@
  /* Hugh Desmond - Final year project
   * 
   * version: 1.0
-  * release: 2
+  * release: 6
   * 
   * 
   * Keyboard Controls:
@@ -29,6 +29,8 @@ using Prototype2;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 
 namespace Prototype1
@@ -51,6 +53,7 @@ namespace Prototype1
         private GamePadState _oldPadState;
         private MouseState _oldMouseState;
         public SpriteFont _font;
+        public SpriteFont bigFont;
 
         private Boolean firstGameUpdate = true;
 
@@ -63,7 +66,7 @@ namespace Prototype1
 
         private List<PassableEdge> passableEdges;
 
-        private CompositeCharacter box; 
+        public static CompositeCharacter box; 
 
         private Texture2D _circleSprite;
         private Texture2D _groundSprite;        
@@ -71,8 +74,20 @@ namespace Prototype1
         private Texture2D playerTexture;        
         private Texture2D playerJump;
         private Texture2D playerShoot;
+        private Texture2D playerDead;
         private Texture2D armgun;
         private Texture2D head;
+
+        public static SoundEffect runSound;
+        public static SoundEffect jumpSound;
+        public static SoundEffect pistolSound;
+        public static SoundEffect dieSound;
+
+        public static Song song1;
+        public static Song song2;
+
+        private int currentSong;
+        private List<Song> songs;
 
         private Texture2D tile1;
         private Texture2D tile2;
@@ -112,7 +127,10 @@ namespace Prototype1
         public static Texture2D bearIdle;
         public static Texture2D bearRunning;
         public static Texture2D bearJumping;
+        public static Texture2D bearKnife;
         private EnemyCompositeCharacter bearBox;
+
+        public static SoundEffect knifeSound;        
 
         private List<EnemyCompositeCharacter> enemies;
         
@@ -178,6 +196,7 @@ namespace Prototype1
 
             _batch = new SpriteBatch(_graphics.GraphicsDevice);
             _font = Content.Load<SpriteFont>("font");
+            bigFont = Content.Load<SpriteFont>("bigFont");
 
             // Load sprites
             _circleSprite = Content.Load<Texture2D>("circleSprite"); //  96px x 96px => 0.96m x 0.96m
@@ -190,11 +209,13 @@ namespace Prototype1
             squareTex = Content.Load<Texture2D>("square");            
 
             playerJump = Content.Load<Texture2D>("jumping");
+            playerDead = Content.Load<Texture2D>("dead");
 
             //load bear animations
             bearIdle = Content.Load<Texture2D>("bearidle");
             bearRunning = Content.Load<Texture2D>("bearrun");
             bearJumping = Content.Load<Texture2D>("bearjump");
+            bearKnife = Content.Load<Texture2D>("bearknife");
 
 
             //editing textures
@@ -218,6 +239,20 @@ namespace Prototype1
             A_M1280_0 = Content.Load<Texture2D>("level tiles/A_M1280_0");
             A_M1280_720 = Content.Load<Texture2D>("level tiles/A_M1280_720");
 
+            //load sounds
+            jumpSound = Content.Load<SoundEffect>("jumpSound");
+            pistolSound = Content.Load<SoundEffect>("pistolSound");
+            dieSound = Content.Load<SoundEffect>("dieSound");
+            knifeSound = Content.Load<SoundEffect>("knifeSound");
+            
+            song1 = Content.Load<Song>("song1");
+            song2 = Content.Load<Song>("song2");            
+            songs = new List<Song>();
+            songs.Add(song2);
+            songs.Add(song1);
+            MediaPlayer.Volume = 0.7f;
+            
+
             //setup main guy
             playerTexture = Content.Load<Texture2D>("run");
             playerAnimation = new Animation();
@@ -232,7 +267,7 @@ namespace Prototype1
             bearBox = new EnemyCompositeCharacter(_world, new Vector2(600f, 600f), 93, 183, 0.15f, squareTex);  //at start
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
-
+            
             bearBox = new EnemyCompositeCharacter(_world, new Vector2(1330f, 550f), 93, 183, 0.15f, squareTex);  //on top of first hill
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
@@ -241,7 +276,15 @@ namespace Prototype1
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
           
+            //player ignore collisions with enemies
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                box.body.CollisionGroup = -1;
+                box.wheel.CollisionGroup = -1;
 
+                enemies[i].body.CollisionGroup = -1;
+                enemies[i].wheel.CollisionGroup = -1;               
+            }
 
             //init bullet stuff
             //bulletDirection = new Vector2(0, 0);
@@ -435,12 +478,18 @@ namespace Prototype1
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
-        {
+        {            
             HandleGamePad();
             HandleKeyboard();
             HandleMouse();
 
             fpsCounter.Update(gameTime);
+
+            //test printouts go here
+            if (gameTime.TotalGameTime.Milliseconds % 10 == 0)  
+            {
+                //Console.WriteLine("PLAYER POS: " + box.Position.X + "," + box.Position.Y + "   Bear POS: " + enemies[0].Position.X + "," + enemies[0].Position.Y);
+            }
 
             //handle main player animations
             if (box.activity == Activity.Idle && oldActivity != Activity.Idle)
@@ -458,6 +507,13 @@ namespace Prototype1
                 Vector2 temp = playerAnimation.Position;
                 playerAnimation.Initialize(playerTexture, temp, 86, 121, 26, 30, Color.White, 1f, true, new Vector2(0, 0));
             }
+            else if (box.activity == Activity.Dead && oldActivity != Activity.Dead)
+            {  
+                Vector2 temp = playerAnimation.Position;
+                playerAnimation.Initialize(playerDead, temp, 103, 140, 37, 80, Color.White, 1f, false, new Vector2(0, 0));
+
+                Game1.dieSound.Play();
+            } 
 
             //control bear actions
             if (firstGameUpdate)
@@ -477,7 +533,7 @@ namespace Prototype1
             playerAnimation.Update(gameTime);
 
             for (int i = 0; i < enemies.Count; i++)
-            {
+            {                
                 enemies[i].Update(gameTime);
             }
 
@@ -485,6 +541,8 @@ namespace Prototype1
             _world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
 
             base.Update(gameTime);
+
+            handleMusic();
         }
 
         private void HandleGamePad()
@@ -512,7 +570,30 @@ namespace Prototype1
                 tempBulletArray = bulletQueue.ToArray();
             }
 
-            if (padState.IsConnected)
+            //start button resets the player
+            if (box.activity == Activity.Dead && padState.Buttons.Start == ButtonState.Pressed && _oldPadState.Buttons.Start == ButtonState.Released && padState.IsConnected)   
+            {
+                box.body.Dispose();
+                box.wheel.Dispose();  //delete old bodys
+
+                box = new CompositeCharacter(_world, new Vector2(300f, 600f), 64, 128, 0.3f, squareTex);
+                box.forcePower = 100;
+
+                //player ignore collisions with enemies
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    box.body.CollisionGroup = -1;
+                    box.wheel.CollisionGroup = -1;
+
+                    enemies[i].body.CollisionGroup = -1;
+                    enemies[i].wheel.CollisionGroup = -1;
+                }
+
+                playerAnimation.myEffect = SpriteEffects.None;
+                armgunEffects = SpriteEffects.None;
+            }
+
+            if (padState.IsConnected && box.activity != Activity.Dead)       
             {
                 if (padState.Buttons.Back == ButtonState.Pressed)
                     Exit();
@@ -532,6 +613,8 @@ namespace Prototype1
 
                 if (padState.Triggers.Right > 0.5 && _oldPadState.Triggers.Right < 0.5)
                 {
+                    Game1.pistolSound.Play();
+
                     Bullet bullet = new Bullet();
                     bullet.Texture = bulletTex;                    
 
@@ -595,7 +678,7 @@ namespace Prototype1
                 {                   
                     armgunAngle = 0.0f;
                     headAngle = 0.0f;                   
-                }
+                }                
 
                 //run animation speed is determined by the degree to which the analog stick is tilted
                 if(box.activity == Activity.Running)
@@ -707,6 +790,21 @@ namespace Prototype1
             _oldMouseState = state;
         }
 
+        private void handleMusic()
+        {
+            if (MediaPlayer.State != MediaState.Playing)
+            {
+                currentSong++;
+
+                if (currentSong > songs.Count - 1)
+                {
+                    currentSong = 0;
+                }
+
+                MediaPlayer.Play(songs[currentSong]);
+            }             
+        }
+
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -748,7 +846,6 @@ namespace Prototype1
                 //enemies[i].Update(gameTime);
                 enemies[i].drawAnimation(gameTime, _batch);
             }
-
             
 
             int armgunXOffset = 0;            
@@ -787,46 +884,52 @@ namespace Prototype1
 
             //Console.WriteLine("drawangle: " + armgunAngle * 180 / Math.PI);
 
-            _batch.Draw(armgun, new Rectangle((int)box.Position.X + armgunXOffset, (int)box.Position.Y - 15, armgun.Width, armgun.Height), new Rectangle(0, 0, armgun.Width, armgun.Height), Color.White, armgunAngle, armgunOrigin, armgunEffects, 0.0f);
-            
+            if (box.activity != Activity.Dead)
+            {
+                _batch.Draw(armgun, new Rectangle((int)box.Position.X + armgunXOffset, (int)box.Position.Y - 15, armgun.Width, armgun.Height), new Rectangle(0, 0, armgun.Width, armgun.Height), Color.White, armgunAngle, armgunOrigin, armgunEffects, 0.0f);
+            }
+
             //testings 
             box.Update(gameTime);
             playerAnimation.Position = box.Position;  
             playerAnimation.Update(gameTime);
             playerAnimation.Draw(_batch);
 
+            if (box.activity != Activity.Dead)
+            {
+                _batch.Draw(head, new Rectangle((int)playerAnimation.Position.X + 0, (int)playerAnimation.Position.Y - 35, head.Width, head.Height), new Rectangle(0, 0, head.Width, head.Height), Color.White, headAngle, new Vector2(20, 18), armgunEffects, 0.0f);
+            }
+           
 
+            //TESTING POSITIONS
+            //_batch.Draw(crosshair, box.Position, Color.White);
+            //_batch.Draw(crosshair, enemies[0].Position, Color.White); 
 
-            _batch.Draw(head, new Rectangle((int)playerAnimation.Position.X + 0, (int)playerAnimation.Position.Y - 35, head.Width, head.Height), new Rectangle(0, 0, head.Width, head.Height), Color.White, headAngle, new Vector2(20, 18), armgunEffects, 0.0f);
-                           
 
             for (int i = 0; i < tempBulletArray.Length; i++)
             {
                 _batch.Draw(((Bullet)tempBulletArray.GetValue(i)).Texture, ((Bullet)tempBulletArray.GetValue(i)).CurrentPos, Color.White);
             }
-
-            //draw markers for the points clicked in edit mode (points which make up a collision edge)
-            /*if (freeViewOn)
-            {
-                for (int i = 0; i < markers.Count; i++)
-                {
-                    _batch.Draw(marker, (Vector2)markers[i], Color.White);
-                }
-            }*/
-                        
+                                   
             _batch.End();
-
 
             //draw items attached to screen as aposed to world
             _batch.Begin();
 
-            Text = "FPS: " + fpsCounter.frameRate + "    player effect: " + playerAnimation.myEffect;
+            //Text = "FPS: " + fpsCounter.frameRate + "    player effect: " + playerAnimation.myEffect;
 
             // Display instructions
-            _batch.DrawString(_font, Text, new Vector2(34f, 34f), Color.Black);
-            _batch.DrawString(_font, Text, new Vector2(32f, 32f), Color.White);
+            //_batch.DrawString(_font, Text, new Vector2(34f, 34f), Color.Black);
+            //_batch.DrawString(_font, Text, new Vector2(32f, 32f), Color.White);
 
-            _batch.DrawString(_font, box.activity.ToString(), new Vector2(90, 105), Color.Red);
+            //_batch.DrawString(_font, box.activity.ToString(), new Vector2(90, 105), Color.Red);
+
+            if (box.activity == Activity.Dead && playerAnimation.currentFrame == 36)   //if on last frame of dead animation
+            {
+                _batch.DrawString(bigFont, "YOU DIED!", new Vector2(500, 300), Color.Red);
+                
+                _batch.DrawString(_font, "Press START to retry", new Vector2(475, 370), Color.White);
+            }
 
             //draw crosshair at mouse
             if (freeViewOn)

@@ -25,8 +25,8 @@ namespace Prototype1
         }
 
         public virtual void Update(GameTime gameTime)
-        {
-            HandleInput(gameTime);
+        {           
+             HandleInput(gameTime);            
         }
 
         protected virtual void HandleInput(GameTime gameTime)
@@ -56,6 +56,6 @@ namespace Prototype1
             body.ApplyLinearImpulse(force, body.Position);
 
             oldState = keyState;
-        }
+        }              
     }
 }

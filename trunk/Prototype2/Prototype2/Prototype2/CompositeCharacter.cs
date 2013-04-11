@@ -14,6 +14,7 @@ namespace Prototype1
         Jumping,
         Running,
         Idle,
+        Dead,
         None
     }
 
@@ -117,18 +118,24 @@ namespace Prototype1
             padState = GamePad.GetState(0);
 
             //Console.WriteLine("CURRENT LINEAR VELOCITY: X= " + body.LinearVelocity.X + "   Y= " + body.LinearVelocity.Y);
-                    
 
-            HandleJumping(keyState, oldState, padState, oldPadState, gameTime);
-
-            if (activity != Activity.Jumping)
+            if (activity != Activity.Dead)
             {
-                HandleRunning(keyState, oldState, padState, oldPadState, gameTime);
-            }           
+                HandleJumping(keyState, oldState, padState, oldPadState, gameTime);
 
-            if (activity != Activity.Jumping && activity != Activity.Running)
+                if (activity != Activity.Jumping)
+                {
+                    HandleRunning(keyState, oldState, padState, oldPadState, gameTime);
+                }           
+
+                if (activity != Activity.Jumping && activity != Activity.Running)
+                {
+                    HandleIdle(keyState, oldState, padState, oldPadState, gameTime);
+                }
+            }
+            else
             {
-                HandleIdle(keyState, oldState, padState, oldPadState, gameTime);
+                 motor.MotorSpeed = 0;         //player is dead so stop all movement
             }
 
             oldState = keyState;
@@ -151,6 +158,8 @@ namespace Prototype1
                     body.ApplyLinearImpulse(jumpForce, body.Position);
                     jumpDelayTime = -nextJumpDelayTime;
                     activity = Activity.Jumping;
+
+                    Game1.jumpSound.Play();
                 }
             }
 
