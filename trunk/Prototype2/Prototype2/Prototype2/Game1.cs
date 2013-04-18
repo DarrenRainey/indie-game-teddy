@@ -110,7 +110,7 @@ namespace Prototype1
         private Queue<Bullet> bulletQueue;
         private Array tempBulletArray;
         private Texture2D bulletTex;
-        private Texture2D bullet2Tex;
+        public static Texture2D bulletTex2;
 
         private SpriteEffects armgunEffects;
         private float armgunAngle;
@@ -141,14 +141,16 @@ namespace Prototype1
         private EnemyCompositeCharacter2 bear2Box;
 
         public static SoundEffect knifeSound;
+        public static SoundEffect bulletHit;
         public static SoundEffect bearDeadSound;
         public static SoundEffect bearDeadSound2;
         public static SoundEffect bearDeadSound3;
         public static SoundEffect bearDeadSound4;
         public static SoundEffect bearDeadSound5;
+        public static SoundEffect bearShoot;        
                         
-        public static AudioListener audioListener;
-        public const float soundDistanceFactor = 300f;     //the higher this is the further sounds can be heard
+        public static AudioListener audioListener;       
+        public const float soundDistanceFactor = 200f;     //the higher this is the further sounds can be heard        
         
         private List<EnemyCompositeCharacter> enemies;
         private List<EnemyCompositeCharacter2> enemies2;
@@ -224,7 +226,7 @@ namespace Prototype1
             armgun = Content.Load<Texture2D>("armgun"); // 28px x 67px =>   1m x 1.25m
             head = Content.Load<Texture2D>("head"); // 41px x 37px   
             bulletTex = Content.Load<Texture2D>("bullet");
-            bullet2Tex = Content.Load<Texture2D>("bullet2");
+            bulletTex2 = Content.Load<Texture2D>("bullet2");
 
             squareTex = Content.Load<Texture2D>("square");            
 
@@ -278,12 +280,14 @@ namespace Prototype1
             dieSound = Content.Load<SoundEffect>("dieSound");
             knifeSound = Content.Load<SoundEffect>("knifeSound");            
             hammerSound = Content.Load<SoundEffect>("hammerSound");
+            bulletHit = Content.Load<SoundEffect>("bulletHit");
             bearDeadSound = Content.Load<SoundEffect>("bearDeadSound");
             bearDeadSound2 = Content.Load<SoundEffect>("bearDeadSound2");
             bearDeadSound3 = Content.Load<SoundEffect>("bearDeadSound3");
             bearDeadSound4 = Content.Load<SoundEffect>("bearDeadSound4");
             bearDeadSound5 = Content.Load<SoundEffect>("bearDeadSound5");
-            
+            bearShoot = Content.Load<SoundEffect>("bearShoot");
+                        
             song1 = Content.Load<Song>("song1");
             song2 = Content.Load<Song>("song2");            
             songs = new List<Song>();
@@ -348,7 +352,7 @@ namespace Prototype1
 
 
             //setup 3d sound           
-            audioListener = new AudioListener(); 
+            audioListener = new AudioListener();           
 
             //init bullet stuff
             //bulletDirection = new Vector2(0, 0);
@@ -512,6 +516,8 @@ namespace Prototype1
                 //Console.WriteLine("PLAYER POS: " + box.Position.X + "," + box.Position.Y + "   Bear POS: " + enemies[0].Position.X + "," + enemies[0].Position.Y);
             }
 
+            handleAttacks(); 
+
             //handle main player animations
             if (box.activity == Activity.Idle && oldActivity != Activity.Idle)
             {
@@ -561,9 +567,7 @@ namespace Prototype1
                 
 
                 firstGameUpdate = false;
-            }
-
-            handleAttacks();                  
+            }                             
 
             oldActivity = box.activity;           
 
@@ -584,7 +588,7 @@ namespace Prototype1
 
             //update 3d sound listener
             audioListener.Position = new Vector3(box.Position.X, box.Position.Y, 1f) / soundDistanceFactor;
-
+            
             //We update the world
             _world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
             
@@ -593,7 +597,7 @@ namespace Prototype1
 
         private void handleAttacks()
         {
-            //handle enemy knife attacks - can only knife melee bears from behind
+            //handle enemy player hammer attacks - can only knife melee bears from behind
             for (int i = 0; i < enemies.Count; i++)
             {
 
@@ -607,7 +611,7 @@ namespace Prototype1
                 }
             }
 
-            //handle enemy2 knife attacks - can knife shoot bears from the front and behind
+            //handle enemy2 player hammer attacks - can knife shoot bears from the front and behind
             for (int i = 0; i < enemies2.Count; i++)
             {                
                 if (Math.Abs(enemies2[i].Position.X - box.Position.X) < 100 && Math.Abs(enemies2[i].Position.Y - box.Position.Y) < 100 && box.activity == Activity.Knife && playerAnimation.currentFrame > 8)
@@ -620,12 +624,12 @@ namespace Prototype1
                 }
             }
 
-            //handle enemy pistol attacks
+            //handle enemy player pistol attacks
             for (int i = 0; i < enemies.Count; i++)
             {                
                 for (int j = 0; j < tempBulletArray.Length; j++)
                 {
-                    if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies[i].Position.X) < 40 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies[i].Position.Y) < 93 && enemies[i].activity != EnemyActivity.enemyDead)
+                    if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies[i].Position.X) < 50 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies[i].Position.Y) < 95 && enemies[i].activity != EnemyActivity.enemyDead)
                     {
                         enemies[i].stopScript();
 
@@ -636,12 +640,12 @@ namespace Prototype1
                 }
             }
 
-            //handle enemy2 pistol attacks
+            //handle enemy2 player pistol attacks
             for (int i = 0; i < enemies2.Count; i++)
             {                
                 for (int j = 0; j < tempBulletArray.Length; j++)
                 {
-                    if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies2[i].Position.X) < 40 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies2[i].Position.Y) < 93 && enemies2[i].activity != EnemyActivity2.enemyDead)
+                    if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies2[i].Position.X) < 50 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies2[i].Position.Y) < 95 && enemies2[i].activity != EnemyActivity2.enemyDead)
                     {
                         enemies2[i].stopScript();
 
@@ -649,6 +653,31 @@ namespace Prototype1
 
                         break;
                     }
+                }
+            }
+
+            Boolean breaker = false;
+
+            //handle enemy2 pistol attacks at player
+            for (int i = 0; i < enemies2.Count; i++)
+            {
+                for (int j = 0; j < enemies2[i].tempBulletArray.Length; j++)
+                {
+                    if (Math.Abs(((Bullet)enemies2[i].tempBulletArray.GetValue(j)).CurrentPos.X - box.Position.X) < 42 && ((((Bullet)enemies2[i].tempBulletArray.GetValue(j)).CurrentPos.Y - box.Position.Y > -68 && ((Bullet)enemies2[i].tempBulletArray.GetValue(j)).CurrentPos.Y - box.Position.Y < 0) || ((((Bullet)enemies2[i].tempBulletArray.GetValue(j)).CurrentPos.Y - box.Position.Y < 58 && ((Bullet)enemies2[i].tempBulletArray.GetValue(j)).CurrentPos.Y - box.Position.Y >= 0))) && box.activity != Activity.Dead)
+                    {
+                        box.activity = Activity.Dead;
+
+                        bulletHit.Play();
+
+                        breaker = true;
+                        
+                        break;
+                    }
+                }
+
+                if (breaker)
+                {
+                    break;
                 }
             }   
         }
@@ -1031,12 +1060,22 @@ namespace Prototype1
             //_batch.Draw(crosshair, enemies[0].Position, Color.White); 
 
             //flashing colour test
-            List<Color> colors = new List<Color>{Color.Red, Color.WhiteSmoke};
+            List<Color> playerBulletColors = new List<Color>{Color.Red, Color.WhiteSmoke};
+            List<Color> enemyBulletColors = new List<Color> {Color.Red, Color.Black};
 
             for (int i = 0; i < tempBulletArray.Length; i++)
             {
-                _batch.Draw(((Bullet)tempBulletArray.GetValue(i)).Texture, ((Bullet)tempBulletArray.GetValue(i)).CurrentPos, getRandomColor(colors));
+                _batch.Draw(((Bullet)tempBulletArray.GetValue(i)).Texture, ((Bullet)tempBulletArray.GetValue(i)).CurrentPos, getRandomColor(playerBulletColors));
             }
+
+            //draw enemy bullets
+            for (int i = 0; i < enemies2.Count; i++)
+            {
+                for (int j = 0; j < enemies2[i].tempBulletArray.Length; j++)
+                {
+                    _batch.Draw(((Bullet)enemies2[i].tempBulletArray.GetValue(j)).Texture, ((Bullet)enemies2[i].tempBulletArray.GetValue(j)).CurrentPos, getRandomColor(enemyBulletColors));
+                }
+            }   
                                    
             _batch.End();
 
