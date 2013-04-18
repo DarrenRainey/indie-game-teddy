@@ -8,3 +8,13 @@ F:\indie-game-teddy\DebugView XNA\obj\x86\Debug\ResolveAssemblyReference.cache
 F:\indie-game-teddy\DebugView XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\indie-game-teddy\DebugView XNA\obj\x86\Debug\DebugViewXNA.dll
 F:\indie-game-teddy\DebugView XNA\obj\x86\Debug\DebugViewXNA.pdb
+C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\Content\font.xnb
+C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\DebugViewXNA.dll
+C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\DebugViewXNA.pdb
+C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\FarseerPhysicsXNA.dll
+C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\FarseerPhysicsXNA.pdb
+C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\FarseerPhysicsXNA.xml
+C:\indie-game-teddy1\DebugView XNA\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\indie-game-teddy1\DebugView XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\indie-game-teddy1\DebugView XNA\obj\x86\Debug\DebugViewXNA.dll
+C:\indie-game-teddy1\DebugView XNA\obj\x86\Debug\DebugViewXNA.pdb

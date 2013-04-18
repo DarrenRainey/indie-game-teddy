@@ -3,3 +3,4 @@ C:\Users\Hugh\Downloads\xna\Prototype2\DebugView XNA\Content\obj\x86\Debug\Resol
 E:\Prototype2\DebugView XNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\svntest\indie-game-teddy\DebugView XNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 F:\indie-game-teddy\DebugView XNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\indie-game-teddy1\DebugView XNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache

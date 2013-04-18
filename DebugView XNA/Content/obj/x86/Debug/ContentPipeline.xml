@@ -7,7 +7,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\DebugView XNA\bin\x86\Debug\Content\font.xnb</Output>
+      <Output>C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\Content\font.xnb</Output>
       <Time>2013-04-05T18:02:46+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -16,10 +16,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>F:\indie-game-teddy\DebugView XNA\Content\</RootDirectory>
-      <LoggerRootDirectory>F:\indie-game-teddy\DebugView XNA\</LoggerRootDirectory>
-      <IntermediateDirectory>F:\indie-game-teddy\DebugView XNA\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>F:\indie-game-teddy\DebugView XNA\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\indie-game-teddy1\DebugView XNA\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\indie-game-teddy1\DebugView XNA\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\indie-game-teddy1\DebugView XNA\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\indie-game-teddy1\DebugView XNA\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

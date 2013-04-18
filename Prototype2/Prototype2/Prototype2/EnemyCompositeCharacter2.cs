@@ -42,13 +42,14 @@ namespace Prototype1
         private BackgroundWorker bw;
 
         private Queue<Bullet> bulletQueue;
-        private Array tempBulletArray;
+        public Array tempBulletArray;
+        private Boolean bulletAdded;
 
         public EnemyActivity2 activity;
         protected EnemyActivity2 oldActivity;
 
-        public AudioEmitter audioEmitter;
-        private SoundEffectInstance soundEffectInstance;
+        public AudioEmitter audioEmitter;     
+        private SoundEffectInstance soundEffectInstance;        
 
         private Vector2 jumpForce;
         private float jumpDelayTime;
@@ -68,9 +69,13 @@ namespace Prototype1
             }
 
             this.animation = new Animation();
-            this.audioEmitter = new AudioEmitter();
+            this.audioEmitter = new AudioEmitter();        
             this.drawOffset = new Vector2(0f, 0f);
             this.shootStartFrame = 0;
+
+            this.bulletQueue = new Queue<Bullet>();
+            this.tempBulletArray = bulletQueue.ToArray();
+            this.bulletAdded = false;
 
             activity = EnemyActivity2.enemyNone;
 
@@ -139,12 +144,12 @@ namespace Prototype1
 
         protected override void HandleInput(GameTime gameTime)
         {
-            handleShoot();
+            handleBullets();
             
             handleAnimation(gameTime);
 
             //update 3d sound 
-            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / Game1.soundDistanceFactor;
+            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / Game1.soundDistanceFactor;       
 
             if (soundEffectInstance != null)
             {
@@ -157,15 +162,110 @@ namespace Prototype1
             oldActivity = activity;    
         }
 
-        private void handleShoot()
+        private void handleBullets()
         {
-            //handle bear shoot attacks
-            /*if (Math.Abs(Position.X - Game1.box.Position.X) < 50 && Math.Abs(Position.Y - Game1.box.Position.Y) < 50 && Game1.box.activity != Activity.Dead && activity != EnemyActivity2.enemyDead)
+            //bullet stuff
+            if (bulletQueue.Count > 0)
             {
-                stopScript();
+                tempBulletArray = bulletQueue.ToArray();
+                bulletQueue.Clear();                                  //convert to array, clear the queue and fill it up after changes
 
-                activity = EnemyActivity2.enemyKnife;
-            }*/
+                for (int i = 0; i < tempBulletArray.Length; i++)
+                {
+                    ((Bullet)tempBulletArray.GetValue(i)).CurrentPos += ((Bullet)tempBulletArray.GetValue(i)).DirectionIncrement;
+
+                    bulletQueue.Enqueue((Bullet)tempBulletArray.GetValue(i));
+                }
+
+                if (((Bullet)bulletQueue.Peek()).isDead())        //remove dead bullets from the queue
+                {
+                    bulletQueue.Dequeue();
+                }
+
+                tempBulletArray = bulletQueue.ToArray();
+            }
+
+            //this is the frame where the bullet is created
+            if (animation.currentFrame == 18 && bulletAdded == false && (activity == EnemyActivity2.enemyShootDown || activity == EnemyActivity2.enemyShootDiagDown || activity == EnemyActivity2.enemyShootAhead || activity == EnemyActivity2.enemyShootDiagUp || activity == EnemyActivity2.enemyShootUp))  
+            {
+                Bullet bullet = new Bullet();
+                bullet.Texture = Game1.bulletTex2;
+                
+                if(animation.myEffect == SpriteEffects.FlipHorizontally)  //to the right
+                {
+                    if (activity == EnemyActivity2.enemyShootDown)
+                    {
+                        bullet.DirectionIncrement = new Vector2(0f, 1f);
+                        bullet.Origin = Position + new Vector2(21f, 70f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootDiagDown)
+                    {
+                        bullet.DirectionIncrement = new Vector2(0.75f, 0.75f);
+                        bullet.Origin = Position + new Vector2(60f, 50f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootAhead)
+                    {
+                        bullet.DirectionIncrement = new Vector2(1f, 0f);
+                        bullet.Origin = Position + new Vector2(90f, -5f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootDiagUp)
+                    {
+                        bullet.DirectionIncrement = new Vector2(0.75f, -0.75f);
+                        bullet.Origin = Position + new Vector2(65f, -73f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootUp)
+                    {
+                        bullet.DirectionIncrement = new Vector2(0f, -1f);
+                        bullet.Origin = Position + new Vector2(2f, -100f);
+                    }
+                }
+                else   //to the left
+                {
+                    if (activity == EnemyActivity2.enemyShootDown)
+                    {
+                        bullet.DirectionIncrement = new Vector2(0f, 1f);
+                        bullet.Origin = Position + new Vector2(-35f, 70f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootDiagDown)
+                    {
+                        bullet.DirectionIncrement = new Vector2(-0.75f, 0.75f);
+                        bullet.Origin = Position + new Vector2(-87f, 58f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootAhead)
+                    {
+                        bullet.DirectionIncrement = new Vector2(-1f, 0f);
+                        bullet.Origin = Position + new Vector2(-90f, -5f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootDiagUp)
+                    {
+                        bullet.DirectionIncrement = new Vector2(-0.75f, -0.75f);
+                        bullet.Origin = Position + new Vector2(-77f, -75f);
+                    }
+                    else if (activity == EnemyActivity2.enemyShootUp)
+                    {
+                        bullet.DirectionIncrement = new Vector2(0f, -1f);
+                        bullet.Origin = Position + new Vector2(-16f, -100f);
+                    }
+                }
+
+                bullet.MaxDistanceFromOrigin = 1500;
+                bullet.Speed = 6;
+                bullet.CurrentPos = bullet.Origin;
+                bullet.DirectionIncrement *= bullet.Speed;
+
+                bulletQueue.Enqueue(bullet);    //add the bullet to the queue of bullets
+
+                bulletAdded = true;
+                
+                soundEffectInstance = Game1.bearShoot.CreateInstance();        //play bullet sound quitely if far away
+                soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+                soundEffectInstance.Play();                
+            }
+
+            if (animation.currentFrame > 18 && (activity == EnemyActivity2.enemyShootDown || activity == EnemyActivity2.enemyShootDiagDown || activity == EnemyActivity2.enemyShootAhead || activity == EnemyActivity2.enemyShootDiagUp || activity == EnemyActivity2.enemyShootUp))
+            {
+                bulletAdded = false;
+            }            
         }
 
         private void handleAnimation(GameTime gameTime)
@@ -391,6 +491,204 @@ namespace Prototype1
             activity = EnemyActivity2.enemyIdle;
         }
 
+        public void shootLeft(int bullets)
+        {
+            motor.MotorSpeed = 0;
+
+            animation.myEffect = SpriteEffects.None;
+            activity = EnemyActivity2.enemyShootAhead;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
+        public void shootTopLeft(int bullets)
+        {
+            motor.MotorSpeed = 0;
+
+            animation.myEffect = SpriteEffects.None;
+            activity = EnemyActivity2.enemyShootDiagUp;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
+        public void shootUp(int bullets)
+        {
+            motor.MotorSpeed = 0;
+                        
+            activity = EnemyActivity2.enemyShootUp;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
+        public void shootTopRight(int bullets)
+        {
+            motor.MotorSpeed = 0;
+
+            animation.myEffect = SpriteEffects.FlipHorizontally;
+            activity = EnemyActivity2.enemyShootDiagUp;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
+        public void shootRight(int bullets)
+        {
+            motor.MotorSpeed = 0;
+
+            animation.myEffect = SpriteEffects.FlipHorizontally;
+            activity = EnemyActivity2.enemyShootAhead;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
+        public void shootBottomRight(int bullets)
+        {
+            motor.MotorSpeed = 0;
+
+            animation.myEffect = SpriteEffects.FlipHorizontally;
+            activity = EnemyActivity2.enemyShootDiagDown;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
+        public void shootDown(int bullets)
+        {
+            motor.MotorSpeed = 0;
+                        
+            activity = EnemyActivity2.enemyShootDown;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
+        public void shootBottomLeft(int bullets)
+        {
+            motor.MotorSpeed = 0;
+
+            animation.myEffect = SpriteEffects.None;
+            activity = EnemyActivity2.enemyShootDiagDown;
+
+            while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
+            {
+                Thread.Sleep(10);
+
+                if (animation.currentFrame == animation.frameCount - 1)
+                {
+                    bullets--;
+
+                    animation.currentFrame = 15;          //this is the frame where the bear starts shooting, so loop the shooting until out of bullets
+
+                    shootStartFrame = 15;            //covers the case if the animation type changes mid shooting       
+                }
+            }
+
+            shootStartFrame = 0;
+            activity = EnemyActivity2.enemyIdle;
+        }
+
         public void faceLeft()
         {
             animation.myEffect = SpriteEffects.None; 
@@ -490,7 +788,7 @@ namespace Prototype1
                         break;
                     }
 
-                    faceRight();
+                    faceLeft();
 
                     if (bw.CancellationPending == true)
                     {
@@ -504,7 +802,155 @@ namespace Prototype1
                         break;
                     }
 
-                    shootAtPlayer(3);
+                    shootDown(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootBottomLeft(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootLeft(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootTopLeft(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootUp(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+                    faceRight();
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootUp(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootTopRight(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootRight(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootBottomRight(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootDown(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootBottomLeft(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(500);
 
                     if (bw.CancellationPending == true)
                     {
@@ -624,7 +1070,14 @@ namespace Prototype1
                         break;
                     }
 
-                    shootAtPlayer(8);
+                    shootAtPlayer(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootAtPlayer(3);
 
                     if (bw.CancellationPending == true)
                     {
