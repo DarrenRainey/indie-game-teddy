@@ -1,3 +1,4 @@
 C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
 E:\Prototype2\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
 E:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Debug\ResolveAssemblyReference.cache

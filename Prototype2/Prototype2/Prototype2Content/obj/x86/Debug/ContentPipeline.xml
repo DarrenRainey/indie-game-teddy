@@ -263,15 +263,6 @@
       <Time>2013-04-05T17:30:48+01:00</Time>
     </Item>
     <Item>
-      <Source>font.spritefont</Source>
-      <Name>font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2013-04-11T01:57:06+01:00</Time>
-    </Item>
-    <Item>
       <Source>bearknife.png</Source>
       <Name>bearknife</Name>
       <Importer>TextureImporter</Importer>
@@ -288,6 +279,24 @@
       <Options>None</Options>
       <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\dead.xnb</Output>
       <Time>2013-04-10T22:14:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2013-04-11T01:57:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bigFont.spritefont</Source>
+      <Name>bigFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bigFont.xnb</Output>
+      <Time>2013-04-11T01:57:06+01:00</Time>
     </Item>
     <Item>
       <Source>dieSound.wav</Source>
@@ -346,13 +355,157 @@
       <Time>2013-04-11T01:23:16+01:00</Time>
     </Item>
     <Item>
-      <Source>bigFont.spritefont</Source>
-      <Name>bigFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
+      <Source>knife.png</Source>
+      <Name>knife</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bigFont.xnb</Output>
-      <Time>2013-04-11T01:57:06+01:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\knife.xnb</Output>
+      <Time>2013-04-16T13:00:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>beardead.png</Source>
+      <Name>beardead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\beardead.xnb</Output>
+      <Time>2013-04-16T16:31:58+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound.wav</Source>
+      <Name>bearDeadSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound.xnb</Output>
+      <Time>2013-04-17T16:55:44+01:00</Time>
+    </Item>
+    <Item>
+      <Source>hammerSound.wav</Source>
+      <Name>hammerSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\hammerSound.xnb</Output>
+      <Time>2013-04-16T17:34:20+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2idle.png</Source>
+      <Name>bear2idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2idle.xnb</Output>
+      <Time>2013-04-18T01:09:44+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2run.png</Source>
+      <Name>bear2run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2run.xnb</Output>
+      <Time>2013-04-17T13:20:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2jump.png</Source>
+      <Name>bear2jump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2jump.xnb</Output>
+      <Time>2013-04-17T14:23:20+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2dead.png</Source>
+      <Name>bear2dead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2dead.xnb</Output>
+      <Time>2013-04-17T17:53:48+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound2.wav</Source>
+      <Name>bearDeadSound2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound2.xnb</Output>
+      <Time>2013-04-17T16:55:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound3.wav</Source>
+      <Name>bearDeadSound3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound3.xnb</Output>
+      <Time>2013-04-17T16:55:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound4.wav</Source>
+      <Name>bearDeadSound4</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound4.xnb</Output>
+      <Time>2013-04-17T16:58:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound5.wav</Source>
+      <Name>bearDeadSound5</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound5.xnb</Output>
+      <Time>2013-04-17T16:58:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootahead.png</Source>
+      <Name>bear2shootahead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootahead.xnb</Output>
+      <Time>2013-04-17T19:44:54+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootdiagup.png</Source>
+      <Name>bear2shootdiagup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootdiagup.xnb</Output>
+      <Time>2013-04-18T00:11:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootup.png</Source>
+      <Name>bear2shootup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootup.xnb</Output>
+      <Time>2013-04-18T01:34:16+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootdiagdown.png</Source>
+      <Name>bear2shootdiagdown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootdiagdown.xnb</Output>
+      <Time>2013-04-18T02:22:56+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootdown.png</Source>
+      <Name>bear2shootdown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootdown.xnb</Output>
+      <Time>2013-04-18T02:48:30+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -392,7 +545,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-07-09T20:03:28.4557553+01:00</Value>
+        <Value>2013-04-11T04:34:10.9562639+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

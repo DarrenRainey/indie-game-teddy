@@ -16,3 +16,9 @@ E:\Prototype2\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\ResolveAssemblyR
 E:\Prototype2\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 E:\Prototype2\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\FarseerPhysicsXNA.dll
 E:\Prototype2\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\FarseerPhysicsXNA.pdb
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\bin\Xbox 360\Debug\FarseerPhysicsXNA.pdb
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Debug\FarseerPhysicsXNA.pdb

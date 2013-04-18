@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb</Output>
-      <Time>2013-02-19T00:28:46+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb</Output>
+      <Time>2013-04-05T17:30:36+01:00</Time>
     </Item>
     <Item>
       <Source>circleSprite.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb</Output>
-      <Time>2013-02-19T00:29:44+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb</Output>
+      <Time>2013-04-05T17:32:40+01:00</Time>
     </Item>
     <Item>
       <Source>groundSprite.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb</Output>
-      <Time>2013-02-19T00:29:02+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb</Output>
+      <Time>2013-04-05T17:31:02+01:00</Time>
     </Item>
     <Item>
       <Source>jump.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb</Output>
-      <Time>2013-02-19T00:28:56+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb</Output>
+      <Time>2013-04-05T17:30:56+01:00</Time>
     </Item>
     <Item>
       <Source>jumping.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb</Output>
-      <Time>2013-02-19T00:28:56+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb</Output>
+      <Time>2013-04-05T17:30:54+01:00</Time>
     </Item>
     <Item>
       <Source>player1.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb</Output>
-      <Time>2013-02-19T00:28:58+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb</Output>
+      <Time>2013-04-05T17:30:56+01:00</Time>
     </Item>
     <Item>
       <Source>run.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb</Output>
-      <Time>2013-02-19T00:28:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb</Output>
+      <Time>2013-04-05T17:30:46+01:00</Time>
     </Item>
     <Item>
       <Source>square.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb</Output>
-      <Time>2013-02-19T00:28:46+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb</Output>
+      <Time>2013-04-05T17:30:32+01:00</Time>
     </Item>
     <Item>
       <Source>armgun.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\armgun.xnb</Output>
-      <Time>2013-02-19T00:29:46+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\armgun.xnb</Output>
+      <Time>2013-04-05T17:32:42+01:00</Time>
     </Item>
     <Item>
       <Source>head.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\head.xnb</Output>
-      <Time>2013-02-19T00:28:48+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\head.xnb</Output>
+      <Time>2013-04-05T17:30:38+01:00</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bullet.xnb</Output>
-      <Time>2013-02-19T00:29:42+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bullet.xnb</Output>
+      <Time>2013-04-05T17:32:38+01:00</Time>
     </Item>
     <Item>
       <Source>prototype_Tile2.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\prototype_Tile2.xnb</Output>
-      <Time>2013-02-19T00:28:52+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\prototype_Tile2.xnb</Output>
+      <Time>2013-04-05T17:30:44+01:00</Time>
     </Item>
     <Item>
       <Source>crosshair.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\crosshair.xnb</Output>
-      <Time>2013-02-19T00:28:42+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\crosshair.xnb</Output>
+      <Time>2013-04-05T17:30:26+01:00</Time>
     </Item>
     <Item>
       <Source>marker.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\marker.xnb</Output>
-      <Time>2013-02-19T00:29:00+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\marker.xnb</Output>
+      <Time>2013-04-05T17:31:00+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_0_0.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_0.xnb</Output>
-      <Time>2013-02-28T03:07:52+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_0.xnb</Output>
+      <Time>2013-04-05T17:31:06+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_0_720.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_720.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_720.xnb</Output>
+      <Time>2013-04-05T17:31:28+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_1280_0.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_0.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_0.xnb</Output>
+      <Time>2013-04-05T17:31:32+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_1280_720.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_720.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_720.xnb</Output>
+      <Time>2013-04-05T17:31:14+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_2560_1440.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_1440.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_1440.xnb</Output>
+      <Time>2013-04-05T17:31:20+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_2560_720.png</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_720.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_720.xnb</Output>
+      <Time>2013-04-05T17:31:16+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_3840_1440.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_1440.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_1440.xnb</Output>
+      <Time>2013-04-05T17:31:22+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_3840_720.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_720.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_720.xnb</Output>
+      <Time>2013-04-05T17:31:26+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_5120_1440.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_1440.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_1440.xnb</Output>
+      <Time>2013-04-05T17:31:12+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_5120_720.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_720.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_720.xnb</Output>
+      <Time>2013-04-05T17:31:10+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_M1280_0.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_0.xnb</Output>
-      <Time>2013-02-28T03:07:54+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_0.xnb</Output>
+      <Time>2013-04-05T17:31:24+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_M1280_720.png</Source>
@@ -232,8 +232,53 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_720.xnb</Output>
-      <Time>2013-02-28T03:07:52+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_720.xnb</Output>
+      <Time>2013-04-05T17:31:08+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearidle.png</Source>
+      <Name>bearidle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearidle.xnb</Output>
+      <Time>2013-04-05T17:30:52+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearrun.png</Source>
+      <Name>bearrun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearrun.xnb</Output>
+      <Time>2013-04-05T17:30:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearjump.png</Source>
+      <Name>bearjump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearjump.xnb</Output>
+      <Time>2013-04-05T17:30:48+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearknife.png</Source>
+      <Name>bearknife</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearknife.xnb</Output>
+      <Time>2013-04-10T15:45:38+01:00</Time>
+    </Item>
+    <Item>
+      <Source>dead.png</Source>
+      <Name>dead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\dead.xnb</Output>
+      <Time>2013-04-10T22:14:30+01:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -241,8 +286,73 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb</Output>
-      <Time>2013-02-19T00:29:00+00:00</Time>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb</Output>
+      <Time>2013-04-11T01:57:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bigFont.spritefont</Source>
+      <Name>bigFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bigFont.xnb</Output>
+      <Time>2013-04-11T01:57:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>dieSound.wav</Source>
+      <Name>dieSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\dieSound.xnb</Output>
+      <Time>2013-04-11T02:12:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>jumpSound.wav</Source>
+      <Name>jumpSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumpSound.xnb</Output>
+      <Time>2013-04-11T02:12:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>pistolSound.wav</Source>
+      <Name>pistolSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\pistolSound.xnb</Output>
+      <Time>2013-04-11T02:12:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>knifeSound.wav</Source>
+      <Name>knifeSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\knifeSound.xnb</Output>
+      <Time>2013-04-11T02:12:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>song2.mp3</Source>
+      <Name>song2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\song2.xnb</Output>
+      <Extra>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\song2.wma</Extra>
+      <Time>2013-04-11T01:32:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>song1.mp3</Source>
+      <Name>song1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\song1.xnb</Output>
+      <Extra>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\song1.wma</Extra>
+      <Time>2013-04-11T01:23:16+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -250,10 +360,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>true</CompressContent>
-      <RootDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\</RootDirectory>
-      <LoggerRootDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\</LoggerRootDirectory>
-      <IntermediateDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Debug\</IntermediateDirectory>
-      <OutputDirectory>E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\</OutputDirectory>
+      <RootDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\</RootDirectory>
+      <LoggerRootDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\</LoggerRootDirectory>
+      <IntermediateDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Debug\</IntermediateDirectory>
+      <OutputDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -282,7 +392,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-07-09T20:03:28.4557553+01:00</Value>
+        <Value>2013-04-11T04:34:10.9562639+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -1,3 +1,4 @@
 C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\Samples XNA\Samples XNAContent\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
 C:\Users\Hugh\Downloads\xna\Prototype2\Samples XNA\Samples XNAContent\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
 E:\Prototype2\Samples XNA\Samples XNAContent\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Samples XNA\Samples XNAContent\obj\Xbox 360\Debug\ResolveAssemblyReference.cache

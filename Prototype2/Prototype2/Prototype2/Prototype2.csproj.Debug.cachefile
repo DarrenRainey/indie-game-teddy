@@ -24,5 +24,19 @@ Content\level tiles\A_5120_1440.xnb
 Content\level tiles\A_5120_720.xnb
 Content\level tiles\A_M1280_0.xnb
 Content\level tiles\A_M1280_720.xnb
+Content\bearidle.xnb
+Content\bearrun.xnb
+Content\bearjump.xnb
+Content\bearknife.xnb
+Content\dead.xnb
 Content\font.xnb
-font.xnb
+Content\bigFont.xnb
+Content\dieSound.xnb
+Content\jumpSound.xnb
+Content\pistolSound.xnb
+Content\knifeSound.xnb
+Content\song2.xnb
+Content\song1.xnb
+Content\song2.wma
+Content\song1.wma
+Content\font.xnb

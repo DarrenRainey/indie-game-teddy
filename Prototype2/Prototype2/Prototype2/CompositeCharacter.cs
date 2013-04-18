@@ -15,6 +15,7 @@ namespace Prototype1
         Running,
         Idle,
         Dead,
+        Knife,
         None
     }
 
@@ -30,6 +31,10 @@ namespace Prototype1
 
         private Vector2 jumpForce;
         private float jumpDelayTime;
+
+        private float knifeDelayTime = 0;
+        private const float nextKnifeDelayTime = 1f;
+        public Boolean jumpKnife = false;
 
         private const float nextJumpDelayTime = 0f;
         private const float runSpeed = 20;
@@ -108,6 +113,11 @@ namespace Prototype1
             {
                 activity = Activity.None;                
             }
+
+            if (jumpKnife)
+            {
+                jumpKnife = false;
+            }
             return true;
         }
 
@@ -120,15 +130,17 @@ namespace Prototype1
             //Console.WriteLine("CURRENT LINEAR VELOCITY: X= " + body.LinearVelocity.X + "   Y= " + body.LinearVelocity.Y);
 
             if (activity != Activity.Dead)
-            {
+            {                
+                HandleAttacks(keyState, oldState, padState, oldPadState, gameTime);
+                                               
                 HandleJumping(keyState, oldState, padState, oldPadState, gameTime);
-
+                
                 if (activity != Activity.Jumping)
                 {
                     HandleRunning(keyState, oldState, padState, oldPadState, gameTime);
-                }           
-
-                if (activity != Activity.Jumping && activity != Activity.Running)
+                }
+                
+                if (activity != Activity.Jumping && activity != Activity.Running && activity != Activity.Knife)
                 {
                     HandleIdle(keyState, oldState, padState, oldPadState, gameTime);
                 }
@@ -137,6 +149,8 @@ namespace Prototype1
             {
                  motor.MotorSpeed = 0;         //player is dead so stop all movement
             }
+
+                        
 
             oldState = keyState;
             oldPadState = padState;
@@ -149,7 +163,7 @@ namespace Prototype1
                 jumpDelayTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
-            if ((state.IsKeyUp(Keys.Space) && oldState.IsKeyDown(Keys.Space)) || (padState.Buttons.LeftShoulder == ButtonState.Pressed && oldPadState.Buttons.LeftShoulder == ButtonState.Released) && activity != Activity.Jumping)
+            if ((state.IsKeyUp(Keys.Space) && oldState.IsKeyDown(Keys.Space)) || (padState.Buttons.LeftShoulder == ButtonState.Pressed && oldPadState.Buttons.LeftShoulder == ButtonState.Released) && activity != Activity.Jumping && activity != Activity.Knife)
             {
                 if (jumpDelayTime >= 0)
                 {
@@ -163,7 +177,7 @@ namespace Prototype1
                 }
             }
 
-            if (activity == Activity.Jumping)
+            if (activity == Activity.Jumping || jumpKnife == true)
             {
                 if (keyState.IsKeyDown(Keys.Right) || padState.ThumbSticks.Left.X > 0.1)
                 {
@@ -188,40 +202,75 @@ namespace Prototype1
             //keyboard
             if (keyState.IsKeyDown(Keys.Right))
             {
-                motor.MotorSpeed = runSpeed;
-                activity = Activity.Running;
+                motor.MotorSpeed = runSpeed;                
+                activity = Activity.Running;                
             }
             else if (keyState.IsKeyDown(Keys.Left))
             {                
-                motor.MotorSpeed = -runSpeed;
-                activity = Activity.Running;
+                motor.MotorSpeed = -runSpeed;               
+                activity = Activity.Running;                
             }
-
+            
             //joypad
             if (padState.ThumbSticks.Left.X > 0.1f)           //the speed gets exponentially slower the less the analog stick is tilted
             {
                 motor.MotorSpeed = runSpeed * (padState.ThumbSticks.Left.X * padState.ThumbSticks.Left.X);
-                activity = Activity.Running;
+
+                if (activity != Activity.Knife)
+                {
+                    activity = Activity.Running;
+                }
             }
             else if (padState.ThumbSticks.Left.X < -0.1f)
             {
                 motor.MotorSpeed = -runSpeed * (padState.ThumbSticks.Left.X * padState.ThumbSticks.Left.X);
-                activity = Activity.Running;
-            }
 
+                if (activity != Activity.Knife)
+                {
+                    activity = Activity.Running;
+                }
+            }
+           
             if (keyState.IsKeyUp(Keys.Left) && keyState.IsKeyUp(Keys.Right) && padState.ThumbSticks.Left.X <= 0.3f && padState.ThumbSticks.Left.X >= -0.3f)
             {
                 motor.MotorSpeed = 0;
-                activity = Activity.None;
+               
+                if (activity != Activity.Knife)
+                {
+                    activity = Activity.None;
+                }
             }           
         }
 
         private void HandleIdle(KeyboardState state, KeyboardState oldState, GamePadState padState, GamePadState oldPadState, GameTime gameTime)
-        {
+        {                        
             if (activity == Activity.None)
             {
                 activity = Activity.Idle;
             }
+        }
+
+        private void HandleAttacks(KeyboardState state, KeyboardState oldState, GamePadState padState, GamePadState oldPadState, GameTime gameTime)
+        {
+            if (knifeDelayTime < 0)
+            {
+                knifeDelayTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+
+            if (padState.Buttons.RightShoulder == ButtonState.Pressed && oldPadState.Buttons.RightShoulder == ButtonState.Released && activity != Activity.Knife)
+            {
+                
+                if (knifeDelayTime >= 0)
+                {                      
+                    if(activity == Activity.Jumping)
+                    {
+                        jumpKnife = true;
+                    }
+
+                    knifeDelayTime = -nextKnifeDelayTime;                    
+                    activity = Activity.Knife;                    
+                }               
+            }            
         }
 
         public override void Draw(SpriteBatch spriteBatch)
