@@ -31,6 +31,7 @@ using System.Collections;
 using System.ComponentModel;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
+using System.Threading;
 
 
 namespace Prototype1
@@ -75,6 +76,7 @@ namespace Prototype1
         private Texture2D playerJump;
         private Texture2D playerShoot;
         private Texture2D playerDead;
+        private Texture2D playerKnife;
         private Texture2D armgun;
         private Texture2D head;
 
@@ -82,6 +84,7 @@ namespace Prototype1
         public static SoundEffect jumpSound;
         public static SoundEffect pistolSound;
         public static SoundEffect dieSound;
+        public static SoundEffect hammerSound; 
 
         public static Song song1;
         public static Song song2;
@@ -107,12 +110,7 @@ namespace Prototype1
         private Queue<Bullet> bulletQueue;
         private Array tempBulletArray;
         private Texture2D bulletTex;
-
-        //private Vector2 bulletPos;
-        //private Boolean isBullet;
-        //private Vector2 bulletDirection;       //the XY increment for the bullet
-        //private int bulletSpeed = 2;
-        //private Vector2 bulletOrigin;
+        private Texture2D bullet2Tex;
 
         private SpriteEffects armgunEffects;
         private float armgunAngle;
@@ -128,11 +126,32 @@ namespace Prototype1
         public static Texture2D bearRunning;
         public static Texture2D bearJumping;
         public static Texture2D bearKnife;
+        public static Texture2D bearDead;
         private EnemyCompositeCharacter bearBox;
 
-        public static SoundEffect knifeSound;        
+        public static Texture2D bear2Idle;
+        public static Texture2D bear2Running;
+        public static Texture2D bear2Jumping;
+        public static Texture2D bear2ShootDown;
+        public static Texture2D bear2ShootDiagDown;
+        public static Texture2D bear2ShootAhead;
+        public static Texture2D bear2ShootDiagUp;
+        public static Texture2D bear2ShootUp;
+        public static Texture2D bear2Dead;
+        private EnemyCompositeCharacter2 bear2Box;
 
+        public static SoundEffect knifeSound;
+        public static SoundEffect bearDeadSound;
+        public static SoundEffect bearDeadSound2;
+        public static SoundEffect bearDeadSound3;
+        public static SoundEffect bearDeadSound4;
+        public static SoundEffect bearDeadSound5;
+                        
+        public static AudioListener audioListener;
+        public const float soundDistanceFactor = 300f;     //the higher this is the further sounds can be heard
+        
         private List<EnemyCompositeCharacter> enemies;
+        private List<EnemyCompositeCharacter2> enemies2;
         
         private Activity oldActivity;       
 
@@ -205,17 +224,31 @@ namespace Prototype1
             armgun = Content.Load<Texture2D>("armgun"); // 28px x 67px =>   1m x 1.25m
             head = Content.Load<Texture2D>("head"); // 41px x 37px   
             bulletTex = Content.Load<Texture2D>("bullet");
+            bullet2Tex = Content.Load<Texture2D>("bullet2");
 
             squareTex = Content.Load<Texture2D>("square");            
 
             playerJump = Content.Load<Texture2D>("jumping");
             playerDead = Content.Load<Texture2D>("dead");
+            playerKnife = Content.Load<Texture2D>("knife");
 
             //load bear animations
             bearIdle = Content.Load<Texture2D>("bearidle");
             bearRunning = Content.Load<Texture2D>("bearrun");
             bearJumping = Content.Load<Texture2D>("bearjump");
             bearKnife = Content.Load<Texture2D>("bearknife");
+            bearDead = Content.Load<Texture2D>("beardead");
+
+            //load bear 2 animations
+            bear2Idle = Content.Load<Texture2D>("bear2idle");
+            bear2Running = Content.Load<Texture2D>("bear2run");
+            bear2Jumping = Content.Load<Texture2D>("bear2jump");
+            bear2ShootDown = Content.Load<Texture2D>("bear2shootdown");
+            bear2ShootDiagDown = Content.Load<Texture2D>("bear2shootdiagdown");
+            bear2ShootAhead = Content.Load<Texture2D>("bear2shootahead");
+            bear2ShootDiagUp = Content.Load<Texture2D>("bear2shootdiagup");
+            bear2ShootUp = Content.Load<Texture2D>("bear2shootup");
+            bear2Dead = Content.Load<Texture2D>("bear2dead");
 
 
             //editing textures
@@ -243,7 +276,13 @@ namespace Prototype1
             jumpSound = Content.Load<SoundEffect>("jumpSound");
             pistolSound = Content.Load<SoundEffect>("pistolSound");
             dieSound = Content.Load<SoundEffect>("dieSound");
-            knifeSound = Content.Load<SoundEffect>("knifeSound");
+            knifeSound = Content.Load<SoundEffect>("knifeSound");            
+            hammerSound = Content.Load<SoundEffect>("hammerSound");
+            bearDeadSound = Content.Load<SoundEffect>("bearDeadSound");
+            bearDeadSound2 = Content.Load<SoundEffect>("bearDeadSound2");
+            bearDeadSound3 = Content.Load<SoundEffect>("bearDeadSound3");
+            bearDeadSound4 = Content.Load<SoundEffect>("bearDeadSound4");
+            bearDeadSound5 = Content.Load<SoundEffect>("bearDeadSound5");
             
             song1 = Content.Load<Song>("song1");
             song2 = Content.Load<Song>("song2");            
@@ -263,84 +302,66 @@ namespace Prototype1
             
             //create enemies
             enemies = new List<EnemyCompositeCharacter>();
-            
-            bearBox = new EnemyCompositeCharacter(_world, new Vector2(600f, 600f), 93, 183, 0.15f, squareTex);  //at start
-            bearBox.forcePower = 100;
-            enemies.Add(bearBox);
-            
-            bearBox = new EnemyCompositeCharacter(_world, new Vector2(1330f, 550f), 93, 183, 0.15f, squareTex);  //on top of first hill
+
+            //knifebear 1 - at start
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(600f, 600f), 93, 183, 0.15f, squareTex);  
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
 
-            bearBox = new EnemyCompositeCharacter(_world, new Vector2(3470f, 980f), 93, 183, 0.15f, squareTex);   //just after second rock
+            //knifebear 2 - on top of first hill
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(1330f, 550f), 93, 183, 0.15f, squareTex);  
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
-          
+
+            //knifebear 3 - just after second rock
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(3470f, 980f), 93, 183, 0.15f, squareTex);  
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
+            enemies2 = new List<EnemyCompositeCharacter2>();
+
+            //shootbear 1 - just after the first stump
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(3925f, 1010f), 93, 183, 0.15f, squareTex);  
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+
+            //shootbear 2 - in front of the large tree
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(5460f, 1800f), 93, 183, 0.15f, squareTex);   
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+
             //player ignore collisions with enemies
+            box.body.CollisionGroup = -1;
+            box.wheel.CollisionGroup = -1;            
+            
             for (int i = 0; i < enemies.Count; i++)
-            {
-                box.body.CollisionGroup = -1;
-                box.wheel.CollisionGroup = -1;
-
+            {    
                 enemies[i].body.CollisionGroup = -1;
                 enemies[i].wheel.CollisionGroup = -1;               
             }
+
+            for (int i = 0; i < enemies2.Count; i++)
+            {
+                enemies2[i].body.CollisionGroup = -1;
+                enemies2[i].wheel.CollisionGroup = -1;
+            }
+
+
+            //setup 3d sound           
+            audioListener = new AudioListener(); 
 
             //init bullet stuff
             //bulletDirection = new Vector2(0, 0);
             bulletQueue = new Queue<Bullet>();
             tempBulletArray = bulletQueue.ToArray();
-            
-            //markers = new ArrayList();
-
-            /*
-            //player
-            Vector2 playerPos1 = new Vector2(1f, screenCenter.Y / MeterInPixels);
-
-            // Create the player fixture
-            //playerBody = BodyFactory.CreateRectangle(_world, player.Width / MeterInPixels, player.Height / MeterInPixels, 0.7f, playerPos1 + (new Vector2(player.Width / 2, player.Height / 2) / MeterInPixels));
-            playerBody = BodyFactory.CreateCircle(_world, player.Height / (2f * MeterInPixels), 1f, playerPos1 + (new Vector2(player.Width / 2, player.Height / 2) / MeterInPixels));
-            playerBody.BodyType = BodyType.Dynamic;
-            playerBody.Restitution = 0.0f;
-            playerBody.Friction = 0.1f; 
-
-
-            //Circle 
-            Vector2 circlePosition = new Vector2((1f + (_groundSprite.Width / MeterInPixels) / 2) - ((_circleSprite.Width / MeterInPixels) / 2), 0f) + (new Vector2(_circleSprite.Width / MeterInPixels, _circleSprite.Height / MeterInPixels) / 2);
-
-            // Create the circle fixture
-            _circleBody = BodyFactory.CreateCircle(_world, 96f / (2f * MeterInPixels), 1f, circlePosition);
-            _circleBody.BodyType = BodyType.Dynamic;
-            _circleBody.Restitution = 0.3f;
-            _circleBody.Friction = 0.5f;
-
-            //Ground
-            Vector2 groundPosition = new Vector2(1f, 6.5f) + (new Vector2(_groundSprite.Width / MeterInPixels, _groundSprite.Height / MeterInPixels) / 2);
-
-            // Create the ground fixture
-            _groundBody = BodyFactory.CreateRectangle(_world, 512f / MeterInPixels, 64f / MeterInPixels, 1f, groundPosition);
-            _groundBody.IsStatic = true;
-            _groundBody.Restitution = 0.3f;
-            _groundBody.Friction = 0.5f;
-            
-            */
-
-            //edge
+                       
 
             // Create the ground fixture
             Body impassableEdge = BodyFactory.CreateEdge(_world, new Vector2(0f, 3f), new Vector2(0.25f, 3f));
             impassableEdge.IsStatic = true;
             impassableEdge.Restitution = 0.1f;
             impassableEdge.Friction = 0.7f;
-
-
-            /*//passable edges
-            passableEdges = new List<PassableEdge>();
-
-            passableEdges.Add(new PassableEdge(_world, new Vector2(10f, 2.5f), new Vector2(12.8f, 2.5f)));    //right rased platform
-            passableEdges.Add(new PassableEdge(_world, new Vector2(4f, 1.5f), new Vector2(8f, 1.5f)));    //centred raised platform
-            */
-
+                      
             
             //From top of first cliff---------------------------------------------------------------------------------------
             FixtureFactory.AttachEdge(new Vector2(-2.06f, 1.215f), new Vector2(-0.32f, 1.185f), impassableEdge);
@@ -513,19 +534,36 @@ namespace Prototype1
                 playerAnimation.Initialize(playerDead, temp, 103, 140, 37, 80, Color.White, 1f, false, new Vector2(0, 0));
 
                 Game1.dieSound.Play();
-            } 
+            }
+            else if (box.activity == Activity.Knife && oldActivity != Activity.Knife)
+            {
+                Vector2 temp = playerAnimation.Position;
+                playerAnimation.Initialize(playerKnife, temp, 175, 160, 14, 40, Color.White, 1f, false, new Vector2(0, 0));
+
+                Game1.hammerSound.Play();
+            }
+
+            //if the knife animation is finished 
+            if (box.activity == Activity.Knife && playerAnimation.currentFrame == 13)
+            {
+                box.activity = Activity.None;
+            }
 
             //control bear actions
             if (firstGameUpdate)
             {                  
                 enemies[0].runScript1();
                 enemies[1].runScript2();
-                enemies[2].runScript3(); 
+                enemies[2].runScript3();
+
+                enemies2[0].runScript1();
+                enemies2[1].runScript2();                
                 
 
                 firstGameUpdate = false;
-            }      
-                  
+            }
+
+            handleAttacks();                  
 
             oldActivity = box.activity;           
 
@@ -537,12 +575,82 @@ namespace Prototype1
                 enemies[i].Update(gameTime);
             }
 
-            //We update the world
-            _world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
-
-            base.Update(gameTime);
+            for (int i = 0; i < enemies2.Count; i++)
+            {
+                enemies2[i].Update(gameTime);
+            }
 
             handleMusic();
+
+            //update 3d sound listener
+            audioListener.Position = new Vector3(box.Position.X, box.Position.Y, 1f) / soundDistanceFactor;
+
+            //We update the world
+            _world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
+            
+            base.Update(gameTime);            
+        }
+
+        private void handleAttacks()
+        {
+            //handle enemy knife attacks - can only knife melee bears from behind
+            for (int i = 0; i < enemies.Count; i++)
+            {
+
+                if (Math.Abs(enemies[i].Position.X - box.Position.X) < 100 && Math.Abs(enemies[i].Position.Y - box.Position.Y) < 100 && box.activity == Activity.Knife && playerAnimation.currentFrame > 8 && playerAnimation.myEffect.ToString() != enemies[i].animation.myEffect.ToString())
+                {                   
+                    enemies[i].stopScript();
+
+                    enemies[i].activity = EnemyActivity.enemyDead;
+
+                    break;
+                }
+            }
+
+            //handle enemy2 knife attacks - can knife shoot bears from the front and behind
+            for (int i = 0; i < enemies2.Count; i++)
+            {                
+                if (Math.Abs(enemies2[i].Position.X - box.Position.X) < 100 && Math.Abs(enemies2[i].Position.Y - box.Position.Y) < 100 && box.activity == Activity.Knife && playerAnimation.currentFrame > 8)
+                {
+                    enemies2[i].stopScript();
+
+                    enemies2[i].activity = EnemyActivity2.enemyDead;
+
+                    break;
+                }
+            }
+
+            //handle enemy pistol attacks
+            for (int i = 0; i < enemies.Count; i++)
+            {                
+                for (int j = 0; j < tempBulletArray.Length; j++)
+                {
+                    if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies[i].Position.X) < 40 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies[i].Position.Y) < 93 && enemies[i].activity != EnemyActivity.enemyDead)
+                    {
+                        enemies[i].stopScript();
+
+                        enemies[i].activity = EnemyActivity.enemyDead;
+
+                        break;
+                    }
+                }
+            }
+
+            //handle enemy2 pistol attacks
+            for (int i = 0; i < enemies2.Count; i++)
+            {                
+                for (int j = 0; j < tempBulletArray.Length; j++)
+                {
+                    if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies2[i].Position.X) < 40 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies2[i].Position.Y) < 93 && enemies2[i].activity != EnemyActivity2.enemyDead)
+                    {
+                        enemies2[i].stopScript();
+
+                        enemies2[i].activity = EnemyActivity2.enemyDead;
+
+                        break;
+                    }
+                }
+            }   
         }
 
         private void HandleGamePad()
@@ -580,13 +688,19 @@ namespace Prototype1
                 box.forcePower = 100;
 
                 //player ignore collisions with enemies
+                box.body.CollisionGroup = -1;
+                box.wheel.CollisionGroup = -1;
+
                 for (int i = 0; i < enemies.Count; i++)
                 {
-                    box.body.CollisionGroup = -1;
-                    box.wheel.CollisionGroup = -1;
-
                     enemies[i].body.CollisionGroup = -1;
                     enemies[i].wheel.CollisionGroup = -1;
+                }
+
+                for (int i = 0; i < enemies2.Count; i++)
+                {
+                    enemies2[i].body.CollisionGroup = -1;
+                    enemies2[i].wheel.CollisionGroup = -1;
                 }
 
                 playerAnimation.myEffect = SpriteEffects.None;
@@ -792,17 +906,19 @@ namespace Prototype1
 
         private void handleMusic()
         {
-            if (MediaPlayer.State != MediaState.Playing)
-            {
-                currentSong++;
-
+            //Console.WriteLine("state: " + MediaPlayer.State.ToString());
+            
+            /*if (MediaPlayer.State != MediaState.Playing)
+            {                
                 if (currentSong > songs.Count - 1)
                 {
                     currentSong = 0;
                 }
 
                 MediaPlayer.Play(songs[currentSong]);
-            }             
+
+                currentSong++;
+            }  */           
         }
 
         /// <summary>
@@ -837,14 +953,23 @@ namespace Prototype1
                 for (int i = 0; i < enemies.Count; i++)
                 {
                     enemies[i].Draw(_batch);
-                }                
+                }
+
+                for (int i = 0; i < enemies2.Count; i++)
+                {
+                    enemies2[i].Draw(_batch);
+                } 
             }
 
             //draw enemies
             for (int i = 0; i < enemies.Count; i++)
-            {
-                //enemies[i].Update(gameTime);
+            {                
                 enemies[i].drawAnimation(gameTime, _batch);
+            }
+
+            for (int i = 0; i < enemies2.Count; i++)
+            {
+                enemies2[i].drawAnimation(gameTime, _batch);
             }
             
 
@@ -895,7 +1020,7 @@ namespace Prototype1
             playerAnimation.Update(gameTime);
             playerAnimation.Draw(_batch);
 
-            if (box.activity != Activity.Dead)
+            if (box.activity != Activity.Dead && box.activity != Activity.Knife)
             {
                 _batch.Draw(head, new Rectangle((int)playerAnimation.Position.X + 0, (int)playerAnimation.Position.Y - 35, head.Width, head.Height), new Rectangle(0, 0, head.Width, head.Height), Color.White, headAngle, new Vector2(20, 18), armgunEffects, 0.0f);
             }
@@ -905,10 +1030,12 @@ namespace Prototype1
             //_batch.Draw(crosshair, box.Position, Color.White);
             //_batch.Draw(crosshair, enemies[0].Position, Color.White); 
 
+            //flashing colour test
+            List<Color> colors = new List<Color>{Color.Red, Color.WhiteSmoke};
 
             for (int i = 0; i < tempBulletArray.Length; i++)
             {
-                _batch.Draw(((Bullet)tempBulletArray.GetValue(i)).Texture, ((Bullet)tempBulletArray.GetValue(i)).CurrentPos, Color.White);
+                _batch.Draw(((Bullet)tempBulletArray.GetValue(i)).Texture, ((Bullet)tempBulletArray.GetValue(i)).CurrentPos, getRandomColor(colors));
             }
                                    
             _batch.End();
@@ -941,6 +1068,16 @@ namespace Prototype1
 
 
             base.Draw(gameTime);
+        }
+
+        private Color getRandomColor(List<Color> colors)
+        {
+            if (colors.Count == 0)
+            {
+                return Color.White;
+            }
+            
+            return colors[new Random().Next(0, colors.Count)];            
         }
 
         private float DegreeToRadian(float angle)

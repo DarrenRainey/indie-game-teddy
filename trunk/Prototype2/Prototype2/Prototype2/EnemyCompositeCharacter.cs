@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Threading;
 using System.ComponentModel;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Prototype1
 {
@@ -17,6 +18,7 @@ namespace Prototype1
         enemyRunning,
         enemyIdle,
         enemyKnife,
+        enemyDead,
         enemyNone
     }
 
@@ -32,6 +34,9 @@ namespace Prototype1
 
         public EnemyActivity activity;
         protected EnemyActivity oldActivity;
+
+        public AudioEmitter audioEmitter;
+        private SoundEffectInstance soundEffectInstance;
 
         private Vector2 jumpForce;
         private float jumpDelayTime;
@@ -51,6 +56,7 @@ namespace Prototype1
             }
 
             this.animation = new Animation();
+            this.audioEmitter = new AudioEmitter();
 
             activity = EnemyActivity.enemyNone;
 
@@ -110,7 +116,7 @@ namespace Prototype1
             //Check if we are both jumping this frame and last frame
             //so that we ignore the initial collision from jumping away from 
             //the ground
-            if (activity == EnemyActivity.enemyJumping && oldActivity == EnemyActivity.enemyJumping)
+            if (activity == EnemyActivity.enemyJumping && oldActivity == EnemyActivity.enemyJumping && activity != EnemyActivity.enemyKnife)
             {
                 activity = EnemyActivity.enemyNone;                
             }
@@ -120,7 +126,7 @@ namespace Prototype1
         protected override void HandleInput(GameTime gameTime)
         {
             //handle bear knife attacks
-            if (Math.Abs(Position.X - Game1.box.Position.X) < 50 && Math.Abs(Position.Y - Game1.box.Position.Y) < 50 && Game1.box.activity != Activity.Dead)
+            if (Math.Abs(Position.X - Game1.box.Position.X) < 50 && Math.Abs(Position.Y - Game1.box.Position.Y) < 90 && Game1.box.activity != Activity.Dead && activity != EnemyActivity.enemyDead)
             {
                 stopScript();                               
                 
@@ -128,6 +134,17 @@ namespace Prototype1
             }
             
             handleAnimation(gameTime);
+
+            //update 3d sound            
+            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / Game1.soundDistanceFactor;
+
+            if (soundEffectInstance != null)
+            {
+                if (soundEffectInstance.State == SoundState.Playing)
+                {
+                    soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+                }
+            }
 
             oldActivity = activity;    
         }
@@ -151,6 +168,13 @@ namespace Prototype1
                 Vector2 temp = animation.Position;
                 animation.Initialize(Game1.bearRunning, Vector2.Zero, 116, 184, 29, 60, Color.White, 1f, true, new Vector2(0, 0));
             }
+            else if (activity == EnemyActivity.enemyDead && oldActivity != EnemyActivity.enemyDead)
+            {
+                Vector2 temp = animation.Position;
+                animation.Initialize(Game1.bearDead, Vector2.Zero, 183, 203, 21, 70, Color.White, 1f, false, new Vector2(0, 0));
+
+                playRandomDeadSound();                              
+            }
             else if (activity == EnemyActivity.enemyKnife && oldActivity != EnemyActivity.enemyKnife)
             {                
                 Vector2 temp = animation.Position;
@@ -168,6 +192,36 @@ namespace Prototype1
             }
 
             animation.Update(gameTime);
+        }
+
+        private void playRandomDeadSound()
+        {
+            int rand = new Random().Next(1, 101);  //num between 1 and 100 - play die sounds from most common to rarest      
+            
+            if (rand <= 50)
+            {
+                soundEffectInstance = Game1.bearDeadSound.CreateInstance();        
+            }
+            else if (rand <= 75)
+            {
+                soundEffectInstance = Game1.bearDeadSound2.CreateInstance();
+            }
+            else if (rand <= 89)
+            {
+                soundEffectInstance = Game1.bearDeadSound3.CreateInstance();
+            }
+            else if (rand <= 97)
+            {
+                soundEffectInstance = Game1.bearDeadSound4.CreateInstance();
+            }
+            else
+            {
+                soundEffectInstance = Game1.bearDeadSound5.CreateInstance();
+            }
+
+            soundEffectInstance = Game1.bearDeadSound.CreateInstance();  
+            soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+            soundEffectInstance.Play();            
         }
 
         public void moveRight(int millis, int speed)
@@ -249,7 +303,7 @@ namespace Prototype1
 
             while (activity != EnemyActivity.enemyNone && bw.CancellationPending == false)
             {
-                Thread.Sleep(30); 
+                Thread.Sleep(10); 
             }
             
             activity = EnemyActivity.enemyIdle;
@@ -536,7 +590,7 @@ namespace Prototype1
             {                                    
                 bw.CancelAsync();
 
-                Thread.Sleep(30);         //wait to make sure the script is stopped
+                Thread.Sleep(12);         //wait to make sure the script is stopped
 
                 activity = EnemyActivity.enemyIdle;                
             }

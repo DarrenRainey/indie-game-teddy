@@ -15,7 +15,7 @@ namespace Prototype2
         private Vector2 directionIncrement;       //the XY increment for the bullet
         private int speed;
         private int maxDistanceFromOrigin;         //the lifespan of the bullet in pixels
-
+       
         public Bullet()
         {
             this.texture = null;
@@ -33,7 +33,7 @@ namespace Prototype2
             this.currentPos = currentPos;
             this.directionIncrement = directionIncrement;
             this.speed = speed;
-            this.maxDistanceFromOrigin = maxDistanceFromOrigin;
+            this.maxDistanceFromOrigin = maxDistanceFromOrigin;            
         }
         
         public Texture2D Texture
