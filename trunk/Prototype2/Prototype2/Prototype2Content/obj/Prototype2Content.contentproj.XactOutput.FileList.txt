@@ -1,0 +1,3 @@
+Content\teddyMusic.xgs
+Content\playlist.xwb
+Content\playlist.xsb

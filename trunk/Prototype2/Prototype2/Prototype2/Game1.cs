@@ -84,13 +84,12 @@ namespace Prototype1
         public static SoundEffect jumpSound;
         public static SoundEffect pistolSound;
         public static SoundEffect dieSound;
-        public static SoundEffect hammerSound; 
+        public static SoundEffect hammerSound;
 
-        public static Song song1;
-        public static Song song2;
-
-        private int currentSong;
-        private List<Song> songs;
+        private AudioEngine audioEngine;
+        private WaveBank waveBank;
+        private SoundBank soundBank;
+        private Cue gameSongsCue;
 
         private Texture2D tile1;
         private Texture2D tile2;
@@ -150,7 +149,7 @@ namespace Prototype1
         public static SoundEffect bearShoot;        
                         
         public static AudioListener audioListener;       
-        public const float soundDistanceFactor = 200f;     //the higher this is the further sounds can be heard        
+        public const float soundDistanceFactor = 300f;     //the higher this is the further sounds can be heard        
         
         private List<EnemyCompositeCharacter> enemies;
         private List<EnemyCompositeCharacter2> enemies2;
@@ -287,13 +286,13 @@ namespace Prototype1
             bearDeadSound4 = Content.Load<SoundEffect>("bearDeadSound4");
             bearDeadSound5 = Content.Load<SoundEffect>("bearDeadSound5");
             bearShoot = Content.Load<SoundEffect>("bearShoot");
-                        
-            song1 = Content.Load<Song>("song1");
-            song2 = Content.Load<Song>("song2");            
-            songs = new List<Song>();
-            songs.Add(song2);
-            songs.Add(song1);
-            MediaPlayer.Volume = 0.7f;
+
+            audioEngine = new AudioEngine("Content/teddyMusic.xgs");
+            waveBank = new WaveBank(audioEngine, "Content/playlist.xwb");
+            soundBank = new SoundBank(audioEngine, "Content/playlist.xsb");
+
+            gameSongsCue = soundBank.GetCue("gamesongs");
+            gameSongsCue.Play();
             
 
             //setup main guy
@@ -752,6 +751,15 @@ namespace Prototype1
                     {
                         showBox = true;
                     }
+
+                    if (gameSongsCue.IsPaused)
+                    {
+                        gameSongsCue.Resume();
+                    }
+                    else if (gameSongsCue.IsPlaying)
+                    {
+                        gameSongsCue.Pause();
+                    }
                 }
 
                 if (padState.Triggers.Right > 0.5 && _oldPadState.Triggers.Right < 0.5)
@@ -935,19 +943,7 @@ namespace Prototype1
 
         private void handleMusic()
         {
-            //Console.WriteLine("state: " + MediaPlayer.State.ToString());
             
-            /*if (MediaPlayer.State != MediaState.Playing)
-            {                
-                if (currentSong > songs.Count - 1)
-                {
-                    currentSong = 0;
-                }
-
-                MediaPlayer.Play(songs[currentSong]);
-
-                currentSong++;
-            }  */           
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
-    <ProjectGuid>{5655cfad-348d-4041-a92d-652fede9c1d5}</ProjectGuid>
+    <ProjectGuid>{5655CFAD-348D-4041-A92D-652FEDE9C1D5}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -118,10 +118,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Farseer Physics Engine 3.3 XNA\Windows Copy (7) of Farseer Physics XNA Xbox360.csproj">
-      <Project>{a244a768-dcf7-4e1f-bf32-e9e07a1fd489}</Project>
-      <Name>Windows Copy (7) of Farseer Physics XNA Xbox360</Name>
-    </ProjectReference>
     <ProjectReference Include="Content\DebugView XNA Content.contentproj">
       <Project>{AC26EDE1-2A42-4A57-BEEE-9603FCAC9317}</Project>
       <Name>DebugView XNA Content %28Content%29</Name>
