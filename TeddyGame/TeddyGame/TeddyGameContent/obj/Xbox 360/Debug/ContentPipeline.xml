@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>background1.png</Source>
+      <Name>background1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\background1.xnb</Output>
+      <Time>2013-04-05T17:30:36+01:00</Time>
+    </Item>
+    <Item>
+      <Source>circleSprite.png</Source>
+      <Name>circleSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\circleSprite.xnb</Output>
+      <Time>2013-04-05T17:32:40+01:00</Time>
+    </Item>
+    <Item>
+      <Source>groundSprite.png</Source>
+      <Name>groundSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\groundSprite.xnb</Output>
+      <Time>2013-04-05T17:31:02+01:00</Time>
+    </Item>
+    <Item>
+      <Source>jump.png</Source>
+      <Name>jump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\jump.xnb</Output>
+      <Time>2013-04-05T17:30:56+01:00</Time>
+    </Item>
+    <Item>
+      <Source>jumping.png</Source>
+      <Name>jumping</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\jumping.xnb</Output>
+      <Time>2013-04-05T17:30:54+01:00</Time>
+    </Item>
+    <Item>
+      <Source>player1.png</Source>
+      <Name>player1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\player1.xnb</Output>
+      <Time>2013-04-05T17:30:56+01:00</Time>
+    </Item>
+    <Item>
+      <Source>run.png</Source>
+      <Name>run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\run.xnb</Output>
+      <Time>2013-04-05T17:30:46+01:00</Time>
+    </Item>
+    <Item>
+      <Source>square.png</Source>
+      <Name>square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\square.xnb</Output>
+      <Time>2013-04-05T17:30:32+01:00</Time>
+    </Item>
+    <Item>
+      <Source>armgun.png</Source>
+      <Name>armgun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\armgun.xnb</Output>
+      <Time>2013-04-05T17:32:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>head.png</Source>
+      <Name>head</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\head.xnb</Output>
+      <Time>2013-04-05T17:30:38+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bullet.png</Source>
+      <Name>bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bullet.xnb</Output>
+      <Time>2013-04-05T17:32:38+01:00</Time>
+    </Item>
+    <Item>
+      <Source>prototype_Tile2.png</Source>
+      <Name>prototype_Tile2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\prototype_Tile2.xnb</Output>
+      <Time>2013-04-05T17:30:44+01:00</Time>
+    </Item>
+    <Item>
+      <Source>crosshair.png</Source>
+      <Name>crosshair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\crosshair.xnb</Output>
+      <Time>2013-04-05T17:30:26+01:00</Time>
+    </Item>
+    <Item>
+      <Source>marker.png</Source>
+      <Name>marker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\marker.xnb</Output>
+      <Time>2013-04-05T17:31:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_0_0.png</Source>
+      <Name>level tiles\A_0_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_0_0.xnb</Output>
+      <Time>2013-04-05T17:31:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_0_720.png</Source>
+      <Name>level tiles\A_0_720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_0_720.xnb</Output>
+      <Time>2013-04-05T17:31:28+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_1280_0.png</Source>
+      <Name>level tiles\A_1280_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_1280_0.xnb</Output>
+      <Time>2013-04-05T17:31:32+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_1280_720.png</Source>
+      <Name>level tiles\A_1280_720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_1280_720.xnb</Output>
+      <Time>2013-04-05T17:31:14+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_2560_1440.png</Source>
+      <Name>level tiles\A_2560_1440</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_2560_1440.xnb</Output>
+      <Time>2013-04-05T17:31:20+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_2560_720.png</Source>
+      <Name>level tiles\A_2560_720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_2560_720.xnb</Output>
+      <Time>2013-04-05T17:31:16+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_3840_1440.png</Source>
+      <Name>level tiles\A_3840_1440</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_3840_1440.xnb</Output>
+      <Time>2013-04-05T17:31:22+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_3840_720.png</Source>
+      <Name>level tiles\A_3840_720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_3840_720.xnb</Output>
+      <Time>2013-04-05T17:31:26+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_5120_1440.png</Source>
+      <Name>level tiles\A_5120_1440</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_5120_1440.xnb</Output>
+      <Time>2013-04-05T17:31:12+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_5120_720.png</Source>
+      <Name>level tiles\A_5120_720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_5120_720.xnb</Output>
+      <Time>2013-04-05T17:31:10+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_M1280_0.png</Source>
+      <Name>level tiles\A_M1280_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_M1280_0.xnb</Output>
+      <Time>2013-04-05T17:31:24+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_M1280_720.png</Source>
+      <Name>level tiles\A_M1280_720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_M1280_720.xnb</Output>
+      <Time>2013-04-05T17:31:08+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearidle.png</Source>
+      <Name>bearidle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearidle.xnb</Output>
+      <Time>2013-04-05T17:30:52+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearrun.png</Source>
+      <Name>bearrun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearrun.xnb</Output>
+      <Time>2013-04-05T17:30:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearjump.png</Source>
+      <Name>bearjump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearjump.xnb</Output>
+      <Time>2013-04-05T17:30:48+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearknife.png</Source>
+      <Name>bearknife</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearknife.xnb</Output>
+      <Time>2013-04-10T15:45:38+01:00</Time>
+    </Item>
+    <Item>
+      <Source>dead.png</Source>
+      <Name>dead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\dead.xnb</Output>
+      <Time>2013-04-10T22:14:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>knife.png</Source>
+      <Name>knife</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\knife.xnb</Output>
+      <Time>2013-04-16T13:00:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>beardead.png</Source>
+      <Name>beardead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\beardead.xnb</Output>
+      <Time>2013-04-16T16:31:58+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2idle.png</Source>
+      <Name>bear2idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2idle.xnb</Output>
+      <Time>2013-04-18T01:09:44+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2run.png</Source>
+      <Name>bear2run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2run.xnb</Output>
+      <Time>2013-04-17T13:20:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2jump.png</Source>
+      <Name>bear2jump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2jump.xnb</Output>
+      <Time>2013-04-17T14:23:20+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2dead.png</Source>
+      <Name>bear2dead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2dead.xnb</Output>
+      <Time>2013-04-17T17:53:48+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootahead.png</Source>
+      <Name>bear2shootahead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootahead.xnb</Output>
+      <Time>2013-04-17T19:44:54+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootdiagup.png</Source>
+      <Name>bear2shootdiagup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootdiagup.xnb</Output>
+      <Time>2013-04-18T00:11:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootup.png</Source>
+      <Name>bear2shootup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootup.xnb</Output>
+      <Time>2013-04-18T01:34:16+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootdiagdown.png</Source>
+      <Name>bear2shootdiagdown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootdiagdown.xnb</Output>
+      <Time>2013-04-18T02:22:56+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bear2shootdown.png</Source>
+      <Name>bear2shootdown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootdown.xnb</Output>
+      <Time>2013-04-18T02:48:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bullet2.png</Source>
+      <Name>bullet2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bullet2.xnb</Output>
+      <Time>2013-04-18T03:03:32+01:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\font.xnb</Output>
+      <Time>2013-04-11T01:57:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bigFont.spritefont</Source>
+      <Name>bigFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bigFont.xnb</Output>
+      <Time>2013-04-11T01:57:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>dieSound.wav</Source>
+      <Name>dieSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\dieSound.xnb</Output>
+      <Time>2013-04-11T02:12:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>jumpSound.wav</Source>
+      <Name>jumpSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\jumpSound.xnb</Output>
+      <Time>2013-04-21T01:40:28+01:00</Time>
+    </Item>
+    <Item>
+      <Source>pistolSound.wav</Source>
+      <Name>pistolSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\pistolSound.xnb</Output>
+      <Time>2013-04-21T01:32:56+01:00</Time>
+    </Item>
+    <Item>
+      <Source>knifeSound.wav</Source>
+      <Name>knifeSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\knifeSound.xnb</Output>
+      <Time>2013-04-11T02:12:34+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound.wav</Source>
+      <Name>bearDeadSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound.xnb</Output>
+      <Time>2013-04-17T16:55:44+01:00</Time>
+    </Item>
+    <Item>
+      <Source>hammerSound.wav</Source>
+      <Name>hammerSound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\hammerSound.xnb</Output>
+      <Time>2013-04-16T17:34:20+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound2.wav</Source>
+      <Name>bearDeadSound2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound2.xnb</Output>
+      <Time>2013-04-17T16:55:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound3.wav</Source>
+      <Name>bearDeadSound3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound3.xnb</Output>
+      <Time>2013-04-17T16:55:42+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound4.wav</Source>
+      <Name>bearDeadSound4</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound4.xnb</Output>
+      <Time>2013-04-17T16:58:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearDeadSound5.wav</Source>
+      <Name>bearDeadSound5</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound5.xnb</Output>
+      <Time>2013-04-17T16:58:30+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearShoot.wav</Source>
+      <Name>bearShoot</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearShoot.xnb</Output>
+      <Time>2013-04-18T06:44:10+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bulletHit.wav</Source>
+      <Name>bulletHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bulletHit.xnb</Output>
+      <Time>2013-04-18T06:50:08+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gamesongs.wav</Source>
+      <Name>gamesongs</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\gamesongs.xnb</Output>
+      <Time>2013-04-19T14:43:16+01:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Xbox360</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\obj\Xbox 360\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-04-11T04:34:10.9562639+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

@@ -1,0 +1,12 @@
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\bin\Xbox 360\Release\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\bin\Xbox 360\Release\FarseerPhysicsXNA.pdb
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\FarseerPhysicsXNA.pdb
+C:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\bin\Xbox 360\Release\FarseerPhysicsXNA.dll
+C:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\bin\Xbox 360\Release\FarseerPhysicsXNA.pdb
+C:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+C:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\FarseerPhysicsXNA.dll
+C:\indie-game-teddy\Farseer Physics Engine 3.3 XNA\obj\Xbox 360\Release\FarseerPhysicsXNA.pdb
