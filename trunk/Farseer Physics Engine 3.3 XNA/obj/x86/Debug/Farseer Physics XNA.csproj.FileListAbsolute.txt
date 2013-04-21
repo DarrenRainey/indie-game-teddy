@@ -1,6 +1,0 @@
-C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\bin\x86\Debug\FarseerPhysicsXNA.dll
-C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\bin\x86\Debug\FarseerPhysicsXNA.pdb
-C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.dll
-C:\Users\Hugh\Downloads\FARSEER SAMPLE UNTOUCHED\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\obj\x86\Debug\FarseerPhysicsXNA.pdb

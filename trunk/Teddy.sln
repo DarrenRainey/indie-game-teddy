@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer Physics XNA Xbox360", "Farseer Physics Engine 3.3 XNA\Farseer Physics XNA Xbox360.csproj", "{68C00837-1D4D-4335-9AD3-26D7E17E233B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeddyGame", "TeddyGame\TeddyGame\TeddyGame\TeddyGame.csproj", "{EC600DB2-A666-4A95-9380-B35157D81522}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeddyGameContent", "TeddyGame\TeddyGame\TeddyGameContent\TeddyGameContent.contentproj", "{D7F582F9-00D1-4310-84B8-2184380960CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Debug|Xbox 360 = Debug|Xbox 360
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+		Release|Xbox 360 = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Debug|Any CPU.ActiveCfg = Debug|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Debug|Any CPU.Build.0 = Debug|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Debug|Mixed Platforms.ActiveCfg = Debug|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Debug|x86.ActiveCfg = Debug|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Debug|x86.Build.0 = Debug|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Release|Any CPU.ActiveCfg = Release|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Release|Mixed Platforms.ActiveCfg = Release|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Release|x86.ActiveCfg = Release|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Release|x86.Build.0 = Release|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+		{68C00837-1D4D-4335-9AD3-26D7E17E233B}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Debug|Any CPU.ActiveCfg = Debug|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Debug|Mixed Platforms.ActiveCfg = Debug|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Debug|x86.ActiveCfg = Debug|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Debug|x86.Build.0 = Debug|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Debug|Xbox 360.Deploy.0 = Debug|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Release|Any CPU.ActiveCfg = Release|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Release|Mixed Platforms.ActiveCfg = Release|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Release|x86.ActiveCfg = Release|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Release|x86.Build.0 = Release|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{EC600DB2-A666-4A95-9380-B35157D81522}.Release|Xbox 360.Deploy.0 = Release|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Debug|Any CPU.ActiveCfg = Debug|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Debug|Mixed Platforms.ActiveCfg = Debug|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Debug|x86.ActiveCfg = Debug|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Release|Any CPU.ActiveCfg = Release|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Release|Mixed Platforms.ActiveCfg = Release|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Release|x86.ActiveCfg = Release|Xbox 360
+		{D7F582F9-00D1-4310-84B8-2184380960CE}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

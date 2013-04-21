@@ -1,0 +1,146 @@
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\background1.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\circleSprite.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\groundSprite.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\jump.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\jumping.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\player1.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\run.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\square.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\armgun.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\head.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bullet.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\prototype_Tile2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\crosshair.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\marker.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_0_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_0_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_1280_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_1280_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_2560_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_2560_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_3840_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_3840_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_5120_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_5120_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_M1280_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\level tiles\A_M1280_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearidle.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearrun.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearjump.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearknife.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\dead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\knife.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\beardead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2idle.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2run.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2jump.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2dead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2shootahead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2shootdiagup.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2shootup.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2shootdiagdown.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bear2shootdown.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bullet2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\font.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bigFont.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\dieSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\jumpSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\pistolSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\knifeSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearDeadSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\hammerSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearDeadSound2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearDeadSound3.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearDeadSound4.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearDeadSound5.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bearShoot.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\bulletHit.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\gamesongs.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\teddyMusic.xgs
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\playlist.xwb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Content\playlist.xsb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Prototype2.exe
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\Prototype2.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Release\FarseerPhysicsXNA.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Release\Prototype2.exe
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Release\Prototype2.pdb
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Prototype2.exe
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Prototype2.pdb
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\FarseerPhysicsXNA.pdb
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\Prototype2.exe
+F:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\Prototype2.pdb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\background1.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\circleSprite.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\groundSprite.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\jump.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\jumping.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\player1.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\run.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\square.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\armgun.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\head.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bullet.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\prototype_Tile2.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\crosshair.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\marker.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_0_0.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_0_720.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_1280_0.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_1280_720.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_2560_1440.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_2560_720.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_3840_1440.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_3840_720.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_5120_1440.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_5120_720.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_M1280_0.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\level tiles\A_M1280_720.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearidle.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearrun.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearjump.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearknife.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\dead.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\knife.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\beardead.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2idle.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2run.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2jump.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2dead.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2shootahead.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2shootdiagup.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2shootup.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2shootdiagdown.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bear2shootdown.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bullet2.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\font.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bigFont.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\dieSound.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\jumpSound.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\pistolSound.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\knifeSound.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearDeadSound.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\hammerSound.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearDeadSound2.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearDeadSound3.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearDeadSound4.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearDeadSound5.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bearShoot.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\bulletHit.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\gamesongs.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\teddyMusic.xgs
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\playlist.xwb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Content\playlist.xsb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Prototype2.exe
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\Prototype2.pdb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\FarseerPhysicsXNA.dll
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Release\FarseerPhysicsXNA.pdb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\Prototype2.exe
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Release\Prototype2.pdb

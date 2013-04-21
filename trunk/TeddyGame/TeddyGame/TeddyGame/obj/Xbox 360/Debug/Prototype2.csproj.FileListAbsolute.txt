@@ -1,0 +1,218 @@
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.exe
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.pdb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.exe
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.pdb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.dll
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.pdb
+C:\Users\Hugh\Downloads\xna\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.pdb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.exe
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.pdb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.dll
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.pdb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.pdb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+E:\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.exe
+E:\Prototype2\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.pdb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\gun.xnb
+E:\Prototype2\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\shooting.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.exe
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.pdb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\font.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\armgun.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\head.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bullet.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\prototype_Tile2.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\crosshair.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\marker.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_0.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_720.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_0.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_720.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_1440.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_720.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_1440.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_720.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_1440.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_720.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_0.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_720.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.exe
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.pdb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.dll
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.pdb
+E:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.pdb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\armgun.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\head.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bullet.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\prototype_Tile2.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\crosshair.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\marker.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_0.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_720.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_0.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_720.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_1440.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_720.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_1440.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_720.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_1440.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_720.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_0.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_720.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearidle.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearrun.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearjump.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearknife.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\dead.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\knife.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\beardead.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2idle.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2run.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2jump.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2dead.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootahead.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootdiagup.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootup.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootdiagdown.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootdown.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bullet2.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bigFont.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\dieSound.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumpSound.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\pistolSound.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\knifeSound.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\hammerSound.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound2.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound3.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound4.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound5.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearShoot.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bulletHit.xnb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.exe
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.pdb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.dll
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\DebugViewXNA.pdb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.pdb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.exe
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.pdb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\teddyMusic.xgs
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\playlist.xwb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\playlist.xsb
+C:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\gamesongs.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\background1.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\circleSprite.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\groundSprite.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jump.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumping.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\player1.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\run.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\square.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\armgun.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\head.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bullet.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\prototype_Tile2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\crosshair.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\marker.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_0_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_1280_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_2560_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_3840_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_1440.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_5120_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_0.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\level tiles\A_M1280_720.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearidle.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearrun.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearjump.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearknife.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\dead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\knife.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\beardead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2idle.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2run.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2jump.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2dead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootahead.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootdiagup.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootup.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootdiagdown.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bear2shootdown.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bullet2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\font.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bigFont.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\dieSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\jumpSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\pistolSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\knifeSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\hammerSound.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound2.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound3.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound4.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearDeadSound5.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bearShoot.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\bulletHit.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\gamesongs.xnb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\teddyMusic.xgs
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\playlist.xwb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Content\playlist.xsb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.exe
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\Prototype2.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\Xbox 360\Debug\FarseerPhysicsXNA.pdb
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.exe
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\obj\Xbox 360\Debug\Prototype2.pdb

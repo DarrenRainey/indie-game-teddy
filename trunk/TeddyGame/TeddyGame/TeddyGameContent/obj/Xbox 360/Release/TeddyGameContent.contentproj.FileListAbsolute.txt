@@ -1,0 +1,4 @@
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\Xbox 360\Release\teddyMusic.xml
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\obj\Xbox 360\Release\teddyMusic.xml
