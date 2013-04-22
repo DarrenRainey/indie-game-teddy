@@ -5,7 +5,7 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 using FarseerPhysics.Collision;
 
-namespace Prototype1
+namespace Prototype2
 {
 
     public class PhysicsObject

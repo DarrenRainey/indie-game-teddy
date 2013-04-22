@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace Prototype1
+namespace Prototype2
 {
     /// <summary>
     /// Convert units between display and simulation units.

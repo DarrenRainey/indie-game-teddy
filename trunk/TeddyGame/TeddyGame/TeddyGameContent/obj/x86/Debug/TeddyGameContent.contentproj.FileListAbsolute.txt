@@ -1,0 +1,2 @@
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\obj\x86\Debug\teddyMusic.xml

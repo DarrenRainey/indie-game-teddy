@@ -41,8 +41,13 @@ Content\bear2shootup.xnb
 Content\bear2shootdiagdown.xnb
 Content\bear2shootdown.xnb
 Content\bullet2.xnb
+Content\background.xnb
+Content\blank.xnb
+Content\gradient.xnb
 Content\font.xnb
 Content\bigFont.xnb
+Content\gamefont.xnb
+Content\menufont.xnb
 Content\dieSound.xnb
 Content\jumpSound.xnb
 Content\pistolSound.xnb
@@ -56,6 +61,7 @@ Content\bearDeadSound5.xnb
 Content\bearShoot.xnb
 Content\bulletHit.xnb
 Content\gamesongs.xnb
+Content\menumusic.xnb
 Content\teddyMusic.xgs
 Content\playlist.xwb
 Content\playlist.xsb

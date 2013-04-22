@@ -7,7 +7,7 @@ using FarseerPhysics.Collision;
 using FarseerPhysics.Controllers;
 using FarseerPhysics.Dynamics.Joints;
 
-namespace Prototype1
+namespace Prototype2
 {
     public class CompositePhysicsObject
     {
