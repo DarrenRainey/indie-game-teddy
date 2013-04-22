@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\background1.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\background1.xnb</Output>
       <Time>2013-04-05T17:30:36+01:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\circleSprite.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\circleSprite.xnb</Output>
       <Time>2013-04-05T17:32:40+01:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\groundSprite.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\groundSprite.xnb</Output>
       <Time>2013-04-05T17:31:02+01:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jump.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\jump.xnb</Output>
       <Time>2013-04-05T17:30:56+01:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jumping.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\jumping.xnb</Output>
       <Time>2013-04-05T17:30:54+01:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\player1.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\player1.xnb</Output>
       <Time>2013-04-05T17:30:56+01:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\run.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\run.xnb</Output>
       <Time>2013-04-05T17:30:46+01:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\square.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\square.xnb</Output>
       <Time>2013-04-05T17:30:32+01:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\armgun.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\armgun.xnb</Output>
       <Time>2013-04-05T17:32:42+01:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\head.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\head.xnb</Output>
       <Time>2013-04-05T17:30:38+01:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bullet.xnb</Output>
       <Time>2013-04-05T17:32:38+01:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\prototype_Tile2.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\prototype_Tile2.xnb</Output>
       <Time>2013-04-05T17:30:44+01:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\crosshair.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\crosshair.xnb</Output>
       <Time>2013-04-05T17:30:26+01:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\marker.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\marker.xnb</Output>
       <Time>2013-04-05T17:31:00+01:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_0.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_0_0.xnb</Output>
       <Time>2013-04-05T17:31:06+01:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_0_720.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_0_720.xnb</Output>
       <Time>2013-04-05T17:31:28+01:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_0.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_1280_0.xnb</Output>
       <Time>2013-04-05T17:31:32+01:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_1280_720.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_1280_720.xnb</Output>
       <Time>2013-04-05T17:31:14+01:00</Time>
     </Item>
     <Item>
@@ -169,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_1440.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_2560_1440.xnb</Output>
       <Time>2013-04-05T17:31:20+01:00</Time>
     </Item>
     <Item>
@@ -178,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_2560_720.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_2560_720.xnb</Output>
       <Time>2013-04-05T17:31:16+01:00</Time>
     </Item>
     <Item>
@@ -187,7 +187,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_1440.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_3840_1440.xnb</Output>
       <Time>2013-04-05T17:31:22+01:00</Time>
     </Item>
     <Item>
@@ -196,7 +196,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_3840_720.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_3840_720.xnb</Output>
       <Time>2013-04-05T17:31:26+01:00</Time>
     </Item>
     <Item>
@@ -205,7 +205,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_1440.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_5120_1440.xnb</Output>
       <Time>2013-04-05T17:31:12+01:00</Time>
     </Item>
     <Item>
@@ -214,7 +214,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_5120_720.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_5120_720.xnb</Output>
       <Time>2013-04-05T17:31:10+01:00</Time>
     </Item>
     <Item>
@@ -223,7 +223,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_0.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_M1280_0.xnb</Output>
       <Time>2013-04-05T17:31:24+01:00</Time>
     </Item>
     <Item>
@@ -232,7 +232,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\level tiles\A_M1280_720.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_M1280_720.xnb</Output>
       <Time>2013-04-05T17:31:08+01:00</Time>
     </Item>
     <Item>
@@ -241,7 +241,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearidle.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearidle.xnb</Output>
       <Time>2013-04-05T17:30:52+01:00</Time>
     </Item>
     <Item>
@@ -250,7 +250,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearrun.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearrun.xnb</Output>
       <Time>2013-04-05T17:30:30+01:00</Time>
     </Item>
     <Item>
@@ -259,7 +259,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearjump.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearjump.xnb</Output>
       <Time>2013-04-05T17:30:48+01:00</Time>
     </Item>
     <Item>
@@ -268,7 +268,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearknife.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearknife.xnb</Output>
       <Time>2013-04-10T15:45:38+01:00</Time>
     </Item>
     <Item>
@@ -277,7 +277,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\dead.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\dead.xnb</Output>
       <Time>2013-04-10T22:14:30+01:00</Time>
     </Item>
     <Item>
@@ -286,7 +286,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\knife.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\knife.xnb</Output>
       <Time>2013-04-16T13:00:06+01:00</Time>
     </Item>
     <Item>
@@ -295,7 +295,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\beardead.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\beardead.xnb</Output>
       <Time>2013-04-16T16:31:58+01:00</Time>
     </Item>
     <Item>
@@ -304,7 +304,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2idle.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2idle.xnb</Output>
       <Time>2013-04-18T01:09:44+01:00</Time>
     </Item>
     <Item>
@@ -313,7 +313,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2run.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2run.xnb</Output>
       <Time>2013-04-17T13:20:34+01:00</Time>
     </Item>
     <Item>
@@ -322,7 +322,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2jump.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2jump.xnb</Output>
       <Time>2013-04-17T14:23:20+01:00</Time>
     </Item>
     <Item>
@@ -331,7 +331,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2dead.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2dead.xnb</Output>
       <Time>2013-04-17T17:53:48+01:00</Time>
     </Item>
     <Item>
@@ -340,7 +340,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootahead.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2shootahead.xnb</Output>
       <Time>2013-04-17T19:44:54+01:00</Time>
     </Item>
     <Item>
@@ -349,7 +349,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootdiagup.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2shootdiagup.xnb</Output>
       <Time>2013-04-18T00:11:42+01:00</Time>
     </Item>
     <Item>
@@ -358,7 +358,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootup.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2shootup.xnb</Output>
       <Time>2013-04-18T01:34:16+01:00</Time>
     </Item>
     <Item>
@@ -367,7 +367,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootdiagdown.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2shootdiagdown.xnb</Output>
       <Time>2013-04-18T02:22:56+01:00</Time>
     </Item>
     <Item>
@@ -376,7 +376,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bear2shootdown.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bear2shootdown.xnb</Output>
       <Time>2013-04-18T02:48:30+01:00</Time>
     </Item>
     <Item>
@@ -385,8 +385,35 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bullet2.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bullet2.xnb</Output>
       <Time>2013-04-18T03:03:32+01:00</Time>
+    </Item>
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2013-04-18T08:35:01.9625912+01:00</Time>
+    </Item>
+    <Item>
+      <Source>blank.png</Source>
+      <Name>blank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2013-04-18T08:35:01.9815923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gradient.png</Source>
+      <Name>gradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\gradient.xnb</Output>
+      <Time>2013-04-18T08:35:02.0545965+01:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -394,7 +421,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\font.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\font.xnb</Output>
       <Time>2013-04-11T01:57:06+01:00</Time>
     </Item>
     <Item>
@@ -403,8 +430,26 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bigFont.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bigFont.xnb</Output>
       <Time>2013-04-11T01:57:06+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gamefont.spritefont</Source>
+      <Name>gamefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\gamefont.xnb</Output>
+      <Time>2013-04-18T08:35:02.0345953+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menufont.spritefont</Source>
+      <Name>menufont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2013-04-18T08:35:02.0725975+01:00</Time>
     </Item>
     <Item>
       <Source>dieSound.wav</Source>
@@ -412,7 +457,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\dieSound.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\dieSound.xnb</Output>
       <Time>2013-04-11T02:12:34+01:00</Time>
     </Item>
     <Item>
@@ -421,8 +466,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\jumpSound.xnb</Output>
-      <Time>2013-04-20T23:25:16+01:00</Time>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\jumpSound.xnb</Output>
+      <Time>2013-04-21T01:40:28+01:00</Time>
     </Item>
     <Item>
       <Source>pistolSound.wav</Source>
@@ -430,8 +475,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\pistolSound.xnb</Output>
-      <Time>2013-04-20T23:25:20+01:00</Time>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\pistolSound.xnb</Output>
+      <Time>2013-04-21T01:32:56+01:00</Time>
     </Item>
     <Item>
       <Source>knifeSound.wav</Source>
@@ -439,7 +484,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\knifeSound.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\knifeSound.xnb</Output>
       <Time>2013-04-11T02:12:34+01:00</Time>
     </Item>
     <Item>
@@ -448,7 +493,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearDeadSound.xnb</Output>
       <Time>2013-04-17T16:55:44+01:00</Time>
     </Item>
     <Item>
@@ -457,7 +502,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\hammerSound.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\hammerSound.xnb</Output>
       <Time>2013-04-16T17:34:20+01:00</Time>
     </Item>
     <Item>
@@ -466,7 +511,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound2.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearDeadSound2.xnb</Output>
       <Time>2013-04-17T16:55:42+01:00</Time>
     </Item>
     <Item>
@@ -475,7 +520,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound3.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearDeadSound3.xnb</Output>
       <Time>2013-04-17T16:55:42+01:00</Time>
     </Item>
     <Item>
@@ -484,7 +529,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound4.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearDeadSound4.xnb</Output>
       <Time>2013-04-17T16:58:30+01:00</Time>
     </Item>
     <Item>
@@ -493,7 +538,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearDeadSound5.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearDeadSound5.xnb</Output>
       <Time>2013-04-17T16:58:30+01:00</Time>
     </Item>
     <Item>
@@ -502,7 +547,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bearShoot.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bearShoot.xnb</Output>
       <Time>2013-04-18T06:44:10+01:00</Time>
     </Item>
     <Item>
@@ -511,7 +556,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\bulletHit.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\bulletHit.xnb</Output>
       <Time>2013-04-18T06:50:08+01:00</Time>
     </Item>
     <Item>
@@ -520,8 +565,17 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\gamesongs.xnb</Output>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\gamesongs.xnb</Output>
       <Time>2013-04-19T14:43:16+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menumusic.wav</Source>
+      <Name>menumusic</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\menumusic.xnb</Output>
+      <Time>2013-04-21T21:55:03.247+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -529,10 +583,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\</RootDirectory>
-      <LoggerRootDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\</LoggerRootDirectory>
-      <IntermediateDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>F:\indie-game-teddy\Prototype2\Prototype2\Prototype2\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

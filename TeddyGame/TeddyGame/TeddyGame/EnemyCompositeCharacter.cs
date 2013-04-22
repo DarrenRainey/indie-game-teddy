@@ -10,7 +10,7 @@ using System.Threading;
 using System.ComponentModel;
 using Microsoft.Xna.Framework.Audio;
 
-namespace Prototype1
+namespace Prototype2
 {
     public enum EnemyActivity
     {
@@ -124,9 +124,9 @@ namespace Prototype1
         }
 
         protected override void HandleInput(GameTime gameTime)
-        {
+        {            
             //handle bear knife attacks
-            if (Math.Abs(Position.X - Game1.box.Position.X) < 50 && Math.Abs(Position.Y - Game1.box.Position.Y) < 90 && Game1.box.activity != Activity.Dead && activity != EnemyActivity.enemyDead)
+            if (Math.Abs(Position.X - GameplayScreen.box.Position.X) < 50 && Math.Abs(Position.Y - GameplayScreen.box.Position.Y) < 90 && GameplayScreen.box.activity != Activity.Dead && activity != EnemyActivity.enemyDead)
             {
                 stopScript();                               
                 
@@ -136,13 +136,13 @@ namespace Prototype1
             handleAnimation(gameTime);
 
             //update 3d sound            
-            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / Game1.soundDistanceFactor;
+            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen.soundDistanceFactor;
 
             if (soundEffectInstance != null)
             {
                 if (soundEffectInstance.State == SoundState.Playing)
                 {
-                    soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+                    soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
                 }
             }
 
@@ -154,35 +154,35 @@ namespace Prototype1
             
             //control bear animation
             if (activity == EnemyActivity.enemyIdle && oldActivity != EnemyActivity.enemyIdle)
-            {
+            {                
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bearIdle, Vector2.Zero, 93, 183, 40, 100, Color.White, 1f, true, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bearIdle, Vector2.Zero, 93, 183, 40, 100, Color.White, 1f, true, new Vector2(0, 0));
             }
             else if (activity == EnemyActivity.enemyJumping && oldActivity != EnemyActivity.enemyJumping)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bearJumping, Vector2.Zero, 138, 184, 23, 40, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bearJumping, Vector2.Zero, 138, 184, 23, 40, Color.White, 1f, false, new Vector2(0, 0));
             }
             else if (activity == EnemyActivity.enemyRunning && oldActivity != EnemyActivity.enemyRunning)
-            {                
+            {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bearRunning, Vector2.Zero, 116, 184, 29, 60, Color.White, 1f, true, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bearRunning, Vector2.Zero, 116, 184, 29, 60, Color.White, 1f, true, new Vector2(0, 0));
             }
             else if (activity == EnemyActivity.enemyDead && oldActivity != EnemyActivity.enemyDead)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bearDead, Vector2.Zero, 183, 203, 21, 70, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bearDead, Vector2.Zero, 183, 203, 21, 70, Color.White, 1f, false, new Vector2(0, 0));
 
-                playRandomDeadSound();                              
+                playRandomDeadSound();
             }
             else if (activity == EnemyActivity.enemyKnife && oldActivity != EnemyActivity.enemyKnife)
-            {                
+            {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bearKnife, Vector2.Zero, 134, 183, 14, 50, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bearKnife, Vector2.Zero, 134, 183, 14, 50, Color.White, 1f, false, new Vector2(0, 0));
 
-                Game1.knifeSound.Play();
+                GameplayScreen.knifeSound.Play();
 
-                Game1.box.activity = Activity.Dead;                
+                GameplayScreen.box.activity = Activity.Dead;
             }
   
             //if the knife animation is finished execute the post attack script
@@ -200,27 +200,27 @@ namespace Prototype1
             
             if (rand <= 50)
             {
-                soundEffectInstance = Game1.bearDeadSound.CreateInstance();        
+                soundEffectInstance = GameplayScreen.bearDeadSound.CreateInstance();        
             }
             else if (rand <= 75)
             {
-                soundEffectInstance = Game1.bearDeadSound2.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound2.CreateInstance();
             }
             else if (rand <= 89)
             {
-                soundEffectInstance = Game1.bearDeadSound3.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound3.CreateInstance();
             }
             else if (rand <= 97)
             {
-                soundEffectInstance = Game1.bearDeadSound4.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound4.CreateInstance();
             }
             else
             {
-                soundEffectInstance = Game1.bearDeadSound5.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound5.CreateInstance();
             }
 
-            soundEffectInstance = Game1.bearDeadSound.CreateInstance();  
-            soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+            soundEffectInstance = GameplayScreen.bearDeadSound.CreateInstance();  
+            soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
             soundEffectInstance.Play();            
         }
 
@@ -244,6 +244,11 @@ namespace Prototype1
             while (bw.CancellationPending == false && i < millis)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 i += 10;
             }
@@ -273,6 +278,11 @@ namespace Prototype1
             {
                 Thread.Sleep(10);
 
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
+
                 i += 10;
             }
 
@@ -289,6 +299,11 @@ namespace Prototype1
             while (bw.CancellationPending == false && i < millis)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 i += 10;
             }
@@ -606,10 +621,14 @@ namespace Prototype1
             spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)(Position.Y), (int)width, (int)height), null, new Color(1, 1, 1, 0.5f), body.Rotation, origin, SpriteEffects.None, 0f);
         }
 
-        public void drawAnimation(GameTime gameTime, SpriteBatch spriteBatch)
+        public void drawAnimation(GameTime gameTime, SpriteBatch spriteBatch, bool active)
         {
-            animation.Position = Position;
-            animation.Update(gameTime);
+            if (active)
+            {
+                animation.Position = Position;
+                animation.Update(gameTime);
+            }
+
             animation.Draw(spriteBatch);
         }
 

@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Audio;
 using System.Collections.Generic;
 using Prototype2;
 
-namespace Prototype1
+namespace Prototype2
 {
     public enum EnemyActivity2
     {
@@ -149,13 +149,13 @@ namespace Prototype1
             handleAnimation(gameTime);
 
             //update 3d sound 
-            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / Game1.soundDistanceFactor;       
+            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen.soundDistanceFactor;       
 
             if (soundEffectInstance != null)
             {
                 if (soundEffectInstance.State == SoundState.Playing)
                 {
-                    soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+                    soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
                 }
             }
 
@@ -189,7 +189,7 @@ namespace Prototype1
             if (animation.currentFrame == 18 && bulletAdded == false && (activity == EnemyActivity2.enemyShootDown || activity == EnemyActivity2.enemyShootDiagDown || activity == EnemyActivity2.enemyShootAhead || activity == EnemyActivity2.enemyShootDiagUp || activity == EnemyActivity2.enemyShootUp))  
             {
                 Bullet bullet = new Bullet();
-                bullet.Texture = Game1.bulletTex2;
+                bullet.Texture = GameplayScreen.bulletTex2;
                 
                 if(animation.myEffect == SpriteEffects.FlipHorizontally)  //to the right
                 {
@@ -257,8 +257,8 @@ namespace Prototype1
 
                 bulletAdded = true;
                 
-                soundEffectInstance = Game1.bearShoot.CreateInstance();        //play bullet sound quitely if far away
-                soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+                soundEffectInstance = GameplayScreen.bearShoot.CreateInstance();        //play bullet sound quitely if far away
+                soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
                 soundEffectInstance.Play();                
             }
 
@@ -274,28 +274,28 @@ namespace Prototype1
             if (activity == EnemyActivity2.enemyIdle && oldActivity != EnemyActivity2.enemyIdle)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2Idle, Vector2.Zero, 143, 184, 28, 120, Color.White, 1f, true, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2Idle, Vector2.Zero, 143, 184, 28, 120, Color.White, 1f, true, new Vector2(0, 0));
 
                 drawOffset = new Vector2(0f, 0f);
             }
             else if (activity == EnemyActivity2.enemyJumping && oldActivity != EnemyActivity2.enemyJumping)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2Jumping, Vector2.Zero, 153, 183, 23, 40, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2Jumping, Vector2.Zero, 153, 183, 23, 40, Color.White, 1f, false, new Vector2(0, 0));
 
                 drawOffset = new Vector2(0f, 0f);
             }
             else if (activity == EnemyActivity2.enemyRunning && oldActivity != EnemyActivity2.enemyRunning)
             {                
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2Running, Vector2.Zero, 156, 184, 23, 60, Color.White, 1f, true, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2Running, Vector2.Zero, 156, 184, 23, 60, Color.White, 1f, true, new Vector2(0, 0));
 
                 drawOffset = new Vector2(0f, 0f);
             }
             else if (activity == EnemyActivity2.enemyShootDown && oldActivity != EnemyActivity2.enemyShootDown)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2ShootDown, Vector2.Zero, 138, 189, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2ShootDown, Vector2.Zero, 138, 189, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
                 animation.currentFrame = shootStartFrame;
 
                 drawOffset = new Vector2(-7f, -3f);
@@ -303,7 +303,7 @@ namespace Prototype1
             else if (activity == EnemyActivity2.enemyShootDiagDown && oldActivity != EnemyActivity2.enemyShootDiagDown)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2ShootDiagDown, Vector2.Zero, 143, 187, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2ShootDiagDown, Vector2.Zero, 143, 187, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
                 animation.currentFrame = shootStartFrame;
 
                 drawOffset = new Vector2(-7f, -2f);
@@ -311,7 +311,7 @@ namespace Prototype1
             else if (activity == EnemyActivity2.enemyShootAhead && oldActivity != EnemyActivity2.enemyShootAhead)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2ShootAhead, Vector2.Zero, 162, 184, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2ShootAhead, Vector2.Zero, 162, 184, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
                 animation.currentFrame = shootStartFrame;
 
                 drawOffset = new Vector2(-18f, 0f);
@@ -319,7 +319,7 @@ namespace Prototype1
             else if (activity == EnemyActivity2.enemyShootDiagUp && oldActivity != EnemyActivity2.enemyShootDiagUp)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2ShootDiagUp, Vector2.Zero, 139, 185, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2ShootDiagUp, Vector2.Zero, 139, 185, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
                 animation.currentFrame = shootStartFrame;
 
                 drawOffset = new Vector2(-7f, 0f);
@@ -327,7 +327,7 @@ namespace Prototype1
             else if (activity == EnemyActivity2.enemyShootUp && oldActivity != EnemyActivity2.enemyShootUp)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2ShootUp, Vector2.Zero, 146, 196, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2ShootUp, Vector2.Zero, 146, 196, 25, 50, Color.White, 1f, false, new Vector2(0, 0));
                 animation.currentFrame = shootStartFrame;
 
                 drawOffset = new Vector2(5f, -6f);
@@ -335,7 +335,7 @@ namespace Prototype1
             else if (activity == EnemyActivity2.enemyDead && oldActivity != EnemyActivity2.enemyDead)
             {
                 Vector2 temp = animation.Position;
-                animation.Initialize(Game1.bear2Dead, Vector2.Zero, 184, 203, 22, 70, Color.White, 1f, false, new Vector2(0, 0));
+                animation.Initialize(GameStateManagementGame.bear2Dead, Vector2.Zero, 184, 203, 22, 70, Color.White, 1f, false, new Vector2(0, 0));
 
                 drawOffset = new Vector2(0f, 0f);
 
@@ -357,26 +357,26 @@ namespace Prototype1
 
             if (rand <= 50)
             {
-                soundEffectInstance = Game1.bearDeadSound.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound.CreateInstance();
             }
             else if (rand <= 75)
             {
-                soundEffectInstance = Game1.bearDeadSound2.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound2.CreateInstance();
             }
             else if (rand <= 89)
             {
-                soundEffectInstance = Game1.bearDeadSound3.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound3.CreateInstance();
             }
             else if (rand <= 97)
             {
-                soundEffectInstance = Game1.bearDeadSound4.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound4.CreateInstance();
             }
             else
             {
-                soundEffectInstance = Game1.bearDeadSound5.CreateInstance();
+                soundEffectInstance = GameplayScreen.bearDeadSound5.CreateInstance();
             }
 
-            soundEffectInstance.Apply3D(Game1.audioListener, audioEmitter);
+            soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
             soundEffectInstance.Play();
         }
 
@@ -400,6 +400,11 @@ namespace Prototype1
             while (bw.CancellationPending == false && i < millis)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 i += 10;
             }
@@ -429,6 +434,11 @@ namespace Prototype1
             {
                 Thread.Sleep(10);
 
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
+
                 i += 10;
             }
 
@@ -445,6 +455,11 @@ namespace Prototype1
             while (bw.CancellationPending == false && i < millis)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 i += 10;
             }
@@ -475,6 +490,11 @@ namespace Prototype1
             {
                 Thread.Sleep(10);
 
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
+
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
                     bullets--;
@@ -502,6 +522,11 @@ namespace Prototype1
             {
                 Thread.Sleep(10);
 
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
+
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
                     bullets--;
@@ -527,6 +552,11 @@ namespace Prototype1
             {
                 Thread.Sleep(10);
 
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
+
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
                     bullets--;
@@ -550,6 +580,11 @@ namespace Prototype1
             while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -576,6 +611,11 @@ namespace Prototype1
             {
                 Thread.Sleep(10);
 
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
+
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
                     bullets--;
@@ -600,6 +640,11 @@ namespace Prototype1
             while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -626,6 +671,11 @@ namespace Prototype1
             {
                 Thread.Sleep(10);
 
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
+
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
                     bullets--;
@@ -649,6 +699,11 @@ namespace Prototype1
             while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -674,6 +729,11 @@ namespace Prototype1
             while (bullets != 0 && animation.currentFrame != animation.frameCount - 1 && bw.CancellationPending == false)
             {
                 Thread.Sleep(10);
+
+                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                {
+                    Thread.Sleep(5);
+                }
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -701,7 +761,7 @@ namespace Prototype1
 
         public EnemyActivity2 getActivityToShootPlayer()
         {
-            double enemyToPlayerAngle = Math.Atan2(Game1.box.Position.Y - Position.Y, Game1.box.Position.X - Position.X) * 180 / Math.PI;
+            double enemyToPlayerAngle = Math.Atan2(GameplayScreen.box.Position.Y - Position.Y, GameplayScreen.box.Position.X - Position.X) * 180 / Math.PI;
 
             if (enemyToPlayerAngle < 22.5 && enemyToPlayerAngle >= -22.5)  //to the right
             {     
@@ -1227,7 +1287,7 @@ namespace Prototype1
                             break;
                         }
                     }                                
-                }
+                }                
             });
 
             bw.WorkerSupportsCancellation = true;
@@ -1255,18 +1315,22 @@ namespace Prototype1
             spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y, (int)width, (int)height), null, new Color(1, 1, 1, 0.5f), body.Rotation, origin, SpriteEffects.None, 0f);           
         }
 
-        public void drawAnimation(GameTime gameTime, SpriteBatch spriteBatch)
+        public void drawAnimation(GameTime gameTime, SpriteBatch spriteBatch, bool active)
         {
-            if (animation.myEffect == SpriteEffects.FlipHorizontally)
+            if (active)
             {
-                animation.Position = Position + new Vector2(-drawOffset.X, drawOffset.Y);
-            }
-            else
-            {
-                animation.Position = Position + new Vector2(drawOffset.X, drawOffset.Y);
-            }
+                if (animation.myEffect == SpriteEffects.FlipHorizontally)
+                {
+                    animation.Position = Position + new Vector2(-drawOffset.X, drawOffset.Y);
+                }
+                else
+                {
+                    animation.Position = Position + new Vector2(drawOffset.X, drawOffset.Y);
+                }
 
-            animation.Update(gameTime);
+                animation.Update(gameTime);
+            }            
+            
             animation.Draw(spriteBatch);
         }
 

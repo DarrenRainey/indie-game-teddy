@@ -6,7 +6,7 @@ using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 using FarseerPhysics.Collision;
 
-namespace Prototype1
+namespace Prototype2
 {
 
     public class Character : PhysicsObject
@@ -18,15 +18,14 @@ namespace Prototype1
         protected GamePadState padState;
         protected GamePadState oldPadState;
 
-
         public Character(World world, Vector2 position, float width, float height, float mass, Texture2D texture)
             : base(world, position, width, height, mass, texture)
         {
         }
 
-        public virtual void Update(GameTime gameTime)
-        {           
-             HandleInput(gameTime);            
+        public virtual void Update(GameTime gameTime, bool active)
+        {   
+            HandleInput(gameTime);            
         }
 
         protected virtual void HandleInput(GameTime gameTime)

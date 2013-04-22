@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Prototype1
+namespace Prototype2
 {
     public enum Activity
     {
@@ -173,7 +173,7 @@ namespace Prototype1
                     jumpDelayTime = -nextJumpDelayTime;
                     activity = Activity.Jumping;
 
-                    Game1.jumpSound.Play();
+                    GameplayScreen.jumpSound.Play();
                 }
             }
 
