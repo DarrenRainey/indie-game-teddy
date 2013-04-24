@@ -40,6 +40,7 @@ namespace Prototype2
 
         public Animation animation;
         private BackgroundWorker bw;
+        private bool threadCompleted = false;
 
         private Queue<Bullet> bulletQueue;
         public Array tempBulletArray;
@@ -77,7 +78,7 @@ namespace Prototype2
             this.tempBulletArray = bulletQueue.ToArray();
             this.bulletAdded = false;
 
-            activity = EnemyActivity2.enemyNone;
+            activity = EnemyActivity2.enemyIdle;
 
             wheel.OnCollision += new OnCollisionEventHandler(OnCollision);
         }
@@ -137,7 +138,7 @@ namespace Prototype2
             //the ground
             if (activity == EnemyActivity2.enemyJumping && oldActivity == EnemyActivity2.enemyJumping)
             {
-                activity = EnemyActivity2.enemyNone;                
+                activity = EnemyActivity2.enemyIdle;                
             }
             return true;
         }
@@ -401,7 +402,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -434,7 +435,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -456,7 +457,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -472,7 +473,7 @@ namespace Prototype2
             jumpForce.Y = jumpImpulse;
             body.ApplyLinearImpulse(jumpForce, body.Position);
 
-            while (activity != EnemyActivity2.enemyNone && bw.CancellationPending == false)
+            while (activity != EnemyActivity2.enemyIdle && bw.CancellationPending == false)
             {
                 Thread.Sleep(10); 
             }
@@ -490,7 +491,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -522,7 +523,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -552,7 +553,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -581,7 +582,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -611,7 +612,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -641,7 +642,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -671,7 +672,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -700,7 +701,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -730,7 +731,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -1040,6 +1041,12 @@ namespace Prototype2
                 }
             });
 
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {                      
+                        threadCompleted = true;
+                    });
+
             bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
@@ -1181,6 +1188,12 @@ namespace Prototype2
                 } 
             });
 
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {                       
+                        threadCompleted = true;
+                    });
+
             bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
@@ -1209,6 +1222,12 @@ namespace Prototype2
                     }
                 }
             });
+
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {                     
+                        threadCompleted = true;
+                    });
 
             bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
@@ -1290,19 +1309,33 @@ namespace Prototype2
                 }                
             });
 
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {                      
+                        threadCompleted = true;
+                    });
+
             bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
-
+        
         public void stopScript()
         {
             if (bw != null)
-            {                                    
-                bw.CancelAsync();
+            {
+                if (bw.IsBusy)
+                {                    
+                    bw.CancelAsync();
+                                       
+                    while (threadCompleted == false)
+                    {
+                        Thread.Sleep(1);
+                    }                    
 
-                Thread.Sleep(12);         //wait to make sure the script is stopped
+                    threadCompleted = false;
 
-                activity = EnemyActivity2.enemyIdle;                
+                    activity = EnemyActivity2.enemyIdle;
+                }
             }
         }
 

@@ -6,140 +6,140 @@ C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\GameThumbnail.png
 2013-04-05T16:33:54.0000000Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
-2013-04-21T00:22:58.0000000Z
+2013-04-21T14:01:38.0000000Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Prototype2.exe
-2013-04-22T04:27:47.8914289Z
+2013-04-24T17:49:31.9032525Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\armgun.xnb
-2013-04-22T00:32:08.9427273Z
+2013-04-24T13:11:02.7715448Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\background.xnb
-2013-04-22T00:33:02.9538166Z
+2013-04-24T13:11:53.0584210Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\background1.xnb
-2013-04-22T00:32:06.1585681Z
+2013-04-24T13:11:00.2414001Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2dead.xnb
-2013-04-22T00:32:51.6561704Z
+2013-04-24T13:11:42.4318132Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2idle.xnb
-2013-04-22T00:32:46.1378547Z
+2013-04-24T13:11:37.2845188Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2jump.xnb
-2013-04-22T00:32:49.7000585Z
+2013-04-24T13:11:40.6627120Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2run.xnb
-2013-04-22T00:32:47.8769542Z
+2013-04-24T13:11:38.9756155Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootahead.xnb
-2013-04-22T00:32:53.5432783Z
+2013-04-24T13:11:44.1949141Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootdiagdown.xnb
-2013-04-22T00:32:59.2996075Z
+2013-04-24T13:11:49.5492203Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootdiagup.xnb
-2013-04-22T00:32:55.4183856Z
+2013-04-24T13:11:45.9520146Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootdown.xnb
-2013-04-22T00:33:01.1547137Z
+2013-04-24T13:11:51.2933201Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bear2shootup.xnb
-2013-04-22T00:32:57.3454958Z
+2013-04-24T13:11:47.7211158Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\beardead.xnb
-2013-04-22T00:32:44.1067386Z
+2013-04-24T13:11:35.5464194Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound.xnb
-2013-04-22T00:33:04.4649030Z
+2013-04-24T13:11:54.8185217Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound2.xnb
-2013-04-22T00:33:04.8289238Z
+2013-04-24T13:11:55.2115442Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound3.xnb
-2013-04-22T00:33:05.0569368Z
+2013-04-24T13:11:55.4275565Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound4.xnb
-2013-04-22T00:33:05.1979449Z
+2013-04-24T13:11:55.5725648Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearDeadSound5.xnb
-2013-04-22T00:33:05.2649487Z
+2013-04-24T13:11:55.6405687Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearidle.xnb
-2013-04-22T00:32:35.2942345Z
+2013-04-24T13:11:27.1739405Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearjump.xnb
-2013-04-22T00:32:38.8984407Z
+2013-04-24T13:11:30.8221492Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearknife.xnb
-2013-04-22T00:32:40.0255051Z
+2013-04-24T13:11:31.8132059Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearrun.xnb
-2013-04-22T00:32:37.2463462Z
+2013-04-24T13:11:29.1900558Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearShoot.xnb
-2013-04-22T00:33:05.3019509Z
+2013-04-24T13:11:55.6875714Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bigFont.xnb
-2013-04-22T00:33:03.6068539Z
+2013-04-24T13:11:53.8254649Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\blank.xnb
-2013-04-22T00:33:03.0618227Z
+2013-04-24T13:11:53.1744277Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bullet.xnb
-2013-04-22T00:32:09.1717404Z
+2013-04-24T13:11:02.9715562Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bullet2.xnb
-2013-04-22T00:33:01.2647199Z
+2013-04-24T13:11:51.4183272Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bulletHit.xnb
-2013-04-22T00:33:05.4329584Z
+2013-04-24T13:11:55.8255793Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\circleSprite.xnb
-2013-04-22T00:32:06.3135769Z
+2013-04-24T13:11:00.3544065Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\crosshair.xnb
-2013-04-22T00:32:14.3540368Z
+2013-04-24T13:11:07.6708250Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\dead.xnb
-2013-04-22T00:32:41.3865830Z
+2013-04-24T13:11:32.8902675Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\dieSound.xnb
-2013-04-22T00:33:04.1288838Z
+2013-04-24T13:11:54.3974976Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\font.xnb
-2013-04-22T00:33:03.3008364Z
+2013-04-24T13:11:53.4994463Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\gamefont.xnb
-2013-04-22T00:33:03.8398672Z
+2013-04-24T13:11:54.0654786Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\gamesongs.xnb
-2013-04-22T00:33:28.2862655Z
+2013-04-24T13:12:16.9217859Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\gradient.xnb
-2013-04-22T00:33:03.1738291Z
+2013-04-24T13:11:53.2824338Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\groundSprite.xnb
-2013-04-22T00:32:06.5395898Z
+2013-04-24T13:11:00.5124156Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\hammerSound.xnb
-2013-04-22T00:33:04.5279066Z
+2013-04-24T13:11:54.8775251Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\head.xnb
-2013-04-22T00:32:09.0597340Z
+2013-04-24T13:11:02.8715505Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\jump.xnb
-2013-04-22T00:32:06.6945987Z
+2013-04-24T13:11:00.6264221Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\jumping.xnb
-2013-04-22T00:32:07.6476532Z
+2013-04-24T13:11:01.5584754Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\jumpSound.xnb
-2013-04-22T00:33:04.1548853Z
+2013-04-24T13:11:54.4385000Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\knife.xnb
-2013-04-22T00:32:42.3726394Z
+2013-04-24T13:11:33.8453221Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\knifeSound.xnb
-2013-04-22T00:33:04.2638915Z
+2013-04-24T13:11:54.5785080Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\marker.xnb
-2013-04-22T00:32:14.4630430Z
+2013-04-24T13:11:07.7548298Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menufont.xnb
-2013-04-22T00:33:03.9738749Z
+2013-04-24T13:11:54.2004864Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menumusic.xnb
-2013-04-22T00:33:43.1811174Z
+2013-04-24T13:12:29.3834987Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\pistolSound.xnb
-2013-04-22T00:33:04.2478906Z
+2013-04-24T13:11:54.5475062Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\player1.xnb
-2013-04-22T00:32:07.7976618Z
+2013-04-24T13:11:01.7064839Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\playlist.xsb
-2013-04-22T00:33:43.7721512Z
+2013-04-24T13:12:30.0125347Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\playlist.xwb
-2013-04-22T00:33:43.7711512Z
+2013-04-24T13:12:30.0115346Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\prototype_Tile2.xnb
-2013-04-22T00:32:14.2530310Z
+2013-04-24T13:11:07.5478180Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\run.xnb
-2013-04-22T00:32:08.6767121Z
+2013-04-24T13:11:02.5175303Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\square.xnb
-2013-04-22T00:32:08.8257206Z
+2013-04-24T13:11:02.6615385Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\teddyMusic.xgs
-2013-04-22T00:33:43.3861292Z
+2013-04-24T13:12:29.5675092Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_0_0.xnb
-2013-04-22T00:32:16.0601344Z
+2013-04-24T13:11:08.9728995Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_0_720.xnb
-2013-04-22T00:32:17.5012168Z
+2013-04-24T13:11:10.3759797Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_1280_0.xnb
-2013-04-22T00:32:18.9983024Z
+2013-04-24T13:11:11.7310572Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_1280_720.xnb
-2013-04-22T00:32:20.5723925Z
+2013-04-24T13:11:13.2561445Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_2560_1440.xnb
-2013-04-22T00:32:22.0994798Z
+2013-04-24T13:11:14.6792259Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_2560_720.xnb
-2013-04-22T00:32:23.7315732Z
+2013-04-24T13:11:16.0863064Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_3840_1440.xnb
-2013-04-22T00:32:25.3476656Z
+2013-04-24T13:11:17.6203941Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_3840_720.xnb
-2013-04-22T00:32:26.9657582Z
+2013-04-24T13:11:19.1984844Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_5120_1440.xnb
-2013-04-22T00:32:28.6198528Z
+2013-04-24T13:11:20.7705743Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_5120_720.xnb
-2013-04-22T00:32:30.1939428Z
+2013-04-24T13:11:22.2526590Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_M1280_0.xnb
-2013-04-22T00:32:31.6230245Z
+2013-04-24T13:11:23.7887469Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level tiles\A_M1280_720.xnb
-2013-04-22T00:32:33.0711074Z
+2013-04-24T13:11:25.2428301Z

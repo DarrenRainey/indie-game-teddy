@@ -256,8 +256,7 @@ namespace Prototype2
             armgun = content.Load<Texture2D>("armgun"); // 28px x 67px =>   1m x 1.25m
             head = content.Load<Texture2D>("head"); // 41px x 37px   
             bulletTex = content.Load<Texture2D>("bullet");
-            bulletTex2 = content.Load<Texture2D>("bullet2");
-            System.Diagnostics.Debug.WriteLine("step1");
+            bulletTex2 = content.Load<Texture2D>("bullet2"); 
             squareTex = content.Load<Texture2D>("square");
 
             playerJump = content.Load<Texture2D>("jumping");
@@ -270,7 +269,7 @@ namespace Prototype2
             bearJumping = content.Load<Texture2D>("bearjump");            
             bearKnife = content.Load<Texture2D>("bearknife");     
             bearDead = content.Load<Texture2D>("beardead");*/
-            System.Diagnostics.Debug.WriteLine("step2");
+         
             //load bear 2 animations
             /*bear2Idle = content.Load<Texture2D>("bear2idle");
             
@@ -288,14 +287,14 @@ namespace Prototype2
             //editing textures
             crosshair = content.Load<Texture2D>("crosshair");
             marker = content.Load<Texture2D>("marker");
-            System.Diagnostics.Debug.WriteLine("step3");
+            
             //load level tiles
             //tile1 = content.Load<Texture2D>("background1"); //  1280px x 720px => 12.8m x 7.2m
             //tile2 = content.Load<Texture2D>("prototype_Tile2"); //  1280px x 720px => 12.8m x 7.2m
 
-            System.Diagnostics.Debug.WriteLine("step4");
+          
 
-            /*A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");            
+            A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");            
             A_0_720 = content.Load<Texture2D>("level tiles/A_0_720");
             A_1280_0 = content.Load<Texture2D>("level tiles/A_1280_0");
             A_1280_720 = content.Load<Texture2D>("level tiles/A_1280_720");
@@ -306,7 +305,7 @@ namespace Prototype2
             A_5120_1440 = content.Load<Texture2D>("level tiles/A_5120_1440");
             A_5120_720 = content.Load<Texture2D>("level tiles/A_5120_720");
             A_M1280_0 = content.Load<Texture2D>("level tiles/A_M1280_0");
-            A_M1280_720 = content.Load<Texture2D>("level tiles/A_M1280_720");*/
+            A_M1280_720 = content.Load<Texture2D>("level tiles/A_M1280_720");
             
             //flashing bullet colors
             playerBulletColors = new List<Color> { Color.Red, Color.WhiteSmoke };
@@ -318,9 +317,9 @@ namespace Prototype2
 
             //load sounds
             jumpSound = content.Load<SoundEffect>("jumpSound");
-            System.Diagnostics.Debug.WriteLine("step5");
+          
             pistolSound = content.Load<SoundEffect>("pistolSound");
-            System.Diagnostics.Debug.WriteLine("step6");
+            
             dieSound = content.Load<SoundEffect>("dieSound");
             knifeSound = content.Load<SoundEffect>("knifeSound");
             hammerSound = content.Load<SoundEffect>("hammerSound");
@@ -548,9 +547,7 @@ namespace Prototype2
                 GameStateManagementGame.music = 2;
             }
 
-            firstGameUpdate = true;
-
-            System.Diagnostics.Debug.WriteLine("BIIIIIIIIIIIIIPS");
+            firstGameUpdate = true;      
 
             ScreenManager.Game.ResetElapsedTime();
         }
@@ -564,13 +561,53 @@ namespace Prototype2
         /// </summary>
         public override void UnloadContent()
         {
-            System.Diagnostics.Debug.WriteLine("TRASHINGNESS");
             content.Unload();
         }
 
         #endregion
         
 
+        private void initEnemyScript(int index)
+        {
+            switch(index)
+            {
+                case 0:
+                {
+                    enemies[index].runScript1();                    
+                }
+                break;
+
+                case 1:
+                {                    
+                    enemies[index].runScript2();
+                }
+                break;
+
+                case 2:
+                {                    
+                    enemies[index].runScript3();
+                }
+                break;
+            }
+        }
+
+        private void initEnemy2Script(int index)
+        {
+            switch(index)
+            {
+                case 0:
+                {
+                    enemies2[index].runScript1();                    
+                }
+                break;
+
+                case 1:
+                {                    
+                    enemies2[index].runScript2();
+                }
+                break;                
+            }
+        }        
 
         #region Update
 
@@ -591,14 +628,7 @@ namespace Prototype2
             {
                 HandleGamePad();
                 HandleKeyboard();
-                HandleMouse();
-
-
-                //test printouts go here
-                if (gameTime.TotalGameTime.Milliseconds % 10 == 0)
-                {
-                    //Console.WriteLine("PLAYER POS: " + box.Position.X + "," + box.Position.Y + "   Bear POS: " + enemies[0].Position.X + "," + enemies[0].Position.Y);
-                }
+                HandleMouse();                
 
                 handleAttacks();
 
@@ -642,14 +672,12 @@ namespace Prototype2
                 //control bear actions
                 if (firstGameUpdate)
                 {
-                    System.Diagnostics.Debug.WriteLine("BEFORE SCRIPTS");
-                    enemies[0].runScript1();
-                    enemies[1].runScript2();
-                    enemies[2].runScript3();
+                    initEnemyScript(0);
+                    initEnemyScript(1);
+                    initEnemyScript(2);
 
-                    enemies2[0].runScript1();
-                    enemies2[1].runScript2();
-                    System.Diagnostics.Debug.WriteLine("AFTER SCRIPTS");
+                    initEnemy2Script(0);
+                    initEnemy2Script(1);  
 
                     firstGameUpdate = false;
                 }
@@ -823,6 +851,8 @@ namespace Prototype2
             //back button resets the player
             if (box.activity == Activity.Dead && padState.Buttons.Back == ButtonState.Pressed && _oldPadState.Buttons.Back == ButtonState.Released && padState.IsConnected)   
             {
+                MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
+                
                 MainMenuScreen.gamePlayScreen = new GameplayScreen();
 
                 LoadingScreen.Load(ScreenManager, true, 0, MainMenuScreen.gamePlayScreen);                
@@ -1287,7 +1317,7 @@ namespace Prototype2
 
             for (int i = 0; i < enemies2.Count; i++)
             {
-                enemies[i].stopScript();
+                enemies2[i].stopScript();
             }
         }
 

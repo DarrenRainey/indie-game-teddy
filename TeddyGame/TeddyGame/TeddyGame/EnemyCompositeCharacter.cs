@@ -31,6 +31,7 @@ namespace Prototype2
 
         public Animation animation;
         private BackgroundWorker bw;
+        private bool threadCompleted = false;
 
         public EnemyActivity activity;
         protected EnemyActivity oldActivity;
@@ -58,7 +59,7 @@ namespace Prototype2
             this.animation = new Animation();
             this.audioEmitter = new AudioEmitter();
 
-            activity = EnemyActivity.enemyNone;
+            activity = EnemyActivity.enemyIdle;
 
             wheel.OnCollision += new OnCollisionEventHandler(OnCollision);
         }
@@ -118,7 +119,7 @@ namespace Prototype2
             //the ground
             if (activity == EnemyActivity.enemyJumping && oldActivity == EnemyActivity.enemyJumping && activity != EnemyActivity.enemyKnife)
             {
-                activity = EnemyActivity.enemyNone;                
+                activity = EnemyActivity.enemyIdle;                
             }
             return true;
         }
@@ -245,7 +246,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -278,7 +279,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -300,7 +301,7 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive)
+                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
                 {
                     Thread.Sleep(5);
                 }
@@ -316,7 +317,7 @@ namespace Prototype2
             jumpForce.Y = jumpImpulse;
             body.ApplyLinearImpulse(jumpForce, body.Position);
 
-            while (activity != EnemyActivity.enemyNone && bw.CancellationPending == false)
+            while (activity != EnemyActivity.enemyIdle && bw.CancellationPending == false)
             {
                 Thread.Sleep(10); 
             }
@@ -340,9 +341,9 @@ namespace Prototype2
 
             bw.DoWork += new DoWorkEventHandler(
             delegate(object o, DoWorkEventArgs args)       //do this stuff in the background
-            {
+            {                
                 while(true)
-                {
+                {                    
                     moveRight(5000, 3);
 
                     if (bw.CancellationPending == true)
@@ -413,10 +414,16 @@ namespace Prototype2
                         break;
                     }
                 }
-            });
+            });                      
+
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {                       
+                        threadCompleted = true;
+                    });
 
             bw.WorkerSupportsCancellation = true;
-            bw.RunWorkerAsync();
+            bw.RunWorkerAsync();            
         }
 
         public void runScript2()    //jump forward and walk back
@@ -486,6 +493,12 @@ namespace Prototype2
                 } 
             });
 
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {                       
+                        threadCompleted = true;
+                    });
+
             bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
@@ -514,6 +527,12 @@ namespace Prototype2
                     }
                 }
             });
+
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {                       
+                        threadCompleted = true;
+                    });
 
             bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
@@ -595,6 +614,12 @@ namespace Prototype2
                 }
             });
 
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {     
+                        threadCompleted = true;
+                    });
+
             bw.WorkerSupportsCancellation = true;
             bw.RunWorkerAsync();
         }
@@ -602,12 +627,20 @@ namespace Prototype2
         public void stopScript()
         {
             if (bw != null)
-            {                                    
-                bw.CancelAsync();
+            {
+                if (bw.IsBusy)
+                {
+                    bw.CancelAsync();
 
-                Thread.Sleep(12);         //wait to make sure the script is stopped
+                    while (threadCompleted == false)
+                    {
+                        Thread.Sleep(1);
+                    }
+                   
+                    threadCompleted = false;                    
 
-                activity = EnemyActivity.enemyIdle;                
+                    activity = EnemyActivity.enemyIdle;
+                }
             }
         }
 
