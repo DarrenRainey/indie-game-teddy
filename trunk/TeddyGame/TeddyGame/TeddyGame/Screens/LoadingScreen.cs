@@ -35,11 +35,12 @@ namespace Prototype2
 
         bool loadingIsSlow;
         bool otherScreensAreGone;
+                
+        int i = 0;
 
         GameScreen[] screensToLoad;
 
-        string message;
-        int num = 0;
+        string message = "Loading";       
 
         #endregion
 
@@ -56,13 +57,7 @@ namespace Prototype2
             this.loadingIsSlow = loadingIsSlow;
             this.screensToLoad = screensToLoad;
 
-            TransitionOnTime = TimeSpan.FromSeconds(0.5);
-            
-            /*//stop menu music 
-            if (GameStateManagementGame.gameSongsCue.IsPlaying)
-            {
-                GameStateManagementGame.gameSongsCue.Pause();
-            }  */          
+            TransitionOnTime = TimeSpan.FromSeconds(0.5);                    
         }
 
 
@@ -98,6 +93,35 @@ namespace Prototype2
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+
+            if (gameTime.TotalGameTime.Milliseconds % 200 == 0)
+            {
+                if (i == 3)
+                {
+                    i = 0;
+                }
+                else
+                {
+                    i++;
+                }
+
+                if (i == 0)
+                {
+                    message = "Loading";
+                }
+                else if (i == 1)
+                {
+                    message = "Loading.";
+                }
+                else if (i == 2)
+                {
+                    message = "Loading..";
+                }
+                else if (i == 3)
+                {
+                    message = "Loading...";
+                }
+            }
 
             // If all the previous screens have finished transitioning
             // off, it is time to actually perform the load.
@@ -135,7 +159,7 @@ namespace Prototype2
                 (ScreenManager.GetScreens().Length == 1))
             {
                 otherScreensAreGone = true;
-            }
+            }                        
 
             // The gameplay screen takes a while to load, so we display a loading
             // message while that is going on, but the menus load very quickly, and
@@ -147,10 +171,7 @@ namespace Prototype2
             {
                 SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
                 SpriteFont font = ScreenManager.Font;
-
-                num++;
-                message = "Loading..." + num;
-
+                 
                 // Center the text in the viewport.
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
                 Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
@@ -161,7 +182,7 @@ namespace Prototype2
 
                 // Draw the text.
                 spriteBatch.Begin();
-                spriteBatch.DrawString(font, message, textPosition, color);
+                spriteBatch.DrawString(font, message, new Vector2(600f, textPosition.Y), color);
                 spriteBatch.End();
             }
         }
