@@ -10,6 +10,7 @@
 #region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using System;
 #endregion
 
 namespace Prototype2
@@ -30,22 +31,23 @@ namespace Prototype2
         public MainMenuScreen()
             : base("")
         {
-            gamePlayScreen = new GameplayScreen();                        
+            gamePlayScreen = new GameplayScreen();
+            front = true;           
 
             // Create our menu entries.
             MenuEntry playGameMenuEntry = new MenuEntry("Play");
-            MenuEntry optionsMenuEntry = new MenuEntry("Options");
+            MenuEntry controlsMenuEntry = new MenuEntry("Controls");
             MenuEntry exitMenuEntry = new MenuEntry("Exit");
 
             // Hook up menu event handlers.
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
-            optionsMenuEntry.Selected += OptionsMenuEntrySelected;
+            controlsMenuEntry.Selected += controlsMenuEntrySelected;
             exitMenuEntry.Selected += OnCancel;
 
             // Add entries to the menu.
             MenuEntries.Add(playGameMenuEntry);
-            MenuEntries.Add(optionsMenuEntry);
-            MenuEntries.Add(exitMenuEntry);
+            MenuEntries.Add(controlsMenuEntry);
+            MenuEntries.Add(exitMenuEntry);           
         }
 
 
@@ -59,6 +61,8 @@ namespace Prototype2
         /// </summary>
         void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
+            GameStateManagementGame.menuplay.Play();
+            
             GameStateManagementGame.gameSongsCue.Stop(new AudioStopOptions());
 
             GameStateManagementGame.music = 0;
@@ -70,9 +74,11 @@ namespace Prototype2
         /// <summary>
         /// Event handler for when the Options menu entry is selected.
         /// </summary>
-        void OptionsMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void controlsMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            ScreenManager.AddScreen(new OptionsMenuScreen(), e.PlayerIndex);
+            GameStateManagementGame.menuselect.Play();
+            
+            ScreenManager.AddScreen(new ControlsScreen(), e.PlayerIndex);
         }
 
 
@@ -81,6 +87,8 @@ namespace Prototype2
         /// </summary>
         protected override void OnCancel(PlayerIndex playerIndex)
         {
+            GameStateManagementGame.menucancel.Play();
+            
             const string message = "So the teddy bears got to you!?";
 
             MessageBoxScreen confirmExitMessageBox = new MessageBoxScreen(message);
@@ -97,6 +105,8 @@ namespace Prototype2
         /// </summary>
         void ConfirmExitMessageBoxAccepted(object sender, PlayerIndexEventArgs e)
         {
+            GameStateManagementGame.menuselect.Play();
+            
             ScreenManager.Game.Exit();
         }
 

@@ -52,7 +52,7 @@ namespace Prototype2
         /// Constructor.
         /// </summary>
         public OptionsMenuScreen()
-            : base("Options")
+            : base("")
         {
             // Create our menu entries.
             ungulateMenuEntry = new MenuEntry(string.Empty);

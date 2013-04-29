@@ -32,6 +32,19 @@ namespace Prototype2
         public static SoundBank soundBank;
         public static Cue gameSongsCue;
 
+        public static Texture2D menubg;
+        public static Texture2D menubox;
+        public static Texture2D exitbox;
+        public static Texture2D controls;
+        public static Texture2D pressstart;
+        public static Texture2D menuman;
+        public static Texture2D menutitle;
+        public static Texture2D menusubtitle;
+        public static Texture2D buttonA;
+        public static Texture2D buttonB;
+
+        public static SpriteFont smallFont;
+
         //load bear animations
         public static Texture2D bearIdle;  
         public static Texture2D bearRunning;            
@@ -49,20 +62,16 @@ namespace Prototype2
         public static Texture2D bear2ShootUp;
         public static Texture2D bear2Dead;
 
-        public static Texture2D A_0_0;
-        public static Texture2D A_0_720;
-        public static Texture2D A_1280_0;
-        public static Texture2D A_1280_720;
-        public static Texture2D A_2560_1440;
-        public static Texture2D A_2560_720;
-        public static Texture2D A_3840_1440;
-        public static Texture2D A_3840_720;
-        public static Texture2D A_5120_1440;
-        public static Texture2D A_5120_720;
-        public static Texture2D A_M1280_0;
-        public static Texture2D A_M1280_720;
-                
-        /*public static SoundEffect jumpSound;
+        public static SoundEffect menuup;
+        public static SoundEffect menudown;
+        public static SoundEffect menuselect;
+        public static SoundEffect menustart;
+        public static SoundEffect menuback;
+        public static SoundEffect menucancel;
+        public static SoundEffect menuplay;
+        public static SoundEffect menupause;
+
+        public static SoundEffect jumpSound;
         public static SoundEffect pistolSound;
         public static SoundEffect dieSound;
         public static SoundEffect hammerSound;
@@ -73,7 +82,7 @@ namespace Prototype2
         public static SoundEffect bearDeadSound3;
         public static SoundEffect bearDeadSound4;
         public static SoundEffect bearDeadSound5;
-        public static SoundEffect bearShoot;*/
+        public static SoundEffect bearShoot;
 
 
 
@@ -132,6 +141,18 @@ namespace Prototype2
             soundBank = new SoundBank(audioEngine, "Content/playlist.xsb");
             gameSongsCue = soundBank.GetCue("menumusic");
 
+            menubg = Content.Load<Texture2D>("menubg");
+            menubox = Content.Load<Texture2D>("menubox");
+            exitbox = Content.Load<Texture2D>("exitbox");
+            controls = Content.Load<Texture2D>("controls");
+            pressstart = Content.Load<Texture2D>("pressstart");
+            menuman = Content.Load<Texture2D>("menuman");
+            menutitle = Content.Load<Texture2D>("menutitle");
+            menusubtitle = Content.Load<Texture2D>("menusubtitle");
+            buttonA = Content.Load<Texture2D>("buttona");
+            buttonB = Content.Load<Texture2D>("buttonb");
+            smallFont = Content.Load<SpriteFont>("smallfont");
+
             //troublesome loads
             bearIdle = Content.Load<Texture2D>("bearidle");
             bearRunning = Content.Load<Texture2D>("bearrun");
@@ -149,20 +170,16 @@ namespace Prototype2
             bear2ShootUp = Content.Load<Texture2D>("bear2shootup");
             bear2Dead = Content.Load<Texture2D>("bear2dead");
 
-            A_0_0 = Content.Load<Texture2D>("level tiles/A_0_0");
-            A_0_720 = Content.Load<Texture2D>("level tiles/A_0_720");
-            A_1280_0 = Content.Load<Texture2D>("level tiles/A_1280_0");
-            A_1280_720 = Content.Load<Texture2D>("level tiles/A_1280_720");
-            A_2560_1440 = Content.Load<Texture2D>("level tiles/A_2560_1440");
-            A_2560_720 = Content.Load<Texture2D>("level tiles/A_2560_720");
-            A_3840_1440 = Content.Load<Texture2D>("level tiles/A_3840_1440");
-            A_3840_720 = Content.Load<Texture2D>("level tiles/A_3840_720");
-            A_5120_1440 = Content.Load<Texture2D>("level tiles/A_5120_1440");
-            A_5120_720 = Content.Load<Texture2D>("level tiles/A_5120_720");
-            A_M1280_0 = Content.Load<Texture2D>("level tiles/A_M1280_0");
-            A_M1280_720 = Content.Load<Texture2D>("level tiles/A_M1280_720");
+            menuup = Content.Load<SoundEffect>("menuup");
+            menudown = Content.Load<SoundEffect>("menudown");
+            menucancel = Content.Load<SoundEffect>("menucancel");
+            menuselect = Content.Load<SoundEffect>("menuselect");
+            menustart = Content.Load<SoundEffect>("menustart");
+            menuback = Content.Load<SoundEffect>("menuback");
+            menuplay = Content.Load<SoundEffect>("menuplay");
+            menupause = Content.Load<SoundEffect>("menupause");
 
-            /*jumpSound = Content.Load<SoundEffect>("jumpSound");
+            jumpSound = Content.Load<SoundEffect>("jumpSound");
             pistolSound = Content.Load<SoundEffect>("pistolSound");
             dieSound = Content.Load<SoundEffect>("dieSound");
             knifeSound = Content.Load<SoundEffect>("knifeSound");
@@ -173,7 +190,7 @@ namespace Prototype2
             bearDeadSound3 = Content.Load<SoundEffect>("bearDeadSound3");
             bearDeadSound4 = Content.Load<SoundEffect>("bearDeadSound4");
             bearDeadSound5 = Content.Load<SoundEffect>("bearDeadSound5");
-            bearShoot = Content.Load<SoundEffect>("bearShoot"); */      
+            bearShoot = Content.Load<SoundEffect>("bearShoot");       
         }
 
 
