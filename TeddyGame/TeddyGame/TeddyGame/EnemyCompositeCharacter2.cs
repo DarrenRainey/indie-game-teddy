@@ -257,8 +257,8 @@ namespace Prototype2
                 bulletQueue.Enqueue(bullet);    //add the bullet to the queue of bullets
 
                 bulletAdded = true;
-                
-                soundEffectInstance = GameplayScreen.bearShoot.CreateInstance();        //play bullet sound quitely if far away
+
+                soundEffectInstance = GameStateManagementGame.bearShoot.CreateInstance();        //play bullet sound quitely if far away
                 soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
                 soundEffectInstance.Play();                
             }
@@ -358,23 +358,23 @@ namespace Prototype2
 
             if (rand <= 50)
             {
-                soundEffectInstance = GameplayScreen.bearDeadSound.CreateInstance();
+                soundEffectInstance = GameStateManagementGame.bearDeadSound.CreateInstance();
             }
             else if (rand <= 75)
             {
-                soundEffectInstance = GameplayScreen.bearDeadSound2.CreateInstance();
+                soundEffectInstance = GameStateManagementGame.bearDeadSound2.CreateInstance();
             }
             else if (rand <= 89)
             {
-                soundEffectInstance = GameplayScreen.bearDeadSound3.CreateInstance();
+                soundEffectInstance = GameStateManagementGame.bearDeadSound3.CreateInstance();
             }
             else if (rand <= 97)
             {
-                soundEffectInstance = GameplayScreen.bearDeadSound4.CreateInstance();
+                soundEffectInstance = GameStateManagementGame.bearDeadSound4.CreateInstance();
             }
             else
             {
-                soundEffectInstance = GameplayScreen.bearDeadSound5.CreateInstance();
+                soundEffectInstance = GameStateManagementGame.bearDeadSound5.CreateInstance();
             }
 
             soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);

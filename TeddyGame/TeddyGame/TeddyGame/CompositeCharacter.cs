@@ -173,7 +173,7 @@ namespace Prototype2
                     jumpDelayTime = -nextJumpDelayTime;
                     activity = Activity.Jumping;
 
-                    GameplayScreen.jumpSound.Play();
+                    GameStateManagementGame.jumpSound.Play();
                 }
             }
 

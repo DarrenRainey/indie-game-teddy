@@ -182,7 +182,7 @@ namespace Prototype2
 
                 // Draw the text.
                 spriteBatch.Begin();
-                spriteBatch.DrawString(font, message, new Vector2(600f, textPosition.Y), color);
+                spriteBatch.DrawString(font, message, new Vector2(585f, textPosition.Y), color);
                 spriteBatch.End();
             }
         }

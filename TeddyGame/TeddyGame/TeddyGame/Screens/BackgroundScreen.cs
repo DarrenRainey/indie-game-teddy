@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Graphics;
 #endregion
 
 namespace Prototype2
-{
+{    
     /// <summary>
     /// The background screen sits behind all the other menu screens.
     /// It draws a background image that remains fixed in place regardless
@@ -27,6 +27,19 @@ namespace Prototype2
 
         ContentManager content;
         Texture2D backgroundTexture;
+        private Vector2 manPos = new Vector2(429f, 762f);
+        private Vector2 manFinalPos = new Vector2(429f, 167f);
+
+        private Vector2 titlePos = new Vector2(312f, -421f);
+        private Vector2 titleFinalPos = new Vector2(312f, 29f);
+
+        private Vector2 subtitlePos = new Vector2(495f, 132f);
+        private float subtitleAlpha = 0.0f;
+        private float subtitleFinalAlpha = 1.0f;
+
+        private int subtitleAlphaDelay = 1700;   //millis
+        
+    
 
         #endregion
 
@@ -53,9 +66,7 @@ namespace Prototype2
         public override void LoadContent()
         {
             if (content == null)
-                content = new ContentManager(ScreenManager.Game.Services, "Content");
-
-            backgroundTexture = content.Load<Texture2D>("background");
+                content = new ContentManager(ScreenManager.Game.Services, "Content");                        
         }
 
 
@@ -84,6 +95,28 @@ namespace Prototype2
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
+
+            if (manPos != manFinalPos)
+            {
+                manPos.Y -= 7;
+            }
+
+            if (titlePos != titleFinalPos)
+            {
+                titlePos.Y += 5;
+            }
+
+            if (subtitleAlphaDelay < 0)
+            {
+                if (subtitleAlpha != subtitleFinalAlpha)
+                {
+                    subtitleAlpha += 0.01f;
+                }
+            }
+            else
+            {
+                subtitleAlphaDelay -= gameTime.ElapsedGameTime.Milliseconds;
+            }
         }
 
 
@@ -98,8 +131,17 @@ namespace Prototype2
 
             spriteBatch.Begin();
 
-            spriteBatch.Draw(backgroundTexture, fullscreen,
+            spriteBatch.Draw(GameStateManagementGame.menubg, fullscreen,
                              new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
+
+            spriteBatch.Draw(GameStateManagementGame.menuman, manPos,
+                             new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));    //draw man 
+
+            spriteBatch.Draw(GameStateManagementGame.menutitle, titlePos,
+                             new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));    //draw title
+
+            spriteBatch.Draw(GameStateManagementGame.menusubtitle, subtitlePos,
+                             new Color(subtitleAlpha, subtitleAlpha, subtitleAlpha, subtitleAlpha));    //draw subtitle
 
             spriteBatch.End();
         }

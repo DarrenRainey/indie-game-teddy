@@ -292,7 +292,7 @@ namespace Prototype2
 
             System.Diagnostics.Debug.WriteLine("step4");
 
-            /*A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");            
+            A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");            
             A_0_720 = content.Load<Texture2D>("level tiles/A_0_720");
             A_1280_0 = content.Load<Texture2D>("level tiles/A_1280_0");
             A_1280_720 = content.Load<Texture2D>("level tiles/A_1280_720");
@@ -303,7 +303,7 @@ namespace Prototype2
             A_5120_1440 = content.Load<Texture2D>("level tiles/A_5120_1440");
             A_5120_720 = content.Load<Texture2D>("level tiles/A_5120_720");
             A_M1280_0 = content.Load<Texture2D>("level tiles/A_M1280_0");
-            A_M1280_720 = content.Load<Texture2D>("level tiles/A_M1280_720");*/
+            A_M1280_720 = content.Load<Texture2D>("level tiles/A_M1280_720");
             
             //flashing bullet colors
             playerBulletColors = new List<Color> { Color.Red, Color.WhiteSmoke };
@@ -620,14 +620,14 @@ namespace Prototype2
                     Vector2 temp = playerAnimation.Position;
                     playerAnimation.Initialize(playerDead, temp, 103, 140, 37, 80, Color.White, 1f, false, new Vector2(0, 0));
 
-                    GameplayScreen2.dieSound.Play();
+                    GameStateManagementGame.dieSound.Play();
                 }
                 else if (box.activity == Activity.Knife && oldActivity != Activity.Knife)
                 {
                     Vector2 temp = playerAnimation.Position;
                     playerAnimation.Initialize(playerKnife, temp, 175, 160, 14, 40, Color.White, 1f, false, new Vector2(0, 0));
 
-                    GameplayScreen2.hammerSound.Play();
+                    GameStateManagementGame.hammerSound.Play();
                 }
 
                 //if the knife animation is finished 
@@ -849,7 +849,7 @@ namespace Prototype2
 
                 if (padState.Triggers.Right > 0.5 && _oldPadState.Triggers.Right < 0.5)
                 {
-                    GameplayScreen2.pistolSound.Play();
+                    GameStateManagementGame.pistolSound.Play();
 
                     Bullet bullet = new Bullet();
                     bullet.Texture = bulletTex;                    
@@ -1079,18 +1079,18 @@ namespace Prototype2
             Color color = Color.Purple;
             color.A = 2;
 
-            _batch.Draw(GameStateManagementGame.A_0_0, new Vector2(0, 0), color);
-            _batch.Draw(GameStateManagementGame.A_0_720, new Vector2(0, 720), color);
-            _batch.Draw(GameStateManagementGame.A_1280_0, new Vector2(1280, 0), color);
-            _batch.Draw(GameStateManagementGame.A_1280_720, new Vector2(1280, 720), color);
-            _batch.Draw(GameStateManagementGame.A_2560_1440, new Vector2(2560, 1440), color);
-            _batch.Draw(GameStateManagementGame.A_2560_720, new Vector2(2560, 720), color);
-            _batch.Draw(GameStateManagementGame.A_3840_1440, new Vector2(3840, 1440), color);
-            _batch.Draw(GameStateManagementGame.A_3840_720, new Vector2(3840, 720), color);
-            _batch.Draw(GameStateManagementGame.A_5120_1440, new Vector2(5120, 1440), color);
-            _batch.Draw(GameStateManagementGame.A_5120_720, new Vector2(5120, 720), color);
-            _batch.Draw(GameStateManagementGame.A_M1280_0, new Vector2(-1280, 0), color);
-            _batch.Draw(GameStateManagementGame.A_M1280_720, new Vector2(-1280, 720), color);
+            _batch.Draw(A_0_0, new Vector2(0, 0), color);
+            _batch.Draw(A_0_720, new Vector2(0, 720), color);
+            _batch.Draw(A_1280_0, new Vector2(1280, 0), color);
+            _batch.Draw(A_1280_720, new Vector2(1280, 720), color);
+            _batch.Draw(A_2560_1440, new Vector2(2560, 1440), color);
+            _batch.Draw(A_2560_720, new Vector2(2560, 720), color);
+            _batch.Draw(A_3840_1440, new Vector2(3840, 1440), color);
+            _batch.Draw(A_3840_720, new Vector2(3840, 720), color);
+            _batch.Draw(A_5120_1440, new Vector2(5120, 1440), color);
+            _batch.Draw(A_5120_720, new Vector2(5120, 720), color);
+            _batch.Draw(A_M1280_0, new Vector2(-1280, 0), color);
+            _batch.Draw(A_M1280_720, new Vector2(-1280, 720), color);
 
             if (showBox == true)
             {

@@ -88,12 +88,6 @@ namespace Prototype2
         private Texture2D armgun;
         private Texture2D head;
 
-        public static SoundEffect runSound;
-        public static SoundEffect jumpSound;
-        public static SoundEffect pistolSound;
-        public static SoundEffect dieSound;
-        public static SoundEffect hammerSound;
-
         /*private AudioEngine audioEngine;
         private WaveBank waveBank;
         private SoundBank soundBank;
@@ -148,15 +142,6 @@ namespace Prototype2
         public static Texture2D bear2Dead;
         private EnemyCompositeCharacter2 bear2Box;
 
-        public static SoundEffect knifeSound;
-        public static SoundEffect bulletHit;
-        public static SoundEffect bearDeadSound;
-        public static SoundEffect bearDeadSound2;
-        public static SoundEffect bearDeadSound3;
-        public static SoundEffect bearDeadSound4;
-        public static SoundEffect bearDeadSound5;
-        public static SoundEffect bearShoot;
-
         public static AudioListener audioListener;
         public const float soundDistanceFactor = 300f;     //the higher this is the further sounds can be heard        
 
@@ -167,6 +152,8 @@ namespace Prototype2
         Vector2 armgunOrigin;
 
         private Activity oldActivity;
+
+        private int vibrationTime = -1000; //stores vibration time in millis [default = -1000]
 
         private Texture2D squareTex;
 
@@ -263,37 +250,11 @@ namespace Prototype2
             playerDead = content.Load<Texture2D>("dead");
             playerKnife = content.Load<Texture2D>("knife");         
 
-            //load bear animations
-           /* bearIdle = content.Load<Texture2D>("bearidle");  
-            bearRunning = content.Load<Texture2D>("bearrun");            
-            bearJumping = content.Load<Texture2D>("bearjump");            
-            bearKnife = content.Load<Texture2D>("bearknife");     
-            bearDead = content.Load<Texture2D>("beardead");*/
-         
-            //load bear 2 animations
-            /*bear2Idle = content.Load<Texture2D>("bear2idle");
-            
-            bear2Running = content.Load<Texture2D>("bear2run");
-            bear2Jumping = content.Load<Texture2D>("bear2jump");
-            bear2ShootDown = content.Load<Texture2D>("bear2shootdown");
-            
-            bear2ShootDiagDown = content.Load<Texture2D>("bear2shootdiagdown");
-            bear2ShootAhead = content.Load<Texture2D>("bear2shootahead");
-            bear2ShootDiagUp = content.Load<Texture2D>("bear2shootdiagup");
-            bear2ShootUp = content.Load<Texture2D>("bear2shootup");
-            bear2Dead = content.Load<Texture2D>("bear2dead");
-            */
-
             //editing textures
             crosshair = content.Load<Texture2D>("crosshair");
             marker = content.Load<Texture2D>("marker");
             
-            //load level tiles
-            //tile1 = content.Load<Texture2D>("background1"); //  1280px x 720px => 12.8m x 7.2m
-            //tile2 = content.Load<Texture2D>("prototype_Tile2"); //  1280px x 720px => 12.8m x 7.2m
-
-          
-
+            //level tiles
             A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");            
             A_0_720 = content.Load<Texture2D>("level tiles/A_0_720");
             A_1280_0 = content.Load<Texture2D>("level tiles/A_1280_0");
@@ -313,31 +274,7 @@ namespace Prototype2
 
             //armgun stuff init
             armgunXOffset = 0;
-            armgunOrigin = Vector2.Zero;
-
-            //load sounds
-            jumpSound = content.Load<SoundEffect>("jumpSound");
-          
-            pistolSound = content.Load<SoundEffect>("pistolSound");
-            
-            dieSound = content.Load<SoundEffect>("dieSound");
-            knifeSound = content.Load<SoundEffect>("knifeSound");
-            hammerSound = content.Load<SoundEffect>("hammerSound");
-            bulletHit = content.Load<SoundEffect>("bulletHit");
-            bearDeadSound = content.Load<SoundEffect>("bearDeadSound");
-            bearDeadSound2 = content.Load<SoundEffect>("bearDeadSound2");
-            bearDeadSound3 = content.Load<SoundEffect>("bearDeadSound3");
-            bearDeadSound4 = content.Load<SoundEffect>("bearDeadSound4");
-            bearDeadSound5 = content.Load<SoundEffect>("bearDeadSound5");
-            bearShoot = content.Load<SoundEffect>("bearShoot");
-            
-            /*audioEngine = new AudioEngine("Content/teddyMusic.xgs");
-            waveBank = new WaveBank(audioEngine, "Content/playlist.xwb");
-            soundBank = new SoundBank(audioEngine, "Content/playlist.xsb");
-
-            gameSongsCue = soundBank.GetCue("gamesongs");
-            gameSongsCue.Play();*/
-            
+            armgunOrigin = Vector2.Zero;                                    
 
             //setup main guy
             playerTexture = content.Load<Texture2D>("run");
@@ -632,6 +569,18 @@ namespace Prototype2
 
                 handleAttacks();
 
+                //manage vibration
+                if (vibrationTime <= 0 && vibrationTime != -1000)
+                {
+                    GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+
+                    vibrationTime = -1000;
+                }
+                else if (vibrationTime != -1000)
+                {
+                    vibrationTime -= gameTime.ElapsedGameTime.Milliseconds;
+                }
+
                 //handle main player animations
                 if (box.activity == Activity.Idle && oldActivity != Activity.Idle)
                 {
@@ -653,14 +602,22 @@ namespace Prototype2
                     Vector2 temp = playerAnimation.Position;
                     playerAnimation.Initialize(playerDead, temp, 103, 140, 37, 80, Color.White, 1f, false, new Vector2(0, 0));
 
-                    GameplayScreen.dieSound.Play();
+                    GameStateManagementGame.dieSound.Play();
+
+                    GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
+                    
+                    vibrationTime = 600;
                 }
                 else if (box.activity == Activity.Knife && oldActivity != Activity.Knife)
                 {
                     Vector2 temp = playerAnimation.Position;
                     playerAnimation.Initialize(playerKnife, temp, 175, 160, 14, 40, Color.White, 1f, false, new Vector2(0, 0));
 
-                    GameplayScreen.hammerSound.Play();
+                    GameStateManagementGame.hammerSound.Play();
+
+                    GamePad.SetVibration(PlayerIndex.One, 0.6f, 0.6f);
+
+                    vibrationTime = 150;
                 }
 
                 //if the knife animation is finished 
@@ -696,6 +653,8 @@ namespace Prototype2
                 //change to level 2
                 if (postWinDelay <= 0)
                 {
+                    GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+                    
                     MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
 
                     MainMenuScreen.gamePlayScreen2 = new GameplayScreen2();
@@ -804,7 +763,7 @@ namespace Prototype2
                     {
                         box.activity = Activity.Dead;
 
-                        bulletHit.Play();
+                        GameStateManagementGame.bulletHit.Play();
 
                         breaker = true;
                         
@@ -826,7 +785,7 @@ namespace Prototype2
         private void HandleGamePad()
         {
             GamePadState padState = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.Circular);                    
-
+                        
             //bullet stuff
             if (bulletQueue.Count > 0)
             {
@@ -851,59 +810,45 @@ namespace Prototype2
             //back button resets the player
             if (box.activity == Activity.Dead && padState.Buttons.Back == ButtonState.Pressed && _oldPadState.Buttons.Back == ButtonState.Released && padState.IsConnected)   
             {
+                GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+                
                 MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
                 
                 MainMenuScreen.gamePlayScreen = new GameplayScreen();
 
                 LoadingScreen.Load(ScreenManager, true, 0, MainMenuScreen.gamePlayScreen);                
-                
-                /*box.body.Dispose();
-                box.wheel.Dispose();  //delete old bodys
-
-                box = new CompositeCharacter(_world, new Vector2(300f, 600f), 64, 128, 0.3f, squareTex);
-                box.forcePower = 100;
-
-                //player ignore collisions with enemies
-                box.body.CollisionGroup = -1;
-                box.wheel.CollisionGroup = -1;
-
-                for (int i = 0; i < enemies.Count; i++)
-                {
-                    enemies[i].body.CollisionGroup = -1;
-                    enemies[i].wheel.CollisionGroup = -1;
-                }
-
-                for (int i = 0; i < enemies2.Count; i++)
-                {
-                    enemies2[i].body.CollisionGroup = -1;
-                    enemies2[i].wheel.CollisionGroup = -1;
-                }
-
-                playerAnimation.myEffect = SpriteEffects.None;
-                armgunEffects = SpriteEffects.None;*/
             }
 
             if (padState.IsConnected && box.activity != Activity.Dead)       
-            {
-                /*if (padState.Buttons.Back == ButtonState.Pressed)
-                    Exit();*/
-                                
+            {               
 
                 if (padState.Buttons.B == ButtonState.Pressed && _oldPadState.Buttons.B == ButtonState.Released)
                 {
-                    if (showBox == true)
+                    /*if (showBox == true)
                     {
                         showBox = false;
                     }
                     else
                     {
                         showBox = true;
-                    }                    
+                    }   */                 
                 }
 
                 if (padState.Triggers.Right > 0.5 && _oldPadState.Triggers.Right < 0.5)
                 {
-                    GameplayScreen.pistolSound.Play();
+                    GameStateManagementGame.pistolSound.Play();
+
+                    //vibration
+                    if (padState.ThumbSticks.Right.X < 0)
+                    {
+                        GamePad.SetVibration(PlayerIndex.One, Math.Abs(padState.ThumbSticks.Right.X / 2), 0.0f);
+                    }
+                    else
+                    {
+                        GamePad.SetVibration(PlayerIndex.One, 0.0f, (padState.ThumbSticks.Right.X / 2));
+                    }
+
+                    vibrationTime = 300;
 
                     Bullet bullet = new Bullet();
                     bullet.Texture = bulletTex;                    
@@ -1130,18 +1075,18 @@ namespace Prototype2
 
             _batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);
 
-            _batch.Draw(GameStateManagementGame.A_0_0, new Vector2(0, 0), Color.White);
-            _batch.Draw(GameStateManagementGame.A_0_720, new Vector2(0, 720), Color.White);
-            _batch.Draw(GameStateManagementGame.A_1280_0, new Vector2(1280, 0), Color.White);
-            _batch.Draw(GameStateManagementGame.A_1280_720, new Vector2(1280, 720), Color.White);
-            _batch.Draw(GameStateManagementGame.A_2560_1440, new Vector2(2560, 1440), Color.White);
-            _batch.Draw(GameStateManagementGame.A_2560_720, new Vector2(2560, 720), Color.White);
-            _batch.Draw(GameStateManagementGame.A_3840_1440, new Vector2(3840, 1440), Color.White);
-            _batch.Draw(GameStateManagementGame.A_3840_720, new Vector2(3840, 720), Color.White);
-            _batch.Draw(GameStateManagementGame.A_5120_1440, new Vector2(5120, 1440), Color.White);
-            _batch.Draw(GameStateManagementGame.A_5120_720, new Vector2(5120, 720), Color.White);
-            _batch.Draw(GameStateManagementGame.A_M1280_0, new Vector2(-1280, 0), Color.White);
-            _batch.Draw(GameStateManagementGame.A_M1280_720, new Vector2(-1280, 720), Color.White);
+            _batch.Draw(A_0_0, new Vector2(0, 0), Color.White);
+            _batch.Draw(A_0_720, new Vector2(0, 720), Color.White);
+            _batch.Draw(A_1280_0, new Vector2(1280, 0), Color.White);
+            _batch.Draw(A_1280_720, new Vector2(1280, 720), Color.White);
+            _batch.Draw(A_2560_1440, new Vector2(2560, 1440), Color.White);
+            _batch.Draw(A_2560_720, new Vector2(2560, 720), Color.White);
+            _batch.Draw(A_3840_1440, new Vector2(3840, 1440), Color.White);
+            _batch.Draw(A_3840_720, new Vector2(3840, 720), Color.White);
+            _batch.Draw(A_5120_1440, new Vector2(5120, 1440), Color.White);
+            _batch.Draw(A_5120_720, new Vector2(5120, 720), Color.White);
+            _batch.Draw(A_M1280_0, new Vector2(-1280, 0), Color.White);
+            _batch.Draw(A_M1280_720, new Vector2(-1280, 720), Color.White);
 
             if (showBox == true)
             {

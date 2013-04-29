@@ -28,7 +28,14 @@ namespace Prototype2
         List<MenuEntry> menuEntries = new List<MenuEntry>();
         int selectedEntry = 0;
         string menuTitle;
+        public Boolean front = false;
 
+        private Boolean startPressed = false;
+        Vector2 pressStartPos = new Vector2(555f, 220f);
+        private Boolean showStart = true;
+        private int timeSinceLastFlash = 0;  //in millis
+        private int flashTimeGap = 500;  //in millis
+        
         #endregion
 
         #region Properties
@@ -72,38 +79,54 @@ namespace Prototype2
         /// </summary>
         public override void HandleInput(InputState input)
         {
-            // Move to the previous menu entry?
-            if (input.IsMenuUp(ControllingPlayer))
+            if (startPressed || front == false)            //dont lock controls unless its the main menu (front)
             {
-                selectedEntry--;
+                // Move to the previous menu entry?
+                if (input.IsMenuUp(ControllingPlayer))
+                {
+                    GameStateManagementGame.menuup.Play();
+                    
+                    selectedEntry--;
 
-                if (selectedEntry < 0)
-                    selectedEntry = menuEntries.Count - 1;
+                    if (selectedEntry < 0)
+                        selectedEntry = menuEntries.Count - 1;
+                }
+
+                // Move to the next menu entry?
+                if (input.IsMenuDown(ControllingPlayer))
+                {
+                    GameStateManagementGame.menudown.Play();
+                    
+                    selectedEntry++;
+
+                    if (selectedEntry >= menuEntries.Count)
+                        selectedEntry = 0;
+                }
+
+                // Accept or cancel the menu? We pass in our ControllingPlayer, which may
+                // either be null (to accept input from any player) or a specific index.
+                // If we pass a null controlling player, the InputState helper returns to
+                // us which player actually provided the input. We pass that through to
+                // OnSelectEntry and OnCancel, so they can tell which player triggered them.
+                PlayerIndex playerIndex;
+
+                if (input.IsMenuSelect(ControllingPlayer, out playerIndex))
+                {
+                    OnSelectEntry(selectedEntry, playerIndex);
+                }
+                else if (input.IsMenuCancel(ControllingPlayer, out playerIndex))
+                {
+                    OnCancel(playerIndex);
+                }
             }
-
-            // Move to the next menu entry?
-            if (input.IsMenuDown(ControllingPlayer))
+            else if(front)
             {
-                selectedEntry++;
-
-                if (selectedEntry >= menuEntries.Count)
-                    selectedEntry = 0;
-            }
-
-            // Accept or cancel the menu? We pass in our ControllingPlayer, which may
-            // either be null (to accept input from any player) or a specific index.
-            // If we pass a null controlling player, the InputState helper returns to
-            // us which player actually provided the input. We pass that through to
-            // OnSelectEntry and OnCancel, so they can tell which player triggered them.
-            PlayerIndex playerIndex;
-
-            if (input.IsMenuSelect(ControllingPlayer, out playerIndex))
-            {
-                OnSelectEntry(selectedEntry, playerIndex);
-            }
-            else if (input.IsMenuCancel(ControllingPlayer, out playerIndex))
-            {
-                OnCancel(playerIndex);
+                if ((input.CurrentGamePadStates[0].Buttons.Start == ButtonState.Pressed && input.LastGamePadStates[0].Buttons.Start == ButtonState.Released) || (input.CurrentGamePadStates[0].Buttons.A == ButtonState.Pressed && input.LastGamePadStates[0].Buttons.A == ButtonState.Released))
+                {
+                    GameStateManagementGame.menustart.Play();
+                    
+                    startPressed = true;
+                }                
             }
         }
 
@@ -112,7 +135,7 @@ namespace Prototype2
         /// Handler for when the user has chosen a menu entry.
         /// </summary>
         protected virtual void OnSelectEntry(int entryIndex, PlayerIndex playerIndex)
-        {
+        {            
             menuEntries[entryIndex].OnSelectEntry(playerIndex);
         }
 
@@ -121,7 +144,7 @@ namespace Prototype2
         /// Handler for when the user has cancelled the menu.
         /// </summary>
         protected virtual void OnCancel(PlayerIndex playerIndex)
-        {
+        {           
             ExitScreen();
         }
 
@@ -130,7 +153,7 @@ namespace Prototype2
         /// Helper overload makes it easy to use OnCancel as a MenuEntry event handler.
         /// </summary>
         protected void OnCancel(object sender, PlayerIndexEventArgs e)
-        {
+        {            
             OnCancel(e.PlayerIndex);
         }
 
@@ -145,7 +168,8 @@ namespace Prototype2
         /// all menu entries are lined up in a vertical list, centered on the screen.
         /// </summary>
         protected virtual void UpdateMenuEntryLocations()
-        {
+        {          
+            
             // Make the menu slide into place during transitions, using a
             // power curve to make things look more interesting (this makes
             // the movement slow down as it nears the end).
@@ -162,11 +186,14 @@ namespace Prototype2
                 // each entry is to be centered horizontally
                 position.X = ScreenManager.GraphicsDevice.Viewport.Width / 2 - menuEntry.GetWidth(this) / 2;
 
-                if (ScreenState == ScreenState.TransitionOn)
-                    position.X -= transitionOffset * 256;
-                else
-                    position.X += transitionOffset * 512;
-
+                if (front == false)   //dont slide if its the main menu
+                {
+                    if (ScreenState == ScreenState.TransitionOn)
+                        position.X -= transitionOffset * 256;
+                    else
+                        position.X += transitionOffset * 512;
+                }
+                
                 // set the entry's position
                 menuEntry.Position = position;
 
@@ -190,6 +217,26 @@ namespace Prototype2
                  GameStateManagementGame.gameSongsCue.Play();
             }
 
+
+            if (timeSinceLastFlash >= flashTimeGap)
+            {
+                if (showStart)
+                {
+                    showStart = false;
+                }
+                else
+                {
+                    showStart = true;
+                }
+
+                timeSinceLastFlash = 0;
+            }
+            else
+            {
+                timeSinceLastFlash += gameTime.ElapsedGameTime.Milliseconds;
+            }
+
+
             // Update each nested MenuEntry object.
             for (int i = 0; i < menuEntries.Count; i++)
             {
@@ -212,17 +259,7 @@ namespace Prototype2
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Font;
 
-            spriteBatch.Begin();
-
-            // Draw each menu entry in turn.
-            for (int i = 0; i < menuEntries.Count; i++)
-            {
-                MenuEntry menuEntry = menuEntries[i];
-
-                bool isSelected = IsActive && (i == selectedEntry);
-
-                menuEntry.Draw(this, isSelected, gameTime);
-            }
+            spriteBatch.Begin();            
 
             // Make the menu slide into place during transitions, using a
             // power curve to make things look more interesting (this makes
@@ -237,8 +274,39 @@ namespace Prototype2
 
             titlePosition.Y -= transitionOffset * 100;
 
-            spriteBatch.DrawString(font, menuTitle, titlePosition, titleColor, 0,
-                                   titleOrigin, titleScale, SpriteEffects.None, 0);
+            if (startPressed || front == false)
+            {
+                if (front)
+                {
+                    spriteBatch.Draw(GameStateManagementGame.menubox, new Vector2(520f, 220f), new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+                }
+
+                // Draw each menu entry in turn.
+                for (int i = 0; i < menuEntries.Count; i++)
+                {
+                    MenuEntry menuEntry = menuEntries[i];
+
+                    bool isSelected = IsActive && (i == selectedEntry);
+
+                    menuEntry.Position = new Vector2(menuEntry.Position.X, menuEntry.Position.Y + 100);   //push the menu down a bit
+
+                    menuEntry.Draw(this, isSelected, gameTime);
+                }
+
+
+                spriteBatch.DrawString(font, menuTitle, titlePosition, titleColor, 0,
+                                       titleOrigin, titleScale, SpriteEffects.None, 0);
+
+                spriteBatch.Draw(GameStateManagementGame.buttonA, new Vector2(885f, 595f), new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+                spriteBatch.DrawString(GameStateManagementGame.smallFont, "Select", new Vector2(920f, 600f), new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+                spriteBatch.Draw(GameStateManagementGame.buttonB, new Vector2(1015f, 595f), new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+                spriteBatch.DrawString(GameStateManagementGame.smallFont, "Back", new Vector2(1050f, 600f), new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+            }
+
+            if (showStart && front && startPressed == false)
+            {
+                spriteBatch.Draw(GameStateManagementGame.pressstart, pressStartPos, Color.White);
+            }
 
             spriteBatch.End();
         }

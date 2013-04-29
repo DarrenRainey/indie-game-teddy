@@ -10,6 +10,7 @@
 #region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Input;
 #endregion
 
 namespace Prototype2
@@ -50,7 +51,7 @@ namespace Prototype2
             quitGameMenuEntry = new MenuEntry("Quit");
             
             // Hook up menu event handlers.
-            resumeGameMenuEntry.Selected += OnCancel;
+            resumeGameMenuEntry.Selected += OnResume;
             retryGameMenuEntry.Selected += OnRetry;
             musicGameMenuEntry.Selected += OnMusicOptionsSelected;
             quitGameMenuEntry.Selected += QuitGameMenuEntrySelected;
@@ -60,6 +61,10 @@ namespace Prototype2
             MenuEntries.Add(retryGameMenuEntry);
             MenuEntries.Add(musicGameMenuEntry);
             MenuEntries.Add(quitGameMenuEntry);
+
+            GameStateManagementGame.menupause.Play();
+
+            GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
         }
 
 
@@ -67,12 +72,24 @@ namespace Prototype2
 
         #region Handle Input
 
+        /// <summary>
+        /// Event handler for when the Frobnicate menu entry is selected.
+        /// </summary>
+        void OnResume(object sender, PlayerIndexEventArgs e)
+        {
+            GameStateManagementGame.menuselect.Play();
+            
+            ExitScreen();
+        }
+
 
         /// <summary>
         /// Event handler for when the Frobnicate menu entry is selected.
         /// </summary>
         void OnRetry(object sender, PlayerIndexEventArgs e)
         {
+            GameStateManagementGame.menuselect.Play();
+            
             MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
 
             MainMenuScreen.gamePlayScreen = new GameplayScreen();
@@ -86,6 +103,8 @@ namespace Prototype2
         /// </summary>
         void OnMusicOptionsSelected(object sender, PlayerIndexEventArgs e)
         {
+           GameStateManagementGame.menuselect.Play();
+            
            if (GameStateManagementGame.gameSongsCue.IsPaused)
            {
                musicGameMenuEntry.Text = "Music: On";
@@ -105,6 +124,8 @@ namespace Prototype2
         /// </summary>
         void QuitGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
+            GameStateManagementGame.menuback.Play();
+            
             MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
             
             GameStateManagementGame.gameSongsCue.Stop(new AudioStopOptions());
