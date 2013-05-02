@@ -163,48 +163,14 @@ namespace Prototype2
         ScreenManager screenManager;
 
 
-        /// <summary>
-        /// Gets the index of the player who is currently controlling this screen,
-        /// or null if it is accepting input from any player. This is used to lock
-        /// the game to a specific player profile. The main menu responds to input
-        /// from any connected gamepad, but whichever player makes a selection from
-        /// this menu is given control over all subsequent screens, so other gamepads
-        /// are inactive until the controlling player returns to the main menu.
-        /// </summary>
+
         public PlayerIndex? ControllingPlayer
         {
             get { return controllingPlayer; }
             internal set { controllingPlayer = value; }
         }
 
-        PlayerIndex? controllingPlayer;
-
-
-        /// <summary>
-        /// Gets the gestures the screen is interested in. Screens should be as specific
-        /// as possible with gestures to increase the accuracy of the gesture engine.
-        /// For example, most menus only need Tap or perhaps Tap and VerticalDrag to operate.
-        /// These gestures are handled by the ScreenManager when screens change and
-        /// all gestures are placed in the InputState passed to the HandleInput method.
-        /// </summary>
-        /*public GestureType EnabledGestures
-        {
-            get { return enabledGestures; }
-            protected set
-            {
-                enabledGestures = value;
-
-                // the screen manager handles this during screen changes, but
-                // if this screen is active and the gesture types are changing,
-                // we have to update the TouchPanel ourself.
-                if (ScreenState == ScreenState.Active)
-                {
-                    TouchPanel.EnabledGestures = value;
-                }
-            }
-        }*/
-
-        //GestureType enabledGestures = GestureType.None;
+        PlayerIndex? controllingPlayer;        
 
 
         #endregion

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{2ED467C6-1721-4AD7-BC68-F427E1908195}</ProjectGuid>
+    <ProjectGuid>{E0BA8A38-8518-48CC-BE36-E80543FBA614}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -104,8 +104,8 @@
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Screens\ControlsScreen.cs" />
-    <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\GameplayScreen2.cs" />
+    <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\MainMenuScreen.cs" />
     <Compile Include="Screens\MenuEntry.cs" />
@@ -120,9 +120,9 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Farseer Physics Engine 3.3 XNA\Windows Copy of Farseer Physics XNA Xbox360.csproj">
-      <Project>{347fc506-a712-4e08-8bd0-decdeb196108}</Project>
-      <Name>Windows Copy of Farseer Physics XNA Xbox360</Name>
+    <ProjectReference Include="..\..\..\Farseer Physics Engine 3.3 XNA\Windows Copy (2) of Farseer Physics XNA Xbox360.csproj">
+      <Project>{73dd4363-be1d-43ae-b3e0-5a4979f4026a}</Project>
+      <Name>Windows Copy (2) of Farseer Physics XNA Xbox360</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeddyGameContent\TeddyGameContent.contentproj">
       <Name>TeddyGameContent %28Content%29</Name>
