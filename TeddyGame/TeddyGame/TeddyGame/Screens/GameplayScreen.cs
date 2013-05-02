@@ -182,7 +182,7 @@ namespace Prototype2
         private Texture2D marker;
 
         private Vector2 previousClickWorldPos = Vector2.Zero;
-        //private ArrayList markers;
+        private List<Vector2> markers;
         
         //--------------------------------------------screenmgmt vars
         ContentManager content;
@@ -274,7 +274,10 @@ namespace Prototype2
 
             //armgun stuff init
             armgunXOffset = 0;
-            armgunOrigin = Vector2.Zero;                                    
+            armgunOrigin = Vector2.Zero;   
+            
+            //markers
+            markers = new List<Vector2>();
 
             //setup main guy
             playerTexture = content.Load<Texture2D>("run");
@@ -1020,12 +1023,11 @@ namespace Prototype2
                 if (state.LeftButton == ButtonState.Pressed && _oldMouseState.LeftButton == ButtonState.Released)
                 {
                     Vector2 worldPos = (_cameraPosition * -1) + new Vector2(state.X, state.Y);
-                    worldPos = new Vector2((float)Math.Round(worldPos.X, 1), (float)Math.Round(worldPos.Y, 1));
-
-                    Console.WriteLine("FixtureFactory.AttachEdge(new Vector2(" + previousClickWorldPos.X / MeterInPixels + "f, " + previousClickWorldPos.Y / MeterInPixels + "f), new Vector2(" + worldPos.X / MeterInPixels + "f, " + worldPos.Y / MeterInPixels + "f), impassableEdge);");
-
-                    //markers.Add(new Vector2(worldPos.X - 4, worldPos.Y - 4));
-
+                    worldPos = new Vector2((float)Math.Round(worldPos.X, 1), (float)Math.Round(worldPos.Y, 1));                    
+                    
+                    Console.WriteLine("FixtureFactory.AttachEdge(new Vector2(" + previousClickWorldPos.X / MeterInPixels + "f, " + previousClickWorldPos.Y / MeterInPixels + "f), new Vector2(" + worldPos.X / MeterInPixels + "f, " + worldPos.Y / MeterInPixels + "f), impassableEdge);");                    
+                    
+                    markers.Add(new Vector2(worldPos.X - 4, worldPos.Y - 4));                    
                     previousClickWorldPos = worldPos;
                 }
             }
@@ -1186,19 +1188,21 @@ namespace Prototype2
                     _batch.Draw(((Bullet)enemies2[i].tempBulletArray.GetValue(j)).Texture, ((Bullet)enemies2[i].tempBulletArray.GetValue(j)).CurrentPos, getRandomColor(enemyBulletColors));
                 }
             }
+                        
+            if (freeViewOn)
+            {                
+                //draw markers
+                for (int i = 0; i < markers.Count; i++)
+                {
+                    _batch.Draw(marker, (Vector2)markers[i], Color.White);
+                }
+            }   
 
             _batch.End();
 
             //draw items attached to screen as aposed to world
             _batch.Begin();
-
-            //Text = "FPS: " + fpsCounter.frameRate + "    player effect: " + playerAnimation.myEffect;
-
-            // Display instructions
-            //_batch.DrawString(_font, Text, new Vector2(34f, 34f), Color.Black);
-            //_batch.DrawString(_font, Text, new Vector2(32f, 32f), Color.White);
-
-            //_batch.DrawString(_font, box.activity.ToString(), new Vector2(90, 105), Color.Red);
+                       
 
             if (box.activity == Activity.Dead && playerAnimation.currentFrame == 36)   //if on last frame of dead animation
             {
@@ -1216,7 +1220,7 @@ namespace Prototype2
             if (freeViewOn)
             {
                 _batch.Draw(crosshair, new Vector2(Mouse.GetState().X - 4, Mouse.GetState().Y - 4), Color.White);
-            }
+            }            
 
             _batch.End();
 
