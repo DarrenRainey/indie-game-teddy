@@ -340,7 +340,9 @@ namespace Prototype2
 
                 drawOffset = new Vector2(0f, 0f);
 
-                playRandomDeadSound();                                                
+                playRandomDeadSound();
+
+                GameStateManagementGame.enemiesKilled++;                
             }             
 
             //if the knife animation is finished execute the post attack script

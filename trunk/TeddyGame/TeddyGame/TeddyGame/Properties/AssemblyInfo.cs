@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Prototype2")]
-[assembly: AssemblyProduct("Prototype2")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyTitle("Cuddle Boy & The Teddy Town Massacre")]
+[assembly: AssemblyProduct("Cuddle Boy & The Teddy Town Massacre")]
+[assembly: AssemblyDescription("2D platformer with teddy bears")]
+[assembly: AssemblyCompany("Hugh")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

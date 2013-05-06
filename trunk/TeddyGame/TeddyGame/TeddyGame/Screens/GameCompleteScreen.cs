@@ -12,6 +12,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 #endregion
 
 namespace Prototype2
@@ -21,37 +22,28 @@ namespace Prototype2
     /// It draws a background image that remains fixed in place regardless
     /// of whatever transitions the screens on top of it may be doing.
     /// </summary>
-    class BackgroundScreen : GameScreen
+    class GameCompleteScreen : GameScreen
     {
         #region Fields
 
         ContentManager content;
-        Texture2D backgroundTexture;      
-        private Vector2 manPos = new Vector2(429f, 762f);
-        private Vector2 manFinalPos = new Vector2(429f, 167f);
+        Texture2D backgroundTexture;
 
-        private Vector2 titlePos = new Vector2(312f, -421f);
-        private Vector2 titleFinalPos = new Vector2(312f, 29f);
+        Vector2 titlePos = new Vector2(0, 80f);
+        Vector2 gradeBoxPos = new Vector2(300, 250f);
 
-        private Vector2 subtitlePos = new Vector2(490f, 132f);
-        private float subtitleAlpha = 0.0f;
-        private float subtitleFinalAlpha = 1.0f;
+        Vector2 level1TotOffset = new Vector2(30, 70f);
+        Vector2 level2TotOffset = new Vector2(30, 100f);
+        Vector2 totalTimeLabelOffset = new Vector2(150, 40f);
+        Vector2 totalTimeOffset = new Vector2(180, 80f);
 
-        private int subtitleAlphaDelay = 1700;   //millis
-
-        double time;
-        float pulsate;
-        float pulsate2;
-        float pulsate3;
-        float titleScale = 1.0f;
-
-        float subTitleRotation; 
-        Vector2 rotateOrigin;
-        float subtitleStartAngle = 0.025f;
-                        
-        float manScale = 1.0f;
+        int totalTime = 0;
+        
+       
 
         #endregion
+
+        public event EventHandler<PlayerIndexEventArgs> Cancelled;
 
         #region Initialization
 
@@ -59,9 +51,9 @@ namespace Prototype2
         /// <summary>
         /// Constructor.
         /// </summary>
-        public BackgroundScreen()
+        public GameCompleteScreen()
         {
-            TransitionOnTime = TimeSpan.FromSeconds(0.5);
+            TransitionOnTime = TimeSpan.FromSeconds(2);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
 
@@ -91,6 +83,38 @@ namespace Prototype2
 
         #endregion
 
+
+        /// <summary>
+        /// Responds to user input, accepting or cancelling the message box.
+        /// </summary>
+        public override void HandleInput(InputState input)
+        {
+            PlayerIndex playerIndex;
+
+            // We pass in our ControllingPlayer, which may either be null (to
+            // accept input from any player) or a specific index. If we pass a null
+            // controlling player, the InputState helper returns to us which player
+            // actually provided the input. We pass that through to our Accepted and
+            // Cancelled events, so they can tell which player triggered them.
+            if ((input.IsMenuCancel(ControllingPlayer, out playerIndex) || input.IsMenuSelect(ControllingPlayer, out playerIndex)))
+            {
+                // Raise the cancelled event, then exit the message box.
+                if (Cancelled != null)
+                    Cancelled(this, new PlayerIndexEventArgs(playerIndex));
+
+                GameStateManagementGame.menuselect.Play();
+
+                ExitScreen();               
+
+                GameStateManagementGame.gameSongsCue.Stop(new AudioStopOptions());
+
+                GameStateManagementGame.music = 1;
+
+                LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen());
+            }
+        }
+
+
         #region Update and Draw
 
 
@@ -106,27 +130,7 @@ namespace Prototype2
         {
             base.Update(gameTime, otherScreenHasFocus, false);
 
-            if (manPos.Y > manFinalPos.Y)
-            {
-                manPos.Y -= 7;
-            }           
-
-            if (titlePos.Y < titleFinalPos.Y)
-            {
-                titlePos.Y += 5;
-            }
-
-            if (subtitleAlphaDelay < 0)
-            {
-                if (subtitleAlpha != subtitleFinalAlpha)
-                {
-                    subtitleAlpha += 0.01f;
-                }
-            }
-            else
-            {
-                subtitleAlphaDelay -= gameTime.ElapsedGameTime.Milliseconds;
-            }
+           
         }
 
 
@@ -140,26 +144,42 @@ namespace Prototype2
             Rectangle fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
             Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
 
-
-            //pulsating title            
-            time = gameTime.TotalGameTime.TotalSeconds;
-            pulsate = (float)Math.Sin(time * 3.2) + 1;
-            titleScale = 1 - ((Single)pulsate * 0.04f);  
-
+            
+             
+            /*
             //subtitle wiggling
             pulsate2 = (float)Math.Sin(time * 2.5) + 1;
             subTitleRotation = subtitleStartAngle - ((Single)pulsate2 * 0.03f);
             rotateOrigin = new Vector2(GameStateManagementGame.menusubtitle.Width / 2, GameStateManagementGame.menusubtitle.Height / 2);
 
             //man pulsating
-            pulsate3 = (float)Math.Sin(time * 0.35) + 1;
+            pulsate3 = (float)Math.Sin(time * 0.3) + 1;
             manScale = 1 - ((Single)pulsate3 * 0.035f); 
+            */
+
+
+            //draw pulsating title            
+            double time = gameTime.TotalGameTime.TotalSeconds;
+            float pulsate = (float)Math.Sin(time * 3) + 1;
+            float titleScale = 1 - (pulsate * 0.04f);
 
             spriteBatch.Begin();
+            
+            spriteBatch.Draw(GameStateManagementGame.finScreen, fullscreen, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
 
-            spriteBatch.Draw(GameStateManagementGame.menubg, fullscreen, 
-                             new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
+            titlePos.X = (viewportSize.X - (GameStateManagementGame.gameCompleteBanner.Width * titleScale)) / 2;
+            spriteBatch.Draw(GameStateManagementGame.gameCompleteBanner, titlePos, null, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha), 0f, Vector2.Zero, titleScale, SpriteEffects.None, 0);
 
+            // Draw the background rectangle.
+            spriteBatch.Draw(GameStateManagementGame.levelCompleteBox, gradeBoxPos, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha / 2f));
+
+            spriteBatch.DrawString(GameStateManagementGame.smallFont, "Level 1: " + GameStateManagementGame.level1Time + "secs", gradeBoxPos + level1TotOffset, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+            spriteBatch.DrawString(GameStateManagementGame.smallFont, "Level 2: " + GameStateManagementGame.level2Time + "secs", gradeBoxPos + level2TotOffset, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+
+            spriteBatch.DrawString(GameStateManagementGame.font, "Total Time: ", gradeBoxPos + totalTimeLabelOffset, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+            spriteBatch.DrawString(GameStateManagementGame.bigFont, totalTime.ToString(), gradeBoxPos + totalTimeOffset, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));
+
+            /*
             manPos.X = (viewportSize.X - (GameStateManagementGame.menuman.Width * manScale)) / 2;
             float manY = manPos.Y + ((GameStateManagementGame.menuman.Height - (GameStateManagementGame.menuman.Height * manScale)) / 2);
             spriteBatch.Draw(GameStateManagementGame.menuman, new Vector2(manPos.X, manY), null, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha), 0f, Vector2.Zero, manScale, SpriteEffects.None, 0);    //draw man                     
@@ -169,7 +189,7 @@ namespace Prototype2
 
             spriteBatch.Draw(GameStateManagementGame.menusubtitle, subtitlePos + new Vector2(GameStateManagementGame.menusubtitle.Width / 2, GameStateManagementGame.menusubtitle.Height / 2), null,
                              new Color(subtitleAlpha, subtitleAlpha, subtitleAlpha, subtitleAlpha), subTitleRotation, rotateOrigin, 1f, SpriteEffects.None, 0);    //draw subtitle
-
+            */
             spriteBatch.End();
         }
 

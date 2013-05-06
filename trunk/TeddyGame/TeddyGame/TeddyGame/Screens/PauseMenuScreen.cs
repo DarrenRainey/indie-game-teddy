@@ -33,7 +33,7 @@ namespace Prototype2
         /// Constructor.
         /// </summary>
         public PauseMenuScreen()
-            : base("Paused")
+            : base("-Paused-")
         {
             // Create our menu entries.
             resumeGameMenuEntry = new MenuEntry("Continue");

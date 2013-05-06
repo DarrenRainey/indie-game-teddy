@@ -64,10 +64,14 @@ namespace Prototype2
         private Boolean firstGameUpdate = true;
 
         private World _world;
+        
+        private int gameClock = 0;
+        private bool levelFinished = false;
 
-        private bool finLevel = false;
-        private int postWinDelay = 4000;         //in milliseconds
-
+        Vector2 ammoHudPos = new Vector2(128, 72);
+        Vector2 clockPos;
+        Vector2 enemyHudPos = new Vector2(1047, 72);
+        
         private Body _circleBody;
         private Body _groundBody;
         private Body playerBody;
@@ -87,15 +91,7 @@ namespace Prototype2
         private Texture2D playerKnife;
         private Texture2D armgun;
         private Texture2D head;
-
-        /*private AudioEngine audioEngine;
-        private WaveBank waveBank;
-        private SoundBank soundBank;
-        private Cue gameSongsCue;*/
-
-        private Texture2D tile1;
-        private Texture2D tile2;
-
+ 
         private Texture2D A_0_0;
         private Texture2D A_0_720;
         private Texture2D A_1280_0;
@@ -144,7 +140,12 @@ namespace Prototype2
 
         public static AudioListener audioListener;
         public const float soundDistanceFactor = 300f;     //the higher this is the further sounds can be heard        
+            
+        private int ammo = 10;
+        private Color ammoHudColor = Color.White;
 
+        private int totalEnemies = 0;
+        private Color enemyHudColor = Color.White;
         private List<EnemyCompositeCharacter> enemies;
         private List<EnemyCompositeCharacter2> enemies2;
 
@@ -183,6 +184,9 @@ namespace Prototype2
 
         private Vector2 previousClickWorldPos = Vector2.Zero;
         private List<Vector2> markers;
+
+        private Viewport viewport;
+        private Vector2 viewportSize;
         
         //--------------------------------------------screenmgmt vars
         ContentManager content;
@@ -205,7 +209,9 @@ namespace Prototype2
         public GameplayScreen()
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
-            TransitionOffTime = TimeSpan.FromSeconds(0.5);
+            TransitionOffTime = TimeSpan.FromSeconds(0.0);
+
+            GameStateManagementGame.enemiesKilled = 0;
                         
             _world = new World(new Vector2(0, 30f));
         }
@@ -637,33 +643,41 @@ namespace Prototype2
                     initEnemyScript(2);
 
                     initEnemy2Script(0);
-                    initEnemy2Script(1);  
+                    initEnemy2Script(1);
+
+                    totalEnemies = enemies.Count + enemies2.Count;
 
                     firstGameUpdate = false;
+                }
+                
+                //change hud colors on certain events
+                if (ammo == 3)
+                {
+                    ammoHudColor = Color.Red;
+                }
+
+                if (GameStateManagementGame.enemiesKilled == totalEnemies)
+                {
+                    enemyHudColor = new Color(0f, 1f, 0f);    //green
                 }
 
                 //check for level finish
                 if (box.Position.X > 5650)
-                {
-                    finLevel = true;
-                }
-
-                if (finLevel)
-                {
-                    postWinDelay -= gameTime.ElapsedGameTime.Milliseconds;
-                }
-
-                //change to level 2
-                if (postWinDelay <= 0)
-                {
+                {                    
                     GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
                     
-                    MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
+                    ScreenManager.AddScreen(new LevelCompleteScreen(true, ammo, totalEnemies, ammoHudColor, enemyHudColor, gameClock, ammoHudPos, clockPos, enemyHudPos), ControllingPlayer);
 
-                    MainMenuScreen.gamePlayScreen2 = new GameplayScreen2();
-
-                    LoadingScreen.Load(ScreenManager, true, 0, MainMenuScreen.gamePlayScreen2); 
+                    levelFinished = true;
                 }
+                else
+                {
+                    //update game clock
+                    if (gameTime.TotalGameTime.Milliseconds % 1000 == 0)
+                    {
+                        gameClock++;
+                    }
+                }              
 
                 oldActivity = box.activity;
 
@@ -699,7 +713,6 @@ namespace Prototype2
             //handle enemy player hammer attacks - can only knife melee bears from behind
             for (int i = 0; i < enemies.Count; i++)
             {
-
                 if (Math.Abs(enemies[i].Position.X - box.Position.X) < 100 && Math.Abs(enemies[i].Position.Y - box.Position.Y) < 100 && box.activity == Activity.Knife && playerAnimation.currentFrame > 8 && playerAnimation.myEffect.ToString() != enemies[i].animation.myEffect.ToString())
                 {                   
                     enemies[i].stopScript();
@@ -732,7 +745,7 @@ namespace Prototype2
                     {
                         enemies[i].stopScript();
 
-                        enemies[i].activity = EnemyActivity.enemyDead;
+                        enemies[i].activity = EnemyActivity.enemyDead;                                            
 
                         break;
                     }
@@ -839,60 +852,69 @@ namespace Prototype2
 
                 if (padState.Triggers.Right > 0.5 && _oldPadState.Triggers.Right < 0.5)
                 {
-                    GameStateManagementGame.pistolSound.Play();
-
-                    //vibration
-                    if (padState.ThumbSticks.Right.X < 0)
+                    if (ammo > 0)
                     {
-                        GamePad.SetVibration(PlayerIndex.One, Math.Abs(padState.ThumbSticks.Right.X / 2), 0.0f);
-                    }
-                    else
-                    {
-                        GamePad.SetVibration(PlayerIndex.One, 0.0f, (padState.ThumbSticks.Right.X / 2));
-                    }
+                        GameStateManagementGame.pistolSound.Play();                        
 
-                    vibrationTime = 300;
+                        //vibration to the side of shooting
+                        if (padState.ThumbSticks.Right.X < 0)
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, Math.Abs(padState.ThumbSticks.Right.X / 2), 0.0f);
+                        }
+                        else
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, 0.0f, (padState.ThumbSticks.Right.X / 2));
+                        }
 
-                    Bullet bullet = new Bullet();
-                    bullet.Texture = bulletTex;                    
+                        vibrationTime = 300;
 
-                    if (padState.ThumbSticks.Right.X > 0.50 || padState.ThumbSticks.Right.X < -0.50 || padState.ThumbSticks.Right.Y > 0.50 || padState.ThumbSticks.Right.Y < -0.50)
-                    {
-                        bullet.DirectionIncrement = (padState.ThumbSticks.Right * new Vector2(1, -1));
-                    }
-                    else
-                    {
+                        Bullet bullet = new Bullet();
+                        bullet.Texture = bulletTex;
+
+                        if (padState.ThumbSticks.Right.X > 0.50 || padState.ThumbSticks.Right.X < -0.50 || padState.ThumbSticks.Right.Y > 0.50 || padState.ThumbSticks.Right.Y < -0.50)
+                        {
+                            bullet.DirectionIncrement = (padState.ThumbSticks.Right * new Vector2(1, -1));
+                        }
+                        else
+                        {
+                            if (armgunEffects == SpriteEffects.None)
+                            {
+                                bullet.DirectionIncrement = new Vector2(1, 0);
+                            }
+                            else if (armgunEffects == SpriteEffects.FlipHorizontally)
+                            {
+                                bullet.DirectionIncrement = new Vector2(-1, 0);
+                            }
+                        }
+
+                        Vector2 perpToDirection;
+
+                        //arm pivot point + direction multiplyed by guess number to bring the bullet origin to the tip of the pistol. 
+                        //also moved a few pixels 90 degrees perpendicular to direction to match the tip of the gun  
                         if (armgunEffects == SpriteEffects.None)
                         {
-                            bullet.DirectionIncrement = new Vector2(1, 0);
+                            perpToDirection = new Vector2(bullet.DirectionIncrement.Y, bullet.DirectionIncrement.X * -1) * 12;
+
+                            bullet.Origin = new Vector2(box.Position.X + 10, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
                         }
                         else if (armgunEffects == SpriteEffects.FlipHorizontally)
                         {
-                            bullet.DirectionIncrement = new Vector2(-1, 0);
+                            perpToDirection = new Vector2(bullet.DirectionIncrement.Y * -1, bullet.DirectionIncrement.X) * 12;
+
+                            bullet.Origin = new Vector2(box.Position.X - 20, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
                         }
+
+                        bullet.CurrentPos = bullet.Origin;
+                        bullet.DirectionIncrement *= bullet.Speed;
+
+                        bulletQueue.Enqueue(bullet);    //add the bullet to the queue of bullets
+
+                        ammo--;
                     }
-
-                    Vector2 perpToDirection;
-
-                    //arm pivot point + direction multiplyed by guess number to bring the bullet origin to the tip of the pistol. 
-                    //also moved a few pixels 90 degrees perpendicular to direction to match the tip of the gun  
-                    if (armgunEffects == SpriteEffects.None)
+                    else
                     {
-                        perpToDirection = new Vector2(bullet.DirectionIncrement.Y, bullet.DirectionIncrement.X * -1) * 12;
-
-                        bullet.Origin = new Vector2(box.Position.X + 10, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
+                        GameStateManagementGame.clickSound.Play();
                     }
-                    else if (armgunEffects == SpriteEffects.FlipHorizontally)
-                    {
-                        perpToDirection = new Vector2(bullet.DirectionIncrement.Y * -1, bullet.DirectionIncrement.X) * 12;
-
-                        bullet.Origin = new Vector2(box.Position.X - 20, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
-                    }
-
-                    bullet.CurrentPos = bullet.Origin;
-                    bullet.DirectionIncrement *= bullet.Speed; 
-
-                    bulletQueue.Enqueue(bullet);    //add the bullet to the queue of bullets
                 }
 
                 if (padState.ThumbSticks.Right.X > 0.50 || padState.ThumbSticks.Right.X < -0.50 || padState.ThumbSticks.Right.Y > 0.50 || padState.ThumbSticks.Right.Y < -0.50)
@@ -965,19 +987,6 @@ namespace Prototype2
             _view = Matrix.CreateTranslation(new Vector3(_cameraPosition - _screenCenter, 0f)) *
                     Matrix.CreateTranslation(new Vector3(_screenCenter, 0f));
 
-
-            /*if (state.IsKeyDown(Keys.Left))
-            {
-                playerAnimation.myEffect = SpriteEffects.FlipHorizontally;
-                shootAnimation.myEffect = SpriteEffects.FlipHorizontally;
-                armgunEffects = SpriteEffects.FlipHorizontally;
-            }
-            else if (state.IsKeyDown(Keys.Right))
-            {
-                playerAnimation.myEffect = SpriteEffects.None;
-                shootAnimation.myEffect = SpriteEffects.None;
-                armgunEffects = SpriteEffects.None;
-            }*/
 
             if (state.IsKeyDown(Keys.B) && _oldKeyState.IsKeyDown(Keys.B) == false)
             {
@@ -1074,6 +1083,9 @@ namespace Prototype2
         public override void Draw(GameTime gameTime)
         {            
             GameStateManagementGame.graphics.GraphicsDevice.Clear(Color.SkyBlue);
+
+            viewport = GameStateManagementGame.graphics.GraphicsDevice.Viewport;
+            viewportSize = new Vector2(viewport.Width, viewport.Height);
 
             _batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);
 
@@ -1202,18 +1214,31 @@ namespace Prototype2
 
             //draw items attached to screen as aposed to world
             _batch.Begin();
-                       
+
+            if (!levelFinished)
+            {
+                //draw hud
+                _batch.Draw(GameStateManagementGame.ammoHUD, ammoHudPos, Color.White);
+                _batch.DrawString(_font, "" + ammo, ammoHudPos + new Vector2(62 + 1, 6 + 1), Color.Black);
+                _batch.DrawString(_font, "" + ammo, ammoHudPos + new Vector2(62, 6), ammoHudColor);
+
+                clockPos = new Vector2(((viewportSize.X - bigFont.MeasureString(gameClock.ToString()).X) / 2), 50f);
+
+                _batch.DrawString(bigFont, gameClock.ToString(), clockPos + new Vector2(1, 1), Color.Black);
+                _batch.DrawString(bigFont, gameClock.ToString(), clockPos, Color.White);
+
+                _batch.Draw(GameStateManagementGame.bearHUD, enemyHudPos, Color.White);
+                _batch.DrawString(_font, "" + GameStateManagementGame.enemiesKilled + "/" + totalEnemies, enemyHudPos + new Vector2(63 + 1, 10 + 1), Color.Black);
+                _batch.DrawString(_font, "" + GameStateManagementGame.enemiesKilled + "/" + totalEnemies, enemyHudPos + new Vector2(63, 10), enemyHudColor);
+            }
 
             if (box.activity == Activity.Dead && playerAnimation.currentFrame == 36)   //if on last frame of dead animation
             {
+                _batch.DrawString(bigFont, "YOU DIED!", new Vector2(501, 301), Color.Black);
                 _batch.DrawString(bigFont, "YOU DIED!", new Vector2(500, 300), Color.Red);
 
+                _batch.DrawString(_font, "Press BACK to retry", new Vector2(491, 371), Color.Black);
                 _batch.DrawString(_font, "Press BACK to retry", new Vector2(490, 370), Color.White);
-            }
-
-            if (finLevel)
-            {
-                _batch.DrawString(bigFont, "LEVEL 1 COMPLETE!", new Vector2(250, 300), Color.Green);
             }
 
             //draw crosshair at mouse

@@ -748,6 +748,87 @@
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menupause.xnb</Output>
       <Time>2013-04-29T03:42:38.588+01:00</Time>
     </Item>
+    <Item>
+      <Source>click.wav</Source>
+      <Name>click</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\click.xnb</Output>
+      <Time>2013-05-04T14:42:01.164021+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ammo.png</Source>
+      <Name>ammo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\ammo.xnb</Output>
+      <Time>2013-05-04T17:15:01.776122+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bearhead.png</Source>
+      <Name>bearhead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearhead.xnb</Output>
+      <Time>2013-05-04T17:19:06.9911475+01:00</Time>
+    </Item>
+    <Item>
+      <Source>LevelCompleteBox.png</Source>
+      <Name>LevelCompleteBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\LevelCompleteBox.xnb</Output>
+      <Time>2013-05-05T18:46:21.0983186+01:00</Time>
+    </Item>
+    <Item>
+      <Source>levelCompleteBanner.png</Source>
+      <Name>levelCompleteBanner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\levelCompleteBanner.xnb</Output>
+      <Time>2013-05-05T18:00:13.4950207+01:00</Time>
+    </Item>
+    <Item>
+      <Source>tot.wav</Source>
+      <Name>tot</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\tot.xnb</Output>
+      <Time>2013-05-06T11:21:16.493+01:00</Time>
+    </Item>
+    <Item>
+      <Source>finLevel.wav</Source>
+      <Name>finLevel</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\finLevel.xnb</Output>
+      <Time>2013-05-06T11:24:40.561+01:00</Time>
+    </Item>
+    <Item>
+      <Source>finscreen.png</Source>
+      <Name>finscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\finscreen.xnb</Output>
+      <Time>2013-05-06T12:17:38.0053997+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gameCompleteBanner.png</Source>
+      <Name>gameCompleteBanner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\gameCompleteBanner.xnb</Output>
+      <Time>2013-05-06T12:32:57.1639726+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Xbox360</TargetPlatform>

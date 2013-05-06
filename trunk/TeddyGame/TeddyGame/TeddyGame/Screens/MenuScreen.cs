@@ -268,11 +268,12 @@ namespace Prototype2
 
             // Draw the menu title centered on the screen
             Vector2 titlePosition = new Vector2(graphics.Viewport.Width / 2, 80);
-            Vector2 titleOrigin = font.MeasureString(menuTitle) / 2;
+            Vector2 titleOrigin = GameStateManagementGame.smallFont.MeasureString(menuTitle) / 2;
             Color titleColor = new Color(192, 192, 192) * TransitionAlpha;
             float titleScale = 1.25f;
 
             titlePosition.Y -= transitionOffset * 100;
+            titlePosition.Y += 120;
 
             if (startPressed || front == false)
             {
@@ -294,7 +295,7 @@ namespace Prototype2
                 }
 
 
-                spriteBatch.DrawString(font, menuTitle, titlePosition, titleColor, 0,
+                spriteBatch.DrawString(GameStateManagementGame.smallFont, menuTitle, titlePosition, titleColor, 0,
                                        titleOrigin, titleScale, SpriteEffects.None, 0);
 
                 spriteBatch.Draw(GameStateManagementGame.buttonA, new Vector2(885f, 595f), new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha, TransitionAlpha));

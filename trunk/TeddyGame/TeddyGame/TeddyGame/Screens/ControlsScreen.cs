@@ -30,9 +30,10 @@ namespace Prototype2
         Vector2 viewportSize;
         Vector2 popupPos;
         String prefix = "HINT:";
-        String tip = "";
+        String tip;
+        String[] tips;
         int timeSinceLastTip;
-        int tipGap = 9500;
+        int tipGap = 7000;
 
         #endregion
 
@@ -53,6 +54,14 @@ namespace Prototype2
             TransitionOffTime = TimeSpan.FromSeconds(0.35);
 
             timeSinceLastTip = tipGap;
+
+            tip = "";
+
+            tips = new string[]{"Use the hammer as much as possible to reserve much needed pistol ammo.",                                             
+                                "Those weaponless bears looks suspicious, i wouldnt trust them!",              
+                                "Try to take out multiple enemies with one bullet to save ammo.",             
+                                "Be careful of the knifing bears, you can only hammer attack them from behind.",                
+                                "Run against curb shaped objects and jump at the right time to get extra height."};
         }
 
 
@@ -107,28 +116,7 @@ namespace Prototype2
 
             if (timeSinceLastTip >= tipGap)
             {
-                int rand = new Random().Next(1, 101);  //num between 1 and 100 - display tips from most common to rarest      
-
-                if (rand <= 35)
-                {
-                    tip = "Use the hammer as much as possible to reserve much needed pistol ammo.";
-                }
-                else if (rand <= 60)
-                {
-                    tip = "Those weaponless bears looks suspicious, i wouldnt trust them!";
-                }
-                else if (rand <= 76)
-                {
-                    tip = "Try to take out multiple enemies with one bullet to save ammo.";
-                }
-                else if (rand <= 92)
-                {
-                    tip = "Be careful of the knifing bears, you can only hammer attack them from behind.";
-                }
-                else
-                {
-                    tip = "Run against curb shaped objects and jump at the right time to get extra height.";
-                }
+                tip = tips[new Random().Next(0, tips.Length)];    //display a random tip            
 
                 timeSinceLastTip = 0;
             }

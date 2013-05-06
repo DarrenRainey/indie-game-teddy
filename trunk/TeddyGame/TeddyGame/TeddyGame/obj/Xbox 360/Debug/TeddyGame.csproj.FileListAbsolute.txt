@@ -65,14 +65,10 @@ C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\men
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\teddyMusic.xgs
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\playlist.xwb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\playlist.xsb
-C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Prototype2.exe
-C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Prototype2.pdb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\FarseerPhysicsXNA.pdb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Debug\Prototype2.exe
-C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Debug\Prototype2.pdb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menubg.xnb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menuman.xnb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menusubtitle.xnb
@@ -92,3 +88,16 @@ C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\men
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menustart.xnb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menuplay.xnb
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\menupause.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\click.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\ammo.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\bearhead.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\LevelCompleteBox.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\levelCompleteBanner.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Cuddle Boy & The Teddy Town Massacre.exe
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Cuddle Boy & The Teddy Town Massacre.pdb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Debug\Cuddle Boy & The Teddy Town Massacre.exe
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\obj\Xbox 360\Debug\Cuddle Boy & The Teddy Town Massacre.pdb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\tot.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\finLevel.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\finscreen.xnb
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\gameCompleteBanner.xnb
