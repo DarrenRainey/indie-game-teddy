@@ -175,6 +175,8 @@ namespace Prototype2
                 animation.Initialize(GameStateManagementGame.bearDead, Vector2.Zero, 183, 203, 21, 70, Color.White, 1f, false, new Vector2(0, 0));
 
                 playRandomDeadSound();
+
+                GameStateManagementGame.enemiesKilled++;
             }
             else if (activity == EnemyActivity.enemyKnife && oldActivity != EnemyActivity.enemyKnife)
             {
@@ -183,7 +185,7 @@ namespace Prototype2
 
                 GameStateManagementGame.knifeSound.Play();
 
-                GameplayScreen.box.activity = Activity.Dead;
+                GameplayScreen.box.activity = Activity.Dead;                  
             }
   
             //if the knife animation is finished execute the post attack script

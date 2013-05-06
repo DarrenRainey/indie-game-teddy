@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Prototype2</RootNamespace>
-    <AssemblyName>Prototype2</AssemblyName>
+    <AssemblyName>Cuddle Boy &amp; The Teddy Town Massacre</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
@@ -16,8 +16,8 @@
     <XnaProfile>HiDef</XnaProfile>
     <XnaCrossPlatformGroupID>0588b838-a823-4013-8de7-db38e347d623</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
-    <ApplicationIcon>Game.ico</ApplicationIcon>
-    <Thumbnail>GameThumbnail.png</Thumbnail>
+    <ApplicationIcon>BF Heroes Icon.ico</ApplicationIcon>
+    <Thumbnail>menutitle.png</Thumbnail>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Xbox 360' ">
     <DebugSymbols>true</DebugSymbols>
@@ -107,6 +107,8 @@
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Screens\ControlsScreen.cs" />
+    <Compile Include="Screens\GameCompleteScreen.cs" />
+    <Compile Include="Screens\LevelCompleteScreen.cs" />
     <Compile Include="Screens\GameplayScreen2.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\LoadingScreen.cs" />
@@ -119,8 +121,10 @@
     <Compile Include="StaticPhysicsObject.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BF Heroes Icon.ico" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="menutitle.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Farseer Physics Engine 3.3 XNA\Farseer Physics XNA Xbox360.csproj">

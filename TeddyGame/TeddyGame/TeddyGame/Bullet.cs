@@ -22,7 +22,7 @@ namespace Prototype2
             this.origin = Vector2.Zero;
             this.currentPos = Vector2.Zero;
             this.directionIncrement = Vector2.Zero;
-            this.speed = 15;
+            this.speed = 17;
             this.maxDistanceFromOrigin = 2560;    //bullet disappears once outside the screen (1280 pixels wide)
         }
 

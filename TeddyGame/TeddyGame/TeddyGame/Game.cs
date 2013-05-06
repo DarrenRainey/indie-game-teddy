@@ -32,10 +32,20 @@ namespace Prototype2
         public static SoundBank soundBank;
         public static Cue gameSongsCue;
 
+        public static int level1Time;
+        public static int level2Time;
+
+        public static int enemiesKilled;
+              
+        public static Texture2D bearHUD;
+        public static Texture2D ammoHUD;
+
         public static Texture2D menubg;
         public static Texture2D menubox;
         public static Texture2D exitbox;
         public static Texture2D controls;
+        public static Texture2D levelCompleteBox;
+        public static Texture2D levelCompleteBanner;
         public static Texture2D pressstart;
         public static Texture2D menuman;
         public static Texture2D menutitle;
@@ -43,7 +53,12 @@ namespace Prototype2
         public static Texture2D buttonA;
         public static Texture2D buttonB;
 
+        public static Texture2D finScreen;
+        public static Texture2D gameCompleteBanner;
+
         public static SpriteFont smallFont;
+        public static SpriteFont bigFont;
+        public static SpriteFont font;
 
         //load bear animations
         public static Texture2D bearIdle;  
@@ -71,8 +86,12 @@ namespace Prototype2
         public static SoundEffect menuplay;
         public static SoundEffect menupause;
 
+        public static SoundEffect finLevelSound;
+        public static SoundEffect totSound;
+
         public static SoundEffect jumpSound;
         public static SoundEffect pistolSound;
+        public static SoundEffect clickSound;
         public static SoundEffect dieSound;
         public static SoundEffect hammerSound;
         public static SoundEffect knifeSound;
@@ -141,17 +160,28 @@ namespace Prototype2
             soundBank = new SoundBank(audioEngine, "Content/playlist.xsb");
             gameSongsCue = soundBank.GetCue("menumusic");
 
+            bearHUD = Content.Load<Texture2D>("bearhead");
+            ammoHUD = Content.Load<Texture2D>("ammo");
+
             menubg = Content.Load<Texture2D>("menubg");
             menubox = Content.Load<Texture2D>("menubox");
             exitbox = Content.Load<Texture2D>("exitbox");
             controls = Content.Load<Texture2D>("controls");
+            levelCompleteBox = Content.Load<Texture2D>("LevelCompleteBox");
+            levelCompleteBanner = Content.Load<Texture2D>("levelCompleteBanner");
             pressstart = Content.Load<Texture2D>("pressstart");
             menuman = Content.Load<Texture2D>("menuman");
             menutitle = Content.Load<Texture2D>("menutitle");
             menusubtitle = Content.Load<Texture2D>("menusubtitle");
             buttonA = Content.Load<Texture2D>("buttona");
             buttonB = Content.Load<Texture2D>("buttonb");
+
+            finScreen = Content.Load<Texture2D>("finscreen");
+            gameCompleteBanner = Content.Load<Texture2D>("gameCompleteBanner");
+
             smallFont = Content.Load<SpriteFont>("smallfont");
+            font = Content.Load<SpriteFont>("font");
+            bigFont = Content.Load<SpriteFont>("bigFont");
 
             //troublesome loads
             bearIdle = Content.Load<Texture2D>("bearidle");
@@ -178,9 +208,13 @@ namespace Prototype2
             menuback = Content.Load<SoundEffect>("menuback");
             menuplay = Content.Load<SoundEffect>("menuplay");
             menupause = Content.Load<SoundEffect>("menupause");
+            
+            finLevelSound = Content.Load<SoundEffect>("finLevel");
+            totSound = Content.Load<SoundEffect>("tot");
 
             jumpSound = Content.Load<SoundEffect>("jumpSound");
             pistolSound = Content.Load<SoundEffect>("pistolSound");
+            clickSound = Content.Load<SoundEffect>("click");
             dieSound = Content.Load<SoundEffect>("dieSound");
             knifeSound = Content.Load<SoundEffect>("knifeSound");
             hammerSound = Content.Load<SoundEffect>("hammerSound");
@@ -195,6 +229,7 @@ namespace Prototype2
 
 
         #endregion
+       
 
         #region Draw
 

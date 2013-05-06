@@ -81,6 +81,15 @@ Content\menuselect.xnb
 Content\menustart.xnb
 Content\menuplay.xnb
 Content\menupause.xnb
+Content\ammo.xnb
+Content\bearhead.xnb
+Content\click.xnb
+Content\LevelCompleteBox.xnb
+Content\levelCompleteBanner.xnb
+Content\tot.xnb
+Content\finLevel.xnb
+Content\finscreen.xnb
+Content\gameCompleteBanner.xnb
 Content\teddyMusic.xgs
 Content\playlist.xwb
 Content\playlist.xsb
