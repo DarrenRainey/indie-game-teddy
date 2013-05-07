@@ -163,6 +163,10 @@ namespace Prototype2
                 {
                     GameStateManagementGame.level2Time = gameClock;
 
+                    GameStateManagementGame.gameSongsCue.Stop(AudioStopOptions.AsAuthored);
+
+                    GameStateManagementGame.music = 0;
+
                     LoadingScreen.Load(ScreenManager, false, null, new GameCompleteScreen());
                 }
             }
