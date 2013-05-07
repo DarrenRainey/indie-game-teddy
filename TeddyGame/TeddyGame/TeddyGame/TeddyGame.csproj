@@ -93,6 +93,7 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="CreditsLine.cs" />
     <Compile Include="CompositeCharacter.cs" />
     <Compile Include="CompositePhysicsObject.cs" />
     <Compile Include="ConvertUnits.cs" />
