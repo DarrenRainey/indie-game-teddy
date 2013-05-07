@@ -9,8 +9,8 @@
     Windows Bank Path Edited = 0;
     Seek Tables = 1;
     Compression Preset Name = &lt;none&gt;;
-    Bank Last Revised Low = 2668790583;
-    Bank Last Revised High = 30293714;
+    Bank Last Revised Low = 287714227;
+    Bank Last Revised High = 30296781;
 
     Wave
     {
@@ -55,6 +55,29 @@
             File Type = 1;
             Last Modified Low = 2128092656;
             Last Modified High = 30293714;
+        }
+    }
+
+    Wave
+    {
+        Name = creditsMusic;
+        File = ..\..\..\..\Users\Hugh\Downloads\prototype1 art\sound\creditsMusic.wav;
+        Build Settings Last Modified Low = 264802917;
+        Build Settings Last Modified High = 30296781;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 98;
+            Play Region Length = 52955136;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 84552607;
+            Last Modified High = 30296781;
         }
     }
 }

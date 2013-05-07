@@ -84,13 +84,13 @@ Global Settings
 
         Instance Limit
         {
-            Max Instances = 255;
-            Behavior = 0;
+            Max Instances = 1;
+            Behavior = 4;
 
             Crossfade
             {
                 Fade In = 0;
-                Fade Out = 0;
+                Fade Out = 1500;
                 Crossfade Type = 0;
             }
         }
@@ -214,6 +214,39 @@ Global Settings
         Min = 0.000000;
         Max = 1000000.000000;
     }
+
+    RPC
+    {
+        Name = RPC Preset;
+
+        RPC Curve
+        {
+            Name = 1::080dcfb9-0904-4c96-b069-6bb2d5007894;
+            Property = 0;
+            Sound = 0;
+            Line Color = 4285900971;
+            Viewable = 1;
+
+            Variable Entry
+            {
+                Name = ReleaseTime;
+            }
+
+            RPC Point
+            {
+                X = 0.000000;
+                Y = 0.000000;
+                Curve = 0;
+            }
+
+            RPC Point
+            {
+                X = 15000.000000;
+                Y = -9600.000000;
+                Curve = 0;
+            }
+        }
+    }
 }
 
 Wave Bank
@@ -225,8 +258,8 @@ Wave Bank
     Windows Bank Path Edited = 0;
     Seek Tables = 1;
     Compression Preset Name = <none>;
-    Bank Last Revised Low = 2668790583;
-    Bank Last Revised High = 30293714;
+    Bank Last Revised Low = 287714227;
+    Bank Last Revised High = 30296781;
 
     Wave
     {
@@ -271,6 +304,29 @@ Wave Bank
             File Type = 1;
             Last Modified Low = 2128092656;
             Last Modified High = 30293714;
+        }
+    }
+
+    Wave
+    {
+        Name = creditsMusic;
+        File = ..\..\..\..\Users\Hugh\Downloads\prototype1 art\sound\creditsMusic.wav;
+        Build Settings Last Modified Low = 264802917;
+        Build Settings Last Modified High = 30296781;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 98;
+            Play Region Length = 52955136;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 84552607;
+            Last Modified High = 30296781;
         }
     }
 }
@@ -379,6 +435,64 @@ Sound Bank
         }
     }
 
+    Sound
+    {
+        Name = creditsMusic;
+        Volume = -1140;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        RPC Entry
+        {
+            RPC Name = RPC Preset;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = playlist;
+                    Bank Index = 0;
+                    Entry Name = creditsMusic;
+                    Entry Index = 2;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+
+            RPC Curve Entry
+            {
+                RPC Name = RPC Preset;
+                RPC Curve Name = 1::080dcfb9-0904-4c96-b069-6bb2d5007894;
+            }
+        }
+    }
+
     Cue
     {
         Name = gamesongs;
@@ -414,6 +528,26 @@ Sound Bank
         {
             Name = menumusic;
             Index = 1;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = creditsMusic;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = creditsMusic;
+            Index = 2;
             Weight Min = 0;
             Weight Max = 255;
         }

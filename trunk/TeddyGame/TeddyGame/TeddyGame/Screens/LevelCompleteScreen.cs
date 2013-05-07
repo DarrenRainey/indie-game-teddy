@@ -72,7 +72,7 @@ namespace Prototype2
 
         Vector2 titlePos = new Vector2(0, 125f);
         Vector2 subTitlePos = new Vector2(0, 240f);
-        String subTitle = "Time:";
+        String subTitle = "Time";
 
         #endregion
 

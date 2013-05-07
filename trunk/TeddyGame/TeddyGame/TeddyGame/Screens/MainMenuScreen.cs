@@ -67,7 +67,8 @@ namespace Prototype2
 
             GameStateManagementGame.music = 0;
             
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, gamePlayScreen);
+            //LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, gamePlayScreen);
+            LoadingScreen.Load(ScreenManager, false, null, new GameCompleteScreen());
         }
 
 

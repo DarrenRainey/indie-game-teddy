@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
 #endregion
 
 namespace Prototype2
@@ -32,8 +33,8 @@ namespace Prototype2
         public static SoundBank soundBank;
         public static Cue gameSongsCue;
 
-        public static int level1Time;
-        public static int level2Time;
+        public static int level1Time = 0;
+        public static int level2Time = 0;
 
         public static int enemiesKilled;
               
@@ -55,6 +56,13 @@ namespace Prototype2
 
         public static Texture2D finScreen;
         public static Texture2D gameCompleteBanner;
+        public static Texture2D gradeBox;
+        public static Texture2D creditsBox;
+        public static Texture2D gradeA;
+        public static Texture2D gradeB;
+        public static Texture2D gradeC;
+        public static Texture2D gradeD;
+        public static Texture2D gradeF;
 
         public static SpriteFont smallFont;
         public static SpriteFont bigFont;
@@ -88,6 +96,9 @@ namespace Prototype2
 
         public static SoundEffect finLevelSound;
         public static SoundEffect totSound;
+        public static SoundEffect gradeTotSound;
+        public static SoundEffect wooshSound;
+        public static SoundEffect wipeSound;
 
         public static SoundEffect jumpSound;
         public static SoundEffect pistolSound;
@@ -103,9 +114,7 @@ namespace Prototype2
         public static SoundEffect bearDeadSound5;
         public static SoundEffect bearShoot;
 
-
-
-        public static int music = 1;   //0 = none, 1 = menu, 2 = game
+        public static int music = 1;   //0 = none, 1 = menu, 2 = game, 3 = credits
 
         ScreenManager screenManager;
 
@@ -178,6 +187,14 @@ namespace Prototype2
 
             finScreen = Content.Load<Texture2D>("finscreen");
             gameCompleteBanner = Content.Load<Texture2D>("gameCompleteBanner");
+            gradeBox = Content.Load<Texture2D>("gradeBox");
+            creditsBox = Content.Load<Texture2D>("CreditsBox");
+            gradeA = Content.Load<Texture2D>("gradeA");
+            gradeB = Content.Load<Texture2D>("gradeB");
+            gradeC = Content.Load<Texture2D>("gradeC");
+            gradeD = Content.Load<Texture2D>("gradeD");
+            gradeF = Content.Load<Texture2D>("gradeF");
+
 
             smallFont = Content.Load<SpriteFont>("smallfont");
             font = Content.Load<SpriteFont>("font");
@@ -211,6 +228,9 @@ namespace Prototype2
             
             finLevelSound = Content.Load<SoundEffect>("finLevel");
             totSound = Content.Load<SoundEffect>("tot");
+            gradeTotSound = Content.Load<SoundEffect>("gradeTot");
+            wooshSound = Content.Load<SoundEffect>("wooshSound");
+            wipeSound = Content.Load<SoundEffect>("wipeSound");
 
             jumpSound = Content.Load<SoundEffect>("jumpSound");
             pistolSound = Content.Load<SoundEffect>("pistolSound");

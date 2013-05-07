@@ -90,6 +90,16 @@ Content\tot.xnb
 Content\finLevel.xnb
 Content\finscreen.xnb
 Content\gameCompleteBanner.xnb
+Content\gradeBox.xnb
+Content\gradeA.xnb
+Content\gradeTot.xnb
+Content\gradeB.xnb
+Content\gradeC.xnb
+Content\gradeD.xnb
+Content\gradeF.xnb
+Content\CreditsBox.xnb
+Content\wipeSound.xnb
+Content\wooshSound.xnb
 Content\teddyMusic.xgs
 Content\playlist.xwb
 Content\playlist.xsb
