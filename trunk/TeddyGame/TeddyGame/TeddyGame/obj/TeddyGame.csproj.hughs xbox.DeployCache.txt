@@ -6,7 +6,7 @@ C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\menutitle.png
 2013-05-05T17:55:22.6112914Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Cuddle Boy & The Teddy Town Massacre.exe
-2013-05-07T05:08:38.6548986Z
+2013-05-07T23:23:26.4863725Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\FarseerPhysicsXNA.dll
 2013-04-21T14:01:38.0000000Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\ammo.xnb
@@ -77,6 +77,8 @@ C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\cir
 2013-05-06T19:06:42.2461582Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\click.xnb
 2013-05-06T19:07:52.7621915Z
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\clouds.xnb
+2013-05-07T18:46:04.0794812Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\controls.xnb
 2013-05-06T19:07:23.6935289Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\CreditsBox.xnb
@@ -133,6 +135,10 @@ C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\kni
 2013-05-06T19:07:03.5843787Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\knifeSound.xnb
 2013-05-06T19:07:28.4478008Z
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level1bg.xnb
+2013-05-07T22:45:12.1461437Z
+C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level1mg.xnb
+2013-05-07T22:45:18.1904894Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\levelCompleteBanner.xnb
 2013-05-06T19:07:24.5445776Z
 C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\LevelCompleteBox.xnb

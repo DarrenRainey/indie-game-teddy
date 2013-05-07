@@ -100,6 +100,9 @@ Content\gradeF.xnb
 Content\CreditsBox.xnb
 Content\wipeSound.xnb
 Content\wooshSound.xnb
+Content\level1bg.xnb
+Content\clouds.xnb
+Content\level1mg.xnb
 Content\teddyMusic.xgs
 Content\playlist.xwb
 Content\playlist.xsb

@@ -919,6 +919,33 @@
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\wooshSound.xnb</Output>
       <Time>2013-05-07T02:45:08.4625156+01:00</Time>
     </Item>
+    <Item>
+      <Source>level1bg.png</Source>
+      <Name>level1bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level1bg.xnb</Output>
+      <Time>2013-05-07T23:42:13.1959083+01:00</Time>
+    </Item>
+    <Item>
+      <Source>clouds.png</Source>
+      <Name>clouds</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\clouds.xnb</Output>
+      <Time>2013-05-07T19:45:56.9060709+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level1mg.png</Source>
+      <Name>level1mg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\Xbox 360\Debug\Content\level1mg.xnb</Output>
+      <Time>2013-05-07T23:42:13.9629522+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Xbox360</TargetPlatform>

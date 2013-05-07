@@ -121,7 +121,7 @@ namespace Prototype2
             }
             else if(front)
             {
-                if ((input.CurrentGamePadStates[0].Buttons.Start == ButtonState.Pressed && input.LastGamePadStates[0].Buttons.Start == ButtonState.Released) || (input.CurrentGamePadStates[0].Buttons.A == ButtonState.Pressed && input.LastGamePadStates[0].Buttons.A == ButtonState.Released))
+                if ((input.CurrentGamePadStates[0].Buttons.Start == ButtonState.Pressed && input.LastGamePadStates[0].Buttons.Start == ButtonState.Released) || (input.CurrentGamePadStates[0].Buttons.A == ButtonState.Pressed && input.LastGamePadStates[0].Buttons.A == ButtonState.Released) || (input.CurrentKeyboardStates[0].IsKeyDown(Keys.Enter) && input.LastKeyboardStates[0].IsKeyUp(Keys.Enter)))
                 {
                     GameStateManagementGame.menustart.Play();
                     

@@ -234,17 +234,12 @@ namespace Prototype2
             creditsLines.Add(new CreditsLine(""));
             creditsLines.Add(new CreditsLine(""));           
             creditsLines.Add(new CreditsLine("Thanks For Playing!"));
-
-        
+                    
 
             for (int i = 0; i < creditsLines.Count; i++)
             {
                 creditsLines[i].position = creditStartOffset;
-            }
-            
-            //testing
-            GameStateManagementGame.level1Time = 0;
-            GameStateManagementGame.level2Time = 0;
+            }            
         }
 
 

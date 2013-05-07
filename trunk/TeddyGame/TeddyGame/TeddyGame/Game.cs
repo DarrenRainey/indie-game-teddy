@@ -40,6 +40,7 @@ namespace Prototype2
               
         public static Texture2D bearHUD;
         public static Texture2D ammoHUD;
+        public static Texture2D clouds;
 
         public static Texture2D menubg;
         public static Texture2D menubox;
@@ -171,6 +172,7 @@ namespace Prototype2
 
             bearHUD = Content.Load<Texture2D>("bearhead");
             ammoHUD = Content.Load<Texture2D>("ammo");
+            clouds = Content.Load<Texture2D>("clouds");
 
             menubg = Content.Load<Texture2D>("menubg");
             menubox = Content.Load<Texture2D>("menubox");

@@ -71,26 +71,31 @@ namespace Prototype2
         Vector2 ammoHudPos = new Vector2(128, 72);
         Vector2 clockPos;
         Vector2 enemyHudPos = new Vector2(1047, 72);
-        
-        private Body _circleBody;
-        private Body _groundBody;
-        private Body playerBody;
-        private Body backgroundBody;
-
+          
         private List<PassableEdge> passableEdges;
+        private List<Rectangle> deadZones;
+
+        private float cloudIncrement = 0;
 
         public static CompositeCharacter box;
-
-        private Texture2D _circleSprite;
-        private Texture2D _groundSprite;
+        
         private Texture2D player;
         private Texture2D playerTexture;
-        private Texture2D playerJump;
-        private Texture2D playerShoot;
+        private Texture2D playerJump;       
         private Texture2D playerDead;
         private Texture2D playerKnife;
         private Texture2D armgun;
         private Texture2D head;
+
+        private Texture2D bg;
+        private Texture2D mg;
+        float mgYOffset = 0;
+
+        private Vector2 bgPos = new Vector2(0, -50);
+        private Vector2 bgPosB;
+        private Vector2 mgPos;
+        private Vector2 mgPosB;
+        private Vector2 cloudsPos = new Vector2(1350, 0); 
  
         private Texture2D A_0_0;
         private Texture2D A_0_720;
@@ -116,26 +121,9 @@ namespace Prototype2
 
         private float headAngle;
 
-
         private Animation playerAnimation;
-
-
-        public static Texture2D bearIdle;
-        public static Texture2D bearRunning;
-        public static Texture2D bearJumping;
-        public static Texture2D bearKnife;
-        public static Texture2D bearDead;
+      
         private EnemyCompositeCharacter bearBox;
-
-        public static Texture2D bear2Idle;
-        public static Texture2D bear2Running;
-        public static Texture2D bear2Jumping;
-        public static Texture2D bear2ShootDown;
-        public static Texture2D bear2ShootDiagDown;
-        public static Texture2D bear2ShootAhead;
-        public static Texture2D bear2ShootDiagUp;
-        public static Texture2D bear2ShootUp;
-        public static Texture2D bear2Dead;
         private EnemyCompositeCharacter2 bear2Box;
 
         public static AudioListener audioListener;
@@ -157,8 +145,6 @@ namespace Prototype2
         private int vibrationTime = -1000; //stores vibration time in millis [default = -1000]
 
         private Texture2D squareTex;
-
-        private Vector2 playerPos;
 
         //flashing colour test
         List<Color> playerBulletColors;
@@ -187,6 +173,7 @@ namespace Prototype2
 
         private Viewport viewport;
         private Vector2 viewportSize;
+        private Vector2 oldCameraPos;
         
         //--------------------------------------------screenmgmt vars
         ContentManager content;
@@ -242,9 +229,7 @@ namespace Prototype2
             _font = content.Load<SpriteFont>("font");
             bigFont = content.Load<SpriteFont>("bigFont");
 
-            // Load sprites
-            _circleSprite = content.Load<Texture2D>("circleSprite"); //  96px x 96px => 0.96m x 0.96m
-            _groundSprite = content.Load<Texture2D>("groundSprite"); // 512px x 64px =>   5.12m x 0.64m            
+            // Load sprites                     
             player = content.Load<Texture2D>("player1"); // 95px x 80px =>   1m x 1.25m
             armgun = content.Load<Texture2D>("armgun"); // 28px x 67px =>   1m x 1.25m
             head = content.Load<Texture2D>("head"); // 41px x 37px   
@@ -260,6 +245,13 @@ namespace Prototype2
             crosshair = content.Load<Texture2D>("crosshair");
             marker = content.Load<Texture2D>("marker");
             
+            //background
+            bg = content.Load<Texture2D>("level1bg");
+            mg = content.Load<Texture2D>("level1mg");
+            bgPosB = bgPos + new Vector2(bg.Width, 0f);
+            mgPos = Vector2.Zero;
+            mgPosB = Vector2.Zero;        //to be changed
+
             //level tiles
             A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");            
             A_0_720 = content.Load<Texture2D>("level tiles/A_0_720");
@@ -347,6 +339,11 @@ namespace Prototype2
             //bulletDirection = new Vector2(0, 0);
             bulletQueue = new Queue<Bullet>();
             tempBulletArray = bulletQueue.ToArray();
+
+            //setup deadzones
+            deadZones = new List<Rectangle>();
+
+            deadZones.Add(new Rectangle(2552, 1040, 402, 115));      //first pit    
 
 
             // Create the ground fixture
@@ -577,6 +574,7 @@ namespace Prototype2
                 HandleMouse();                
 
                 handleAttacks();
+                handleDeadZones();
 
                 //manage vibration
                 if (vibrationTime <= 0 && vibrationTime != -1000)
@@ -703,8 +701,19 @@ namespace Prototype2
                       
             base.Update(gameTime, otherScreenHasFocus, false);
         }
-
+        
         #endregion
+
+        private void handleDeadZones()
+        {
+            for (int i = 0; i < deadZones.Count; i++)
+            {
+                if(box.Position.X + 30 > deadZones[i].X && box.Position.X - 30 < deadZones[i].X + deadZones[i].Width && box.Position.Y + 65 > deadZones[i].Y && box.Position.Y - 65 < deadZones[i].Y + deadZones[i].Height)
+                {
+                    box.activity = Activity.Dead;
+                }
+            }
+        }
 
         #region handleAttacks
 
@@ -953,7 +962,69 @@ namespace Prototype2
                 if (freeViewOn == false)
                 {
                     _cameraPosition = (box.Position - _screenCenter) * -1;
-                    _cameraPosition += new Vector2(-130,130); 
+                    _cameraPosition += new Vector2(-130,130);
+                    
+                    //BG stuff..
+                    bgPos.X += (_cameraPosition.X - oldCameraPos.X) / 9;           //move the bg slower then the foreground
+
+                    if (bgPos.X > 1f)
+                    {
+                        bgPosB = bgPos - new Vector2(bg.Width, 0f);
+                    }
+                    else
+                    {
+                        bgPosB = bgPos + new Vector2(bg.Width , 0f);
+                    }
+
+                    if (bgPosB.X > 1f)
+                    {
+                        bgPos = bgPosB - new Vector2(bg.Width, 0f);
+                    }
+                    else
+                    {
+                        bgPos = bgPosB + new Vector2(bg.Width, 0f);
+                    }
+
+                    //Middle Ground Stuff...
+                    mgPos.X += (_cameraPosition.X - oldCameraPos.X) / 6;           
+
+                    if (mgPos.X > 1f)
+                    {
+                        mgPosB = mgPos - new Vector2(mg.Width, 0f);
+                    }
+                    else
+                    {
+                        mgPosB = mgPos + new Vector2(mg.Width, 0f);
+                    }
+
+                    if (mgPosB.X > 1f)
+                    {
+                        mgPos = mgPosB - new Vector2(mg.Width, 0f);
+                    }
+                    else
+                    {
+                        mgPos = mgPosB + new Vector2(mg.Width, 0f);
+                    }
+                    
+                    bgPos.Y += (_cameraPosition.Y - oldCameraPos.Y) / 5;
+                    bgPosB.Y = bgPos.Y;
+
+                    mgYOffset += (_cameraPosition.Y - oldCameraPos.Y) / 10;
+                    mgPos.Y = bgPos.Y + 920 + mgYOffset;
+                    mgPosB.Y = mgPos.Y;
+
+                    //move clouds                    
+                    cloudsPos.X = (bgPos.X + 1280) + cloudIncrement;
+                    cloudsPos.Y = bgPos.Y + 200;
+
+                    cloudIncrement -= 0.4f;
+
+                    if (cloudsPos.X < (-GameStateManagementGame.clouds.Width + -200))           //rest clouds once all shown
+                    {
+                        cloudIncrement = 300;
+                    }
+
+                    oldCameraPos = _cameraPosition;
                 }
 
                 _view = Matrix.CreateTranslation(new Vector3(_cameraPosition - _screenCenter, 0f)) * Matrix.CreateTranslation(new Vector3(_screenCenter, 0f));
@@ -1087,8 +1158,23 @@ namespace Prototype2
             viewport = GameStateManagementGame.graphics.GraphicsDevice.Viewport;
             viewportSize = new Vector2(viewport.Width, viewport.Height);
 
-            _batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);
+            //draw parralax bg
+            _batch.Begin();
 
+            _batch.Draw(bg, bgPos, Color.White);
+            _batch.Draw(bg, bgPosB, Color.White);
+
+            _batch.Draw(mg, mgPos, Color.White);
+            _batch.Draw(mg, mgPosB, Color.White);
+            
+            //draw clouds
+            _batch.Draw(GameStateManagementGame.clouds, cloudsPos, Color.White);
+
+            _batch.End();
+
+
+            _batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);
+            
             _batch.Draw(A_0_0, new Vector2(0, 0), Color.White);
             _batch.Draw(A_0_720, new Vector2(0, 720), Color.White);
             _batch.Draw(A_1280_0, new Vector2(1280, 0), Color.White);
@@ -1102,7 +1188,7 @@ namespace Prototype2
             _batch.Draw(A_M1280_0, new Vector2(-1280, 0), Color.White);
             _batch.Draw(A_M1280_720, new Vector2(-1280, 720), Color.White);
 
-            if (showBox == true)
+            if (freeViewOn)
             {
                 box.Draw(_batch);
 
@@ -1115,7 +1201,13 @@ namespace Prototype2
                 {
                     enemies2[i].Draw(_batch);
                 }
-            }
+
+                //test deadzones
+                for (int i = 0; i < deadZones.Count; i++)
+                {
+                    _batch.Draw(squareTex, deadZones[i], Color.DarkRed);
+                }
+            }            
 
             //draw enemies
             for (int i = 0; i < enemies.Count; i++)
