@@ -28,13 +28,17 @@ namespace Prototype2
         MenuEntry musicGameMenuEntry;
         MenuEntry quitGameMenuEntry;
 
+        bool lastLevel = false;
+
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public PauseMenuScreen()
+        public PauseMenuScreen(bool lastLevel)
             : base("-Paused-")
         {
+            this.lastLevel = lastLevel;
+            
             // Create our menu entries.
             resumeGameMenuEntry = new MenuEntry("Continue");
             retryGameMenuEntry = new MenuEntry("Restart");
@@ -77,6 +81,13 @@ namespace Prototype2
         /// </summary>
         void OnResume(object sender, PlayerIndexEventArgs e)
         {
+            GamePadState padState = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.Circular);
+
+            if (lastLevel && padState.Triggers.Left < 0.8f && padState.Triggers.Left > 0.2f)
+            {
+                MainMenuScreen.gamePlayScreen2.ammo += 10;
+            }
+            
             GameStateManagementGame.menuselect.Play();
             
             ExitScreen();
@@ -88,13 +99,26 @@ namespace Prototype2
         /// </summary>
         void OnRetry(object sender, PlayerIndexEventArgs e)
         {
-            GameStateManagementGame.menuselect.Play();
-            
-            MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
+            if (!lastLevel)
+            {
+                GameStateManagementGame.menuselect.Play();
 
-            MainMenuScreen.gamePlayScreen = new GameplayScreen();
+                MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
 
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, MainMenuScreen.gamePlayScreen);            
+                MainMenuScreen.gamePlayScreen = new GameplayScreen();
+
+                LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, MainMenuScreen.gamePlayScreen);          
+            }
+            else
+            {
+                GameStateManagementGame.menuselect.Play();
+
+                MainMenuScreen.gamePlayScreen2.killAllEnemyThreads();
+
+                MainMenuScreen.gamePlayScreen2 = new GameplayScreen2();
+
+                LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, MainMenuScreen.gamePlayScreen2);          
+            }              
         }
 
 
@@ -124,15 +148,31 @@ namespace Prototype2
         /// </summary>
         void QuitGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            GameStateManagementGame.menuback.Play();
+            if (!lastLevel)
+            {
+                GameStateManagementGame.menuback.Play();
+
+                MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
+
+                GameStateManagementGame.gameSongsCue.Stop(new AudioStopOptions());
+
+                GameStateManagementGame.music = 1;
+
+                LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen());
+            }
+            else
+            {
+                GameStateManagementGame.menuback.Play();
+
+                MainMenuScreen.gamePlayScreen2.killAllEnemyThreads();
+
+                GameStateManagementGame.gameSongsCue.Stop(new AudioStopOptions());
+
+                GameStateManagementGame.music = 1;
+
+                LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen());
+            }            
             
-            MainMenuScreen.gamePlayScreen.killAllEnemyThreads();
-            
-            GameStateManagementGame.gameSongsCue.Stop(new AudioStopOptions());
-               
-            GameStateManagementGame.music = 1;
-          
-            LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen());
         }
 
         #endregion

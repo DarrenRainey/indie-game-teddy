@@ -257,29 +257,29 @@ namespace Prototype2
             
             int timeScore = GameStateManagementGame.level1Time + GameStateManagementGame.level2Time;
 
-            if (timeScore == 0)    //a
+            if (timeScore == 10)    //a
             {
                 awardedGradeIndex = 0;
 
                 comment = "Congratulations, you officially have no life!";
             }
-            else if (timeScore < 5)         //b
+            else if (timeScore < 15)         //b
             {
                 awardedGradeIndex = 1;
 
-                comment = "Great, but can you do it in 0 seconds?!";
+                comment = "Great, but can you do it in less then 10 seconds?!";
             }
-            else if (timeScore < 20)          //c
+            else if (timeScore < 35)          //c
             {
                 awardedGradeIndex = 2;
 
-                comment = "Next Grade: less than 5 seconds";
+                comment = "Next Grade: less than 15 seconds";
             }
-            else if (timeScore < 50)        //d
+            else if (timeScore < 60)        //d
             {
                 awardedGradeIndex = 3;
 
-                comment = "Next Grade: less than 20 seconds";
+                comment = "Next Grade: less than 35 seconds";
             }
             else                            //f
             {

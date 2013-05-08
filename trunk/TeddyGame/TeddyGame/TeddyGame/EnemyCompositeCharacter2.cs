@@ -149,16 +149,32 @@ namespace Prototype2
             
             handleAnimation(gameTime);
 
-            //update 3d sound 
-            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen.soundDistanceFactor;       
-
-            if (soundEffectInstance != null)
+            if (MainMenuScreen.currentGameScreen == 1)
             {
-                if (soundEffectInstance.State == SoundState.Playing)
+                //update 3d sound 
+                audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen.soundDistanceFactor;
+
+                if (soundEffectInstance != null)
                 {
-                    soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
+                    if (soundEffectInstance.State == SoundState.Playing)
+                    {
+                        soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
+                    }
                 }
             }
+            else
+            {
+                //update 3d sound 
+                audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen.soundDistanceFactor;
+
+                if (soundEffectInstance != null)
+                {
+                    if (soundEffectInstance.State == SoundState.Playing)
+                    {
+                        soundEffectInstance.Apply3D(GameplayScreen2.audioListener, audioEmitter);
+                    }
+                }
+            }                
 
             oldActivity = activity;    
         }
@@ -190,7 +206,15 @@ namespace Prototype2
             if (animation.currentFrame == 18 && bulletAdded == false && (activity == EnemyActivity2.enemyShootDown || activity == EnemyActivity2.enemyShootDiagDown || activity == EnemyActivity2.enemyShootAhead || activity == EnemyActivity2.enemyShootDiagUp || activity == EnemyActivity2.enemyShootUp))  
             {
                 Bullet bullet = new Bullet();
-                bullet.Texture = GameplayScreen.bulletTex2;
+
+                if (MainMenuScreen.currentGameScreen == 1)
+                {
+                    bullet.Texture = GameplayScreen.bulletTex2;
+                }
+                else
+                {
+                    bullet.Texture = GameplayScreen2.bulletTex2;
+                }                    
                 
                 if(animation.myEffect == SpriteEffects.FlipHorizontally)  //to the right
                 {
@@ -259,8 +283,17 @@ namespace Prototype2
                 bulletAdded = true;
 
                 soundEffectInstance = GameStateManagementGame.bearShoot.CreateInstance();        //play bullet sound quitely if far away
-                soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
-                soundEffectInstance.Play();                
+
+                if (MainMenuScreen.currentGameScreen == 1)
+                {
+                    soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
+                    soundEffectInstance.Play(); 
+                }
+                else
+                {
+                    soundEffectInstance.Apply3D(GameplayScreen2.audioListener, audioEmitter);
+                    soundEffectInstance.Play(); 
+                }       
             }
 
             if (animation.currentFrame > 18 && (activity == EnemyActivity2.enemyShootDown || activity == EnemyActivity2.enemyShootDiagDown || activity == EnemyActivity2.enemyShootAhead || activity == EnemyActivity2.enemyShootDiagUp || activity == EnemyActivity2.enemyShootUp))
@@ -379,8 +412,16 @@ namespace Prototype2
                 soundEffectInstance = GameStateManagementGame.bearDeadSound5.CreateInstance();
             }
 
-            soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
-            soundEffectInstance.Play();
+            if (MainMenuScreen.currentGameScreen == 1)
+            {
+                soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
+                soundEffectInstance.Play();
+            }
+            else
+            {
+                soundEffectInstance.Apply3D(GameplayScreen2.audioListener, audioEmitter);
+                soundEffectInstance.Play();
+            }            
         }
 
         public void moveRight(int millis, int speed)
@@ -404,10 +445,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 i += 10;
             }
@@ -437,10 +488,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 i += 10;
             }
@@ -459,10 +520,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 i += 10;
             }
@@ -493,10 +564,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -525,10 +606,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -555,10 +646,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -584,10 +685,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -614,10 +725,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -644,10 +765,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -674,10 +805,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -703,10 +844,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -733,10 +884,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                } 
 
                 if (animation.currentFrame == animation.frameCount - 1)
                 {
@@ -764,8 +925,17 @@ namespace Prototype2
 
         public EnemyActivity2 getActivityToShootPlayer()
         {
-            double enemyToPlayerAngle = Math.Atan2(GameplayScreen.box.Position.Y - Position.Y, GameplayScreen.box.Position.X - Position.X) * 180 / Math.PI;
-
+            double enemyToPlayerAngle;
+            
+            if (MainMenuScreen.currentGameScreen == 1)
+            {
+                enemyToPlayerAngle = Math.Atan2(GameplayScreen.box.Position.Y - Position.Y, GameplayScreen.box.Position.X - Position.X) * 180 / Math.PI;
+            }
+            else
+            {
+                enemyToPlayerAngle = Math.Atan2(GameplayScreen2.box.Position.Y - Position.Y, GameplayScreen2.box.Position.X - Position.X) * 180 / Math.PI;
+            }             
+            
             if (enemyToPlayerAngle < 22.5 && enemyToPlayerAngle >= -22.5)  //to the right
             {     
                 animation.myEffect = SpriteEffects.FlipHorizontally;
@@ -1200,7 +1370,7 @@ namespace Prototype2
             bw.RunWorkerAsync();
         }
 
-        public void runScript3()  //go even more mental
+        public void runScript3()  //stand there fireing
         {
             bw = new BackgroundWorker();
 
@@ -1209,14 +1379,14 @@ namespace Prototype2
             {
                 while (true)
                 {
-                    moveRight(1000, 20);
+                    idle(4000);
 
                     if (bw.CancellationPending == true)
                     {
                         break;
                     }
 
-                    moveLeft(1000, 20);
+                    shootAtPlayer(3);                    
 
                     if (bw.CancellationPending == true)
                     {
@@ -1228,6 +1398,48 @@ namespace Prototype2
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
                     delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
                     {                     
+                        threadCompleted = true;
+                    });
+
+            bw.WorkerSupportsCancellation = true;
+            bw.RunWorkerAsync();
+        }
+
+        public void runScript4()  //stand there fireing diff
+        {
+            bw = new BackgroundWorker();
+
+            bw.DoWork += new DoWorkEventHandler(
+            delegate(object o, DoWorkEventArgs args)       //do this stuff in the background
+            {
+                while (true)
+                {
+                    idle(2000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    shootAtPlayer(3);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    idle(2000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+                }
+            });
+
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {
                         threadCompleted = true;
                     });
 

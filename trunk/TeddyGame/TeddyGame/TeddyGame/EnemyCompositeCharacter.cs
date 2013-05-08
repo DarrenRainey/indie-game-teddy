@@ -125,25 +125,51 @@ namespace Prototype2
         }
 
         protected override void HandleInput(GameTime gameTime)
-        {            
-            //handle bear knife attacks
-            if (Math.Abs(Position.X - GameplayScreen.box.Position.X) < 50 && Math.Abs(Position.Y - GameplayScreen.box.Position.Y) < 90 && GameplayScreen.box.activity != Activity.Dead && activity != EnemyActivity.enemyDead)
+        {
+            if (MainMenuScreen.currentGameScreen == 1)
             {
-                stopScript();                               
-                
-                activity = EnemyActivity.enemyKnife;                
-            }
-            
-            handleAnimation(gameTime);
-
-            //update 3d sound            
-            audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen.soundDistanceFactor;
-
-            if (soundEffectInstance != null)
-            {
-                if (soundEffectInstance.State == SoundState.Playing)
+                //handle bear knife attacks
+                if (Math.Abs(Position.X - GameplayScreen.box.Position.X) < 50 && Math.Abs(Position.Y - GameplayScreen.box.Position.Y) < 90 && GameplayScreen.box.activity != Activity.Dead && activity != EnemyActivity.enemyDead)
                 {
-                    soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
+                    stopScript();
+
+                    activity = EnemyActivity.enemyKnife;
+                }
+
+                handleAnimation(gameTime);
+
+                //update 3d sound            
+                audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen.soundDistanceFactor;
+
+                if (soundEffectInstance != null)
+                {
+                    if (soundEffectInstance.State == SoundState.Playing)
+                    {
+                        soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
+                    }
+                }
+            }
+            else
+            {
+                //handle bear knife attacks
+                if (Math.Abs(Position.X - GameplayScreen2.box.Position.X) < 50 && Math.Abs(Position.Y - GameplayScreen2.box.Position.Y) < 90 && GameplayScreen.box.activity != Activity.Dead && activity != EnemyActivity.enemyDead)
+                {
+                    stopScript();
+
+                    activity = EnemyActivity.enemyKnife;
+                }
+
+                handleAnimation(gameTime);
+
+                //update 3d sound            
+                audioEmitter.Position = new Vector3(Position.X, Position.Y, 1f) / GameplayScreen2.soundDistanceFactor;
+
+                if (soundEffectInstance != null)
+                {
+                    if (soundEffectInstance.State == SoundState.Playing)
+                    {
+                        soundEffectInstance.Apply3D(GameplayScreen2.audioListener, audioEmitter);
+                    }
                 }
             }
 
@@ -185,7 +211,14 @@ namespace Prototype2
 
                 GameStateManagementGame.knifeSound.Play();
 
-                GameplayScreen.box.activity = Activity.Dead;                  
+                if (MainMenuScreen.currentGameScreen == 1)
+                {
+                    GameplayScreen.box.activity = Activity.Dead;
+                }
+                else
+                {
+                    GameplayScreen2.box.activity = Activity.Dead;
+                }
             }
   
             //if the knife animation is finished execute the post attack script
@@ -221,9 +254,17 @@ namespace Prototype2
             {
                 soundEffectInstance = GameStateManagementGame.bearDeadSound5.CreateInstance();
             }
-             
-            soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
-            soundEffectInstance.Play();            
+
+            if (MainMenuScreen.currentGameScreen == 1)
+            {
+                soundEffectInstance.Apply3D(GameplayScreen.audioListener, audioEmitter);
+                soundEffectInstance.Play(); 
+            }
+            else
+            {
+                soundEffectInstance.Apply3D(GameplayScreen2.audioListener, audioEmitter);
+                soundEffectInstance.Play(); 
+            }                      
         }
 
         public void moveRight(int millis, int speed)
@@ -247,10 +288,21 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                }     
+                
 
                 i += 10;
             }
@@ -280,10 +332,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                }                    
 
                 i += 10;
             }
@@ -302,10 +364,20 @@ namespace Prototype2
             {
                 Thread.Sleep(10);
 
-                while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                if (MainMenuScreen.currentGameScreen == 1)
                 {
-                    Thread.Sleep(5);
+                    while (!MainMenuScreen.gamePlayScreen.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
                 }
+                else
+                {
+                    while (!MainMenuScreen.gamePlayScreen2.IsActive && bw.CancellationPending == false)
+                    {
+                        Thread.Sleep(5);
+                    }
+                }                   
 
                 i += 10;
             }
@@ -532,6 +604,45 @@ namespace Prototype2
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
                     delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
                     {                       
+                        threadCompleted = true;
+                    });
+
+            bw.WorkerSupportsCancellation = true;
+            bw.RunWorkerAsync();
+        }
+
+        public void runScript4()  //stand there
+        {
+            bw = new BackgroundWorker();
+
+            bw.DoWork += new DoWorkEventHandler(
+            delegate(object o, DoWorkEventArgs args)       //do this stuff in the background
+            {
+                while (true)
+                {
+                    idle(6000);
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    faceRight();
+
+                    idle(2000);                   
+
+                    if (bw.CancellationPending == true)
+                    {
+                        break;
+                    }
+
+                    faceLeft();                    
+                }
+            });
+
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+                    delegate(object o, RunWorkerCompletedEventArgs args)      //event for when finished
+                    {
                         threadCompleted = true;
                     });
 

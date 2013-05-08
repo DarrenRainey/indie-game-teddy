@@ -90,6 +90,7 @@ namespace Prototype2
         private Texture2D bg;
         private Texture2D mg;
         float mgYOffset = 0;
+        float cloudYOffset = 0;
 
         private Vector2 bgPos = new Vector2(0, -50);
         private Vector2 bgPosB;
@@ -107,8 +108,14 @@ namespace Prototype2
         private Texture2D A_3840_720;
         private Texture2D A_5120_1440;
         private Texture2D A_5120_720;
+        private Texture2D A_5120_2160;
+        private Texture2D A_6400_1440;
+        private Texture2D A_6400_2160;
+        private Texture2D A_7680_1440;
+        private Texture2D A_7680_2160;
         private Texture2D A_M1280_0;
         private Texture2D A_M1280_720;
+        
 
         private Queue<Bullet> bulletQueue;
         private Array tempBulletArray;
@@ -129,7 +136,7 @@ namespace Prototype2
         public static AudioListener audioListener;
         public const float soundDistanceFactor = 300f;     //the higher this is the further sounds can be heard        
             
-        private int ammo = 10;
+        private int ammo = 4;
         private Color ammoHudColor = Color.White;
 
         private int totalEnemies = 0;
@@ -195,6 +202,8 @@ namespace Prototype2
         /// </summary>
         public GameplayScreen()
         {
+            MainMenuScreen.currentGameScreen = 1;
+            
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.0);
 
@@ -265,6 +274,11 @@ namespace Prototype2
             A_5120_720 = content.Load<Texture2D>("level tiles/A_5120_720");
             A_M1280_0 = content.Load<Texture2D>("level tiles/A_M1280_0");
             A_M1280_720 = content.Load<Texture2D>("level tiles/A_M1280_720");
+            A_5120_2160 = content.Load<Texture2D>("level tiles/A_5120_2160");
+            A_6400_1440 = content.Load<Texture2D>("level tiles/A_6400_1440");
+            A_6400_2160 = content.Load<Texture2D>("level tiles/A_6400_2160");
+            A_7680_1440 = content.Load<Texture2D>("level tiles/A_7680_1440");
+            A_7680_2160 = content.Load<Texture2D>("level tiles/A_7680_2160");
             
             //flashing bullet colors
             playerBulletColors = new List<Color> { Color.Red, Color.WhiteSmoke };
@@ -303,6 +317,11 @@ namespace Prototype2
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
 
+            //knifebear 4 - first sea platform
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(6920f, 1780f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
             enemies2 = new List<EnemyCompositeCharacter2>();
 
             //shootbear 1 - just after the first stump
@@ -312,6 +331,16 @@ namespace Prototype2
 
             //shootbear 2 - in front of the large tree
             bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(5460f, 1800f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+
+            //shootbear 3 - 2d sea platform
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(7520f, 1580f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+
+            //shootbear 3 - 3rd sea platform
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(8170f, 1880f), 93, 183, 0.15f, squareTex);
             bearBox.forcePower = 100;
             enemies2.Add(bear2Box);
 
@@ -343,7 +372,10 @@ namespace Prototype2
             //setup deadzones
             deadZones = new List<Rectangle>();
 
-            deadZones.Add(new Rectangle(2552, 1040, 402, 115));      //first pit    
+            deadZones.Add(new Rectangle(2552, 1040, 402, 115));      //first pit  
+            deadZones.Add(new Rectangle(6497, 1989, 402, 115));      //2nd  
+            deadZones.Add(new Rectangle(7013, 1992, 502, 115));      //3rd pit   
+            deadZones.Add(new Rectangle(7654, 2196, 702, 115));      //last pit   
 
 
             // Create the ground fixture
@@ -478,8 +510,122 @@ namespace Prototype2
             FixtureFactory.AttachEdge(new Vector2(58.69f, 18.39f), new Vector2(58.84f, 18.61f), impassableEdge);
             FixtureFactory.AttachEdge(new Vector2(58.84f, 18.61f), new Vector2(58.99f, 18.91f), impassableEdge);
             FixtureFactory.AttachEdge(new Vector2(58.99f, 18.91f), new Vector2(58.96f, 19.21f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(58.96f, 19.21f), new Vector2(63.11f, 19.28f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(58.96f, 19.21f), new Vector2(63.11f, 19.00f), impassableEdge);
             //To the ground just past the big tree 
+
+            //from log to end of the nearest cliff and all ending collisions
+            FixtureFactory.AttachEdge(new Vector2(63.11f, 19.00f), new Vector2(65.26f, 18.87f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.26f, 18.87f), new Vector2(65.21f, 19.2f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.21f, 19.2f), new Vector2(65.23f, 19.5f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.23f, 19.5f), new Vector2(65.11f, 19.83f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.11f, 19.83f), new Vector2(65.05f, 20.19f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.05f, 20.19f), new Vector2(65.03f, 20.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.03f, 20.48f), new Vector2(64.9f, 20.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.9f, 20.69f), new Vector2(64.78f, 21.03f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.78f, 21.03f), new Vector2(64.79f, 21.18f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.79f, 21.18f), new Vector2(64.71f, 21.4f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.71f, 21.4f), new Vector2(64.47f, 22.44f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.47f, 22.44f), new Vector2(64.17f, 23.53f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.17f, 23.53f), new Vector2(64.09f, 23.98f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.09f, 23.98f), new Vector2(64.19f, 24.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.19f, 24.48f), new Vector2(64.11f, 24.92f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.11f, 24.92f), new Vector2(67.52f, 24.04f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.52f, 24.04f), new Vector2(67.55f, 23.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.55f, 23.69f), new Vector2(67.54f, 23.17f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.54f, 23.17f), new Vector2(67.63f, 22.94f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.63f, 22.94f), new Vector2(67.59f, 22.65f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.59f, 22.65f), new Vector2(67.62f, 22.1f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.62f, 22.1f), new Vector2(67.57f, 21.86f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.57f, 21.86f), new Vector2(67.64f, 21.22f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.64f, 21.22f), new Vector2(67.74f, 20.8f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.74f, 20.8f), new Vector2(67.69f, 20.47f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.69f, 20.47f), new Vector2(67.76f, 19.96f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.76f, 19.96f), new Vector2(67.74f, 19.49f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.74f, 19.49f), new Vector2(67.72f, 19.35f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.72f, 19.35f), new Vector2(67.69f, 19.16f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.69f, 19.16f), new Vector2(68.65f, 19.19f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(68.65f, 19.19f), new Vector2(69.49f, 19.17f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(69.49f, 19.17f), new Vector2(70.38f, 19.14f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.38f, 19.14f), new Vector2(70.29f, 19.4f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.29f, 19.4f), new Vector2(70.22f, 19.93f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.22f, 19.93f), new Vector2(70.27f, 20.3f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.27f, 20.3f), new Vector2(70.24f, 20.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.24f, 20.69f), new Vector2(70.13f, 21.25f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.13f, 21.25f), new Vector2(70.09f, 21.88f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.09f, 21.88f), new Vector2(70.15f, 22.33f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.15f, 22.33f), new Vector2(70.09f, 22.64f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.09f, 22.64f), new Vector2(70.13f, 23.02f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.13f, 23.02f), new Vector2(70.03f, 23.39f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.03f, 23.39f), new Vector2(70.06f, 23.95f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.06f, 23.95f), new Vector2(70.05f, 24.34f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.05f, 24.34f), new Vector2(72.79f, 25.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.79f, 25.69f), new Vector2(72.87f, 25.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.87f, 25.48f), new Vector2(72.86f, 25.18f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.86f, 25.18f), new Vector2(72.87f, 24.99f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.87f, 24.99f), new Vector2(72.86f, 24.46f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.86f, 24.46f), new Vector2(72.85f, 24.25f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.85f, 24.25f), new Vector2(73.14f, 23.35f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.14f, 23.35f), new Vector2(73.04f, 22.64f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.04f, 22.64f), new Vector2(72.92f, 22.17f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.92f, 22.17f), new Vector2(73.01f, 21.91f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.01f, 21.91f), new Vector2(72.95f, 21.7f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.95f, 21.7f), new Vector2(73.08f, 21.36f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.08f, 21.36f), new Vector2(73.09f, 20.29f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.09f, 20.29f), new Vector2(73.07f, 20.08f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.07f, 20.08f), new Vector2(73.19f, 19.13f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.19f, 19.13f), new Vector2(73.23f, 18.92f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.23f, 18.92f), new Vector2(73.16f, 18.67f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.16f, 18.67f), new Vector2(73.12f, 18.3f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.12f, 18.3f), new Vector2(76.87f, 18.34f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.87f, 18.34f), new Vector2(76.76f, 18.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.76f, 18.79f), new Vector2(76.69f, 18.9f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.69f, 18.9f), new Vector2(76.75f, 19.8f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.75f, 19.8f), new Vector2(76.82f, 20.19f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.82f, 20.19f), new Vector2(76.77f, 20.72f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.77f, 20.72f), new Vector2(76.74f, 21.35f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.74f, 21.35f), new Vector2(76.62f, 21.86f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.62f, 21.86f), new Vector2(76.53f, 22.37f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.53f, 22.37f), new Vector2(76.5f, 22.8f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.5f, 22.8f), new Vector2(76.56f, 23f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.56f, 23f), new Vector2(76.59f, 23.27f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.59f, 23.27f), new Vector2(76.63f, 23.41f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.63f, 23.41f), new Vector2(76.59f, 23.58f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.59f, 23.58f), new Vector2(76.6f, 23.86f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.6f, 23.86f), new Vector2(76.62f, 24.36f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.62f, 24.36f), new Vector2(76.58f, 24.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.58f, 24.48f), new Vector2(76.56f, 24.78f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.56f, 24.78f), new Vector2(76.53f, 25.29f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.53f, 25.29f), new Vector2(76.52f, 25.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.52f, 25.69f), new Vector2(76.47f, 26.12f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.47f, 26.12f), new Vector2(76.47f, 26.45f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.47f, 26.45f), new Vector2(76.41f, 26.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.41f, 26.79f), new Vector2(76.47f, 27.1f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.47f, 27.1f), new Vector2(76.46f, 27.38f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.46f, 27.38f), new Vector2(80.6f, 26.87f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.6f, 26.87f), new Vector2(80.55f, 26.71f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.55f, 26.71f), new Vector2(80.59f, 26.55f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.59f, 26.55f), new Vector2(80.6f, 26.21f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.6f, 26.21f), new Vector2(80.71f, 25.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.71f, 25.79f), new Vector2(80.67f, 25.39f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.67f, 25.39f), new Vector2(80.71f, 24.99f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.71f, 24.99f), new Vector2(80.69f, 24.55f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.69f, 24.55f), new Vector2(80.76f, 24.1f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.76f, 24.1f), new Vector2(80.7f, 23.62f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.7f, 23.62f), new Vector2(80.72f, 23.26f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.72f, 23.26f), new Vector2(80.76f, 22.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.76f, 22.79f), new Vector2(80.79f, 22.25f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.79f, 22.25f), new Vector2(80.78f, 21.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.78f, 21.79f), new Vector2(80.72f, 21.47f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.72f, 21.47f), new Vector2(80.67f, 21.13f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.67f, 21.13f), new Vector2(81.8f, 21.16f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(81.8f, 21.16f), new Vector2(82.78f, 21.22f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(82.78f, 21.22f), new Vector2(83.65f, 21.21f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(83.65f, 21.21f), new Vector2(84.7f, 21.23f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.7f, 21.23f), new Vector2(84.57f, 21.98f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.57f, 21.98f), new Vector2(84.6f, 22.76f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.6f, 22.76f), new Vector2(84.45f, 23.58f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.45f, 23.58f), new Vector2(84.42f, 24.41f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.42f, 24.41f), new Vector2(84.46f, 25.37f), impassableEdge);
 
             //play game music            
             if (GameStateManagementGame.music == 0)
@@ -531,6 +677,12 @@ namespace Prototype2
                     enemies[index].runScript3();
                 }
                 break;
+
+                case 3:
+                {
+                    enemies[index].runScript4();
+                }
+                break;
             }
         }
 
@@ -548,7 +700,19 @@ namespace Prototype2
                 {                    
                     enemies2[index].runScript2();
                 }
-                break;                
+                break;
+
+                case 2:
+                {
+                    enemies2[index].runScript3();
+                }
+                break;
+
+                case 3:
+                {
+                    enemies2[index].runScript4();
+                }
+                break;
             }
         }        
 
@@ -639,9 +803,12 @@ namespace Prototype2
                     initEnemyScript(0);
                     initEnemyScript(1);
                     initEnemyScript(2);
+                    initEnemyScript(3);
 
                     initEnemy2Script(0);
                     initEnemy2Script(1);
+                    initEnemy2Script(2);
+                    initEnemy2Script(3);
 
                     totalEnemies = enemies.Count + enemies2.Count;
 
@@ -660,11 +827,11 @@ namespace Prototype2
                 }
 
                 //check for level finish
-                if (box.Position.X > 5650)
+                if (box.Position.X > 8300)
                 {                    
                     GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
                     
-                    ScreenManager.AddScreen(new LevelCompleteScreen(true, ammo, totalEnemies, ammoHudColor, enemyHudColor, gameClock, ammoHudPos, clockPos, enemyHudPos), ControllingPlayer);
+                    ScreenManager.AddScreen(new LevelCompleteScreen(false, ammo, totalEnemies, ammoHudColor, enemyHudColor, gameClock, ammoHudPos, clockPos, enemyHudPos), ControllingPlayer);
 
                     levelFinished = true;
                 }
@@ -986,7 +1153,7 @@ namespace Prototype2
                     }
 
                     //Middle Ground Stuff...
-                    mgPos.X += (_cameraPosition.X - oldCameraPos.X) / 6;           
+                    mgPos.X += (_cameraPosition.X - oldCameraPos.X) / 4;           
 
                     if (mgPos.X > 1f)
                     {
@@ -1015,7 +1182,8 @@ namespace Prototype2
 
                     //move clouds                    
                     cloudsPos.X = (bgPos.X + 1280) + cloudIncrement;
-                    cloudsPos.Y = bgPos.Y + 200;
+                    cloudYOffset -= (_cameraPosition.Y - oldCameraPos.Y) / 30;
+                    cloudsPos.Y = bgPos.Y + 200 + cloudYOffset;
 
                     cloudIncrement -= 0.4f;
 
@@ -1139,7 +1307,7 @@ namespace Prototype2
 
             if (input.IsPauseGame(ControllingPlayer) || gamePadDisconnected)
             {
-                ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
+                ScreenManager.AddScreen(new PauseMenuScreen(false), ControllingPlayer);
             }            
         }
 
@@ -1187,6 +1355,11 @@ namespace Prototype2
             _batch.Draw(A_5120_720, new Vector2(5120, 720), Color.White);
             _batch.Draw(A_M1280_0, new Vector2(-1280, 0), Color.White);
             _batch.Draw(A_M1280_720, new Vector2(-1280, 720), Color.White);
+            _batch.Draw(A_5120_2160, new Vector2(5120, 2160), Color.White);
+            _batch.Draw(A_6400_1440, new Vector2(6400, 1440), Color.White);
+            _batch.Draw(A_6400_2160, new Vector2(6400, 2160), Color.White);
+            _batch.Draw(A_7680_1440, new Vector2(7680, 1440), Color.White);
+            _batch.Draw(A_7680_2160, new Vector2(7680, 2160), Color.White);
 
             if (freeViewOn)
             {

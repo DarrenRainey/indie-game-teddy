@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_2560_1440.xnb</Output>
-      <Time>2013-04-05T17:31:20+01:00</Time>
+      <Time>2013-05-08T09:59:14.7652785+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_2560_720.png</Source>
@@ -179,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_2560_720.xnb</Output>
-      <Time>2013-04-05T17:31:16+01:00</Time>
+      <Time>2013-05-08T09:59:14.7522777+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_3840_1440.png</Source>
@@ -188,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_3840_1440.xnb</Output>
-      <Time>2013-04-05T17:31:22+01:00</Time>
+      <Time>2013-05-08T09:59:14.7362768+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_3840_720.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_3840_720.xnb</Output>
-      <Time>2013-04-05T17:31:26+01:00</Time>
+      <Time>2013-05-08T11:09:56.2528777+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_5120_1440.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_5120_1440.xnb</Output>
-      <Time>2013-04-05T17:31:12+01:00</Time>
+      <Time>2013-05-08T12:21:13.8995451+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_5120_720.png</Source>
@@ -215,7 +215,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_5120_720.xnb</Output>
-      <Time>2013-04-05T17:31:10+01:00</Time>
+      <Time>2013-05-08T11:09:56.2618782+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_M1280_0.png</Source>
@@ -224,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_M1280_0.xnb</Output>
-      <Time>2013-04-05T17:31:24+01:00</Time>
+      <Time>2013-05-08T09:36:56.6017399+01:00</Time>
     </Item>
     <Item>
       <Source>level tiles\A_M1280_720.png</Source>
@@ -233,7 +233,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_M1280_720.xnb</Output>
-      <Time>2013-04-05T17:31:08+01:00</Time>
+      <Time>2013-05-08T09:16:40.1361621+01:00</Time>
     </Item>
     <Item>
       <Source>bearidle.png</Source>
@@ -945,6 +945,51 @@
       <Options>None</Options>
       <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level1mg.xnb</Output>
       <Time>2013-05-07T23:42:13.9629522+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_5120_2160.png</Source>
+      <Name>level tiles\A_5120_2160</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_5120_2160.xnb</Output>
+      <Time>2013-05-08T12:25:11.6441433+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_6400_1440.png</Source>
+      <Name>level tiles\A_6400_1440</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_6400_1440.xnb</Output>
+      <Time>2013-05-08T12:25:10.7710934+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_6400_2160.png</Source>
+      <Name>level tiles\A_6400_2160</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_6400_2160.xnb</Output>
+      <Time>2013-05-08T12:25:12.1321712+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_7680_1440.png</Source>
+      <Name>level tiles\A_7680_1440</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_7680_1440.xnb</Output>
+      <Time>2013-05-08T12:25:11.1801168+01:00</Time>
+    </Item>
+    <Item>
+      <Source>level tiles\A_7680_2160.png</Source>
+      <Name>level tiles\A_7680_2160</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\indie-game-teddy\TeddyGame\TeddyGame\TeddyGame\bin\x86\Debug\Content\level tiles\A_7680_2160.xnb</Output>
+      <Time>2013-05-08T12:25:12.496192+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
