@@ -24,6 +24,7 @@ namespace Prototype2
 
         public static GameplayScreen gamePlayScreen;
         public static GameplayScreen2 gamePlayScreen2;
+        public static int currentGameScreen;
 
         /// <summary>
         /// Constructor fills in the menu contents.

@@ -65,39 +65,38 @@ namespace Prototype2
 
         private World _world;
 
-        private Body _circleBody;
-        private Body _groundBody;
-        private Body playerBody;
-        private Body backgroundBody;
+        private int gameClock = 0;
+        private bool levelFinished = false;
+
+        Vector2 ammoHudPos = new Vector2(128, 72);
+        Vector2 clockPos;
+        Vector2 enemyHudPos = new Vector2(1047, 72);
 
         private List<PassableEdge> passableEdges;
+        private List<Rectangle> deadZones;
+
+        private float cloudIncrement = 0;
 
         public static CompositeCharacter box;
 
-        private Texture2D _circleSprite;
-        private Texture2D _groundSprite;
         private Texture2D player;
         private Texture2D playerTexture;
         private Texture2D playerJump;
-        private Texture2D playerShoot;
         private Texture2D playerDead;
         private Texture2D playerKnife;
         private Texture2D armgun;
         private Texture2D head;
 
-        public static SoundEffect runSound;
-        public static SoundEffect jumpSound;
-        public static SoundEffect pistolSound;
-        public static SoundEffect dieSound;
-        public static SoundEffect hammerSound;
+        private Texture2D bg;
+        private Texture2D mg;
+        float mgYOffset = 0;
+        float cloudYOffset = 0;
 
-        /*private AudioEngine audioEngine;
-        private WaveBank waveBank;
-        private SoundBank soundBank;
-        private Cue gameSongsCue;*/
-
-        private Texture2D tile1;
-        private Texture2D tile2;
+        private Vector2 bgPos = new Vector2(0, -50);
+        private Vector2 bgPosB;
+        private Vector2 mgPos;
+        private Vector2 mgPosB;
+        private Vector2 cloudsPos = new Vector2(1350, 0);
 
         private Texture2D A_0_0;
         private Texture2D A_0_720;
@@ -109,8 +108,14 @@ namespace Prototype2
         private Texture2D A_3840_720;
         private Texture2D A_5120_1440;
         private Texture2D A_5120_720;
+        private Texture2D A_5120_2160;
+        private Texture2D A_6400_1440;
+        private Texture2D A_6400_2160;
+        private Texture2D A_7680_1440;
+        private Texture2D A_7680_2160;
         private Texture2D A_M1280_0;
         private Texture2D A_M1280_720;
+
 
         private Queue<Bullet> bulletQueue;
         private Array tempBulletArray;
@@ -123,40 +128,19 @@ namespace Prototype2
 
         private float headAngle;
 
-
         private Animation playerAnimation;
 
-
-        public static Texture2D bearIdle;
-        public static Texture2D bearRunning;
-        public static Texture2D bearJumping;
-        public static Texture2D bearKnife;
-        public static Texture2D bearDead;
         private EnemyCompositeCharacter bearBox;
-
-        public static Texture2D bear2Idle;
-        public static Texture2D bear2Running;
-        public static Texture2D bear2Jumping;
-        public static Texture2D bear2ShootDown;
-        public static Texture2D bear2ShootDiagDown;
-        public static Texture2D bear2ShootAhead;
-        public static Texture2D bear2ShootDiagUp;
-        public static Texture2D bear2ShootUp;
-        public static Texture2D bear2Dead;
         private EnemyCompositeCharacter2 bear2Box;
-
-        public static SoundEffect knifeSound;
-        public static SoundEffect bulletHit;
-        public static SoundEffect bearDeadSound;
-        public static SoundEffect bearDeadSound2;
-        public static SoundEffect bearDeadSound3;
-        public static SoundEffect bearDeadSound4;
-        public static SoundEffect bearDeadSound5;
-        public static SoundEffect bearShoot;
 
         public static AudioListener audioListener;
         public const float soundDistanceFactor = 300f;     //the higher this is the further sounds can be heard        
 
+        public int ammo = 0;
+        private Color ammoHudColor = Color.White;
+
+        private int totalEnemies = 0;
+        private Color enemyHudColor = Color.White;
         private List<EnemyCompositeCharacter> enemies;
         private List<EnemyCompositeCharacter2> enemies2;
 
@@ -165,9 +149,9 @@ namespace Prototype2
 
         private Activity oldActivity;
 
-        private Texture2D squareTex;
+        private int vibrationTime = -1000; //stores vibration time in millis [default = -1000]
 
-        private Vector2 playerPos;
+        private Texture2D squareTex;
 
         //flashing colour test
         List<Color> playerBulletColors;
@@ -179,7 +163,7 @@ namespace Prototype2
         private Vector2 _screenCenter;
         private bool freeViewOn = false;            //controllable camera   
 
-        string Text = "BASIC HUD";             
+        string Text = "BASIC HUD";
 
         private bool showBox = false;
 
@@ -192,15 +176,19 @@ namespace Prototype2
         private Texture2D marker;
 
         private Vector2 previousClickWorldPos = Vector2.Zero;
-        //private ArrayList markers;
-        
+        private List<Vector2> markers;
+
+        private Viewport viewport;
+        private Vector2 viewportSize;
+        private Vector2 oldCameraPos;
+
         //--------------------------------------------screenmgmt vars
         ContentManager content;
         SpriteFont gameFont;
 
         Vector2 playerPosition = new Vector2(100, 100);
-        Vector2 enemyPosition = new Vector2(100, 100);        
-        
+        Vector2 enemyPosition = new Vector2(100, 100);
+
         Random random = new Random();
         float pauseAlpha;
         //-----------------------------------------------------
@@ -214,22 +202,26 @@ namespace Prototype2
         /// </summary>
         public GameplayScreen2()
         {
+            MainMenuScreen.currentGameScreen = 2;
+            
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
-            TransitionOffTime = TimeSpan.FromSeconds(0.5);
-                        
+            TransitionOffTime = TimeSpan.FromSeconds(0.0);
+
+            GameStateManagementGame.enemiesKilled = 0;
+
             _world = new World(new Vector2(0, 30f));
         }
 
         #endregion
 
-         
+
         #region LoadContent
 
         /// <summary>
         /// Load graphics content for the game.
         /// </summary>
         public override void LoadContent()
-        {           
+        {
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
@@ -241,58 +233,36 @@ namespace Prototype2
 
             _screenCenter = new Vector2(GameStateManagementGame.graphics.GraphicsDevice.Viewport.Width / 2f,
                                                 GameStateManagementGame.graphics.GraphicsDevice.Viewport.Height / 2f);
-            
+
             _batch = new SpriteBatch(GameStateManagementGame.graphics.GraphicsDevice);
             _font = content.Load<SpriteFont>("font");
             bigFont = content.Load<SpriteFont>("bigFont");
 
-            // Load sprites
-            _circleSprite = content.Load<Texture2D>("circleSprite"); //  96px x 96px => 0.96m x 0.96m
-            _groundSprite = content.Load<Texture2D>("groundSprite"); // 512px x 64px =>   5.12m x 0.64m            
+            // Load sprites                     
             player = content.Load<Texture2D>("player1"); // 95px x 80px =>   1m x 1.25m
             armgun = content.Load<Texture2D>("armgun"); // 28px x 67px =>   1m x 1.25m
             head = content.Load<Texture2D>("head"); // 41px x 37px   
             bulletTex = content.Load<Texture2D>("bullet");
             bulletTex2 = content.Load<Texture2D>("bullet2");
-            System.Diagnostics.Debug.WriteLine("step1");
             squareTex = content.Load<Texture2D>("square");
 
             playerJump = content.Load<Texture2D>("jumping");
             playerDead = content.Load<Texture2D>("dead");
-            playerKnife = content.Load<Texture2D>("knife");         
-
-            //load bear animations
-           /* bearIdle = content.Load<Texture2D>("bearidle");  
-            bearRunning = content.Load<Texture2D>("bearrun");            
-            bearJumping = content.Load<Texture2D>("bearjump");            
-            bearKnife = content.Load<Texture2D>("bearknife");     
-            bearDead = content.Load<Texture2D>("beardead");*/
-            System.Diagnostics.Debug.WriteLine("step2");
-            //load bear 2 animations
-            /*bear2Idle = content.Load<Texture2D>("bear2idle");
-            
-            bear2Running = content.Load<Texture2D>("bear2run");
-            bear2Jumping = content.Load<Texture2D>("bear2jump");
-            bear2ShootDown = content.Load<Texture2D>("bear2shootdown");
-            
-            bear2ShootDiagDown = content.Load<Texture2D>("bear2shootdiagdown");
-            bear2ShootAhead = content.Load<Texture2D>("bear2shootahead");
-            bear2ShootDiagUp = content.Load<Texture2D>("bear2shootdiagup");
-            bear2ShootUp = content.Load<Texture2D>("bear2shootup");
-            bear2Dead = content.Load<Texture2D>("bear2dead");
-            */
+            playerKnife = content.Load<Texture2D>("knife");
 
             //editing textures
             crosshair = content.Load<Texture2D>("crosshair");
             marker = content.Load<Texture2D>("marker");
-            System.Diagnostics.Debug.WriteLine("step3");
-            //load level tiles
-            //tile1 = content.Load<Texture2D>("background1"); //  1280px x 720px => 12.8m x 7.2m
-            //tile2 = content.Load<Texture2D>("prototype_Tile2"); //  1280px x 720px => 12.8m x 7.2m
 
-            System.Diagnostics.Debug.WriteLine("step4");
+            //background
+            bg = content.Load<Texture2D>("level1bg");
+            mg = content.Load<Texture2D>("level1mg");
+            bgPosB = bgPos + new Vector2(bg.Width, 0f);
+            mgPos = Vector2.Zero;
+            mgPosB = Vector2.Zero;        //to be changed
 
-            A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");            
+            //level tiles
+            A_0_0 = content.Load<Texture2D>("level tiles/A_0_0");
             A_0_720 = content.Load<Texture2D>("level tiles/A_0_720");
             A_1280_0 = content.Load<Texture2D>("level tiles/A_1280_0");
             A_1280_720 = content.Load<Texture2D>("level tiles/A_1280_720");
@@ -304,7 +274,12 @@ namespace Prototype2
             A_5120_720 = content.Load<Texture2D>("level tiles/A_5120_720");
             A_M1280_0 = content.Load<Texture2D>("level tiles/A_M1280_0");
             A_M1280_720 = content.Load<Texture2D>("level tiles/A_M1280_720");
-            
+            A_5120_2160 = content.Load<Texture2D>("level tiles/A_5120_2160");
+            A_6400_1440 = content.Load<Texture2D>("level tiles/A_6400_1440");
+            A_6400_2160 = content.Load<Texture2D>("level tiles/A_6400_2160");
+            A_7680_1440 = content.Load<Texture2D>("level tiles/A_7680_1440");
+            A_7680_2160 = content.Load<Texture2D>("level tiles/A_7680_2160");
+
             //flashing bullet colors
             playerBulletColors = new List<Color> { Color.Red, Color.WhiteSmoke };
             enemyBulletColors = new List<Color> { Color.Red, Color.Black };
@@ -313,29 +288,8 @@ namespace Prototype2
             armgunXOffset = 0;
             armgunOrigin = Vector2.Zero;
 
-            //load sounds
-            /*jumpSound = content.Load<SoundEffect>("jumpSound");
-            System.Diagnostics.Debug.WriteLine("step5");
-            pistolSound = content.Load<SoundEffect>("pistolSound");
-            System.Diagnostics.Debug.WriteLine("step6");
-            dieSound = content.Load<SoundEffect>("dieSound");
-            knifeSound = content.Load<SoundEffect>("knifeSound");
-            hammerSound = content.Load<SoundEffect>("hammerSound");
-            bulletHit = content.Load<SoundEffect>("bulletHit");
-            bearDeadSound = content.Load<SoundEffect>("bearDeadSound");
-            bearDeadSound2 = content.Load<SoundEffect>("bearDeadSound2");
-            bearDeadSound3 = content.Load<SoundEffect>("bearDeadSound3");
-            bearDeadSound4 = content.Load<SoundEffect>("bearDeadSound4");
-            bearDeadSound5 = content.Load<SoundEffect>("bearDeadSound5");
-            bearShoot = content.Load<SoundEffect>("bearShoot");*/
-            
-            /*audioEngine = new AudioEngine("Content/teddyMusic.xgs");
-            waveBank = new WaveBank(audioEngine, "Content/playlist.xwb");
-            soundBank = new SoundBank(audioEngine, "Content/playlist.xsb");
-
-            gameSongsCue = soundBank.GetCue("gamesongs");
-            gameSongsCue.Play();*/
-
+            //markers
+            markers = new List<Vector2>();
 
             //setup main guy
             playerTexture = content.Load<Texture2D>("run");
@@ -353,13 +307,33 @@ namespace Prototype2
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
 
+            //knifebear 1 - at start
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(800f, 600f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
             //knifebear 2 - on top of first hill
-            bearBox = new EnemyCompositeCharacter(_world, new Vector2(1330f, 550f), 93, 183, 0.15f, squareTex);
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(1430f, 600f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
+            //knifebear 2 - on top of first hill
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(1630f, 600f), 93, 183, 0.15f, squareTex);
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
 
             //knifebear 3 - just after second rock
             bearBox = new EnemyCompositeCharacter(_world, new Vector2(3470f, 980f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
+            //knifebear 3 - just after second rock
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(5560f, 1800f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies.Add(bearBox);
+
+            //knifebear 4 - before first sea platform
+            bearBox = new EnemyCompositeCharacter(_world, new Vector2(6000f, 1580f), 93, 183, 0.15f, squareTex);
             bearBox.forcePower = 100;
             enemies.Add(bearBox);
 
@@ -370,11 +344,37 @@ namespace Prototype2
             bearBox.forcePower = 100;
             enemies2.Add(bear2Box);
 
+            //shootbear 1 - just after the first stump
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(800f, 500f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);                        
+
             //shootbear 2 - in front of the large tree
             bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(5460f, 1800f), 93, 183, 0.15f, squareTex);
             bearBox.forcePower = 100;
             enemies2.Add(bear2Box);
 
+            //shootbear 1 - just after the first stump
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(3670f, 980f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+
+            //shootbear 3 - 3rd sea platform
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(6920f, 1580f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+
+            //shootbear 3 - 2d sea platform
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(7520f, 1580f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+
+            //shootbear 3 - 3rd sea platform
+            bear2Box = new EnemyCompositeCharacter2(_world, new Vector2(8170f, 1880f), 93, 183, 0.15f, squareTex);
+            bearBox.forcePower = 100;
+            enemies2.Add(bear2Box);
+            
+            
             //player ignore collisions with enemies
             box.body.CollisionGroup = -1;
             box.wheel.CollisionGroup = -1;
@@ -399,6 +399,14 @@ namespace Prototype2
             //bulletDirection = new Vector2(0, 0);
             bulletQueue = new Queue<Bullet>();
             tempBulletArray = bulletQueue.ToArray();
+
+            //setup deadzones
+            deadZones = new List<Rectangle>();
+
+            deadZones.Add(new Rectangle(2552, 1040, 402, 115));      //first pit  
+            deadZones.Add(new Rectangle(6497, 1989, 402, 115));      //2nd  
+            deadZones.Add(new Rectangle(7013, 1992, 502, 115));      //3rd pit   
+            deadZones.Add(new Rectangle(7654, 2196, 702, 115));      //last pit   
 
 
             // Create the ground fixture
@@ -533,8 +541,122 @@ namespace Prototype2
             FixtureFactory.AttachEdge(new Vector2(58.69f, 18.39f), new Vector2(58.84f, 18.61f), impassableEdge);
             FixtureFactory.AttachEdge(new Vector2(58.84f, 18.61f), new Vector2(58.99f, 18.91f), impassableEdge);
             FixtureFactory.AttachEdge(new Vector2(58.99f, 18.91f), new Vector2(58.96f, 19.21f), impassableEdge);
-            FixtureFactory.AttachEdge(new Vector2(58.96f, 19.21f), new Vector2(63.11f, 19.28f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(58.96f, 19.21f), new Vector2(63.11f, 19.00f), impassableEdge);
             //To the ground just past the big tree 
+
+            //from log to end of the nearest cliff and all ending collisions
+            FixtureFactory.AttachEdge(new Vector2(63.11f, 19.00f), new Vector2(65.26f, 18.87f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.26f, 18.87f), new Vector2(65.21f, 19.2f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.21f, 19.2f), new Vector2(65.23f, 19.5f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.23f, 19.5f), new Vector2(65.11f, 19.83f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.11f, 19.83f), new Vector2(65.05f, 20.19f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.05f, 20.19f), new Vector2(65.03f, 20.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(65.03f, 20.48f), new Vector2(64.9f, 20.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.9f, 20.69f), new Vector2(64.78f, 21.03f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.78f, 21.03f), new Vector2(64.79f, 21.18f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.79f, 21.18f), new Vector2(64.71f, 21.4f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.71f, 21.4f), new Vector2(64.47f, 22.44f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.47f, 22.44f), new Vector2(64.17f, 23.53f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.17f, 23.53f), new Vector2(64.09f, 23.98f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.09f, 23.98f), new Vector2(64.19f, 24.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.19f, 24.48f), new Vector2(64.11f, 24.92f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(64.11f, 24.92f), new Vector2(67.52f, 24.04f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.52f, 24.04f), new Vector2(67.55f, 23.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.55f, 23.69f), new Vector2(67.54f, 23.17f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.54f, 23.17f), new Vector2(67.63f, 22.94f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.63f, 22.94f), new Vector2(67.59f, 22.65f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.59f, 22.65f), new Vector2(67.62f, 22.1f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.62f, 22.1f), new Vector2(67.57f, 21.86f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.57f, 21.86f), new Vector2(67.64f, 21.22f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.64f, 21.22f), new Vector2(67.74f, 20.8f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.74f, 20.8f), new Vector2(67.69f, 20.47f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.69f, 20.47f), new Vector2(67.76f, 19.96f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.76f, 19.96f), new Vector2(67.74f, 19.49f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.74f, 19.49f), new Vector2(67.72f, 19.35f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.72f, 19.35f), new Vector2(67.69f, 19.16f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(67.69f, 19.16f), new Vector2(68.65f, 19.19f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(68.65f, 19.19f), new Vector2(69.49f, 19.17f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(69.49f, 19.17f), new Vector2(70.38f, 19.14f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.38f, 19.14f), new Vector2(70.29f, 19.4f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.29f, 19.4f), new Vector2(70.22f, 19.93f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.22f, 19.93f), new Vector2(70.27f, 20.3f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.27f, 20.3f), new Vector2(70.24f, 20.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.24f, 20.69f), new Vector2(70.13f, 21.25f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.13f, 21.25f), new Vector2(70.09f, 21.88f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.09f, 21.88f), new Vector2(70.15f, 22.33f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.15f, 22.33f), new Vector2(70.09f, 22.64f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.09f, 22.64f), new Vector2(70.13f, 23.02f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.13f, 23.02f), new Vector2(70.03f, 23.39f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.03f, 23.39f), new Vector2(70.06f, 23.95f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.06f, 23.95f), new Vector2(70.05f, 24.34f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(70.05f, 24.34f), new Vector2(72.79f, 25.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.79f, 25.69f), new Vector2(72.87f, 25.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.87f, 25.48f), new Vector2(72.86f, 25.18f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.86f, 25.18f), new Vector2(72.87f, 24.99f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.87f, 24.99f), new Vector2(72.86f, 24.46f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.86f, 24.46f), new Vector2(72.85f, 24.25f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.85f, 24.25f), new Vector2(73.14f, 23.35f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.14f, 23.35f), new Vector2(73.04f, 22.64f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.04f, 22.64f), new Vector2(72.92f, 22.17f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.92f, 22.17f), new Vector2(73.01f, 21.91f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.01f, 21.91f), new Vector2(72.95f, 21.7f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(72.95f, 21.7f), new Vector2(73.08f, 21.36f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.08f, 21.36f), new Vector2(73.09f, 20.29f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.09f, 20.29f), new Vector2(73.07f, 20.08f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.07f, 20.08f), new Vector2(73.19f, 19.13f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.19f, 19.13f), new Vector2(73.23f, 18.92f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.23f, 18.92f), new Vector2(73.16f, 18.67f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.16f, 18.67f), new Vector2(73.12f, 18.3f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(73.12f, 18.3f), new Vector2(76.87f, 18.34f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.87f, 18.34f), new Vector2(76.76f, 18.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.76f, 18.79f), new Vector2(76.69f, 18.9f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.69f, 18.9f), new Vector2(76.75f, 19.8f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.75f, 19.8f), new Vector2(76.82f, 20.19f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.82f, 20.19f), new Vector2(76.77f, 20.72f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.77f, 20.72f), new Vector2(76.74f, 21.35f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.74f, 21.35f), new Vector2(76.62f, 21.86f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.62f, 21.86f), new Vector2(76.53f, 22.37f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.53f, 22.37f), new Vector2(76.5f, 22.8f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.5f, 22.8f), new Vector2(76.56f, 23f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.56f, 23f), new Vector2(76.59f, 23.27f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.59f, 23.27f), new Vector2(76.63f, 23.41f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.63f, 23.41f), new Vector2(76.59f, 23.58f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.59f, 23.58f), new Vector2(76.6f, 23.86f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.6f, 23.86f), new Vector2(76.62f, 24.36f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.62f, 24.36f), new Vector2(76.58f, 24.48f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.58f, 24.48f), new Vector2(76.56f, 24.78f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.56f, 24.78f), new Vector2(76.53f, 25.29f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.53f, 25.29f), new Vector2(76.52f, 25.69f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.52f, 25.69f), new Vector2(76.47f, 26.12f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.47f, 26.12f), new Vector2(76.47f, 26.45f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.47f, 26.45f), new Vector2(76.41f, 26.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.41f, 26.79f), new Vector2(76.47f, 27.1f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.47f, 27.1f), new Vector2(76.46f, 27.38f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(76.46f, 27.38f), new Vector2(80.6f, 26.87f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.6f, 26.87f), new Vector2(80.55f, 26.71f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.55f, 26.71f), new Vector2(80.59f, 26.55f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.59f, 26.55f), new Vector2(80.6f, 26.21f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.6f, 26.21f), new Vector2(80.71f, 25.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.71f, 25.79f), new Vector2(80.67f, 25.39f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.67f, 25.39f), new Vector2(80.71f, 24.99f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.71f, 24.99f), new Vector2(80.69f, 24.55f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.69f, 24.55f), new Vector2(80.76f, 24.1f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.76f, 24.1f), new Vector2(80.7f, 23.62f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.7f, 23.62f), new Vector2(80.72f, 23.26f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.72f, 23.26f), new Vector2(80.76f, 22.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.76f, 22.79f), new Vector2(80.79f, 22.25f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.79f, 22.25f), new Vector2(80.78f, 21.79f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.78f, 21.79f), new Vector2(80.72f, 21.47f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.72f, 21.47f), new Vector2(80.67f, 21.13f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(80.67f, 21.13f), new Vector2(81.8f, 21.16f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(81.8f, 21.16f), new Vector2(82.78f, 21.22f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(82.78f, 21.22f), new Vector2(83.65f, 21.21f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(83.65f, 21.21f), new Vector2(84.7f, 21.23f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.7f, 21.23f), new Vector2(84.57f, 21.98f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.57f, 21.98f), new Vector2(84.6f, 22.76f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.6f, 22.76f), new Vector2(84.45f, 23.58f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.45f, 23.58f), new Vector2(84.42f, 24.41f), impassableEdge);
+            FixtureFactory.AttachEdge(new Vector2(84.42f, 24.41f), new Vector2(84.46f, 25.37f), impassableEdge);
 
             //play game music            
             if (GameStateManagementGame.music == 0)
@@ -546,8 +668,6 @@ namespace Prototype2
             }
 
             firstGameUpdate = true;
-
-            System.Diagnostics.Debug.WriteLine("BIIIIIIIIIIIIIPS");
 
             ScreenManager.Game.ResetElapsedTime();
         }
@@ -561,13 +681,71 @@ namespace Prototype2
         /// </summary>
         public override void UnloadContent()
         {
-            System.Diagnostics.Debug.WriteLine("TRASHINGNESS");
             content.Unload();
         }
 
         #endregion
-        
 
+
+        private void initEnemyScript(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    {
+                        enemies[index].runScript1();
+                    }
+                    break;
+
+                case 1:
+                    {
+                        enemies[index].runScript2();
+                    }
+                    break;
+
+                case 2:
+                    {
+                        enemies[index].runScript3();
+                    }
+                    break;
+
+                case 3:
+                    {
+                        enemies[index].runScript4();
+                    }
+                    break;
+            }
+        }
+
+        private void initEnemy2Script(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    {
+                        enemies2[index].runScript1();
+                    }
+                    break;
+
+                case 1:
+                    {
+                        enemies2[index].runScript2();
+                    }
+                    break;
+
+                case 2:
+                    {
+                        enemies2[index].runScript3();
+                    }
+                    break;
+
+                case 3:
+                    {
+                        enemies2[index].runScript4();
+                    }
+                    break;
+            }
+        }
 
         #region Update
 
@@ -577,7 +755,7 @@ namespace Prototype2
         /// or if you tab away to a different application.
         /// </summary>
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
-        {            
+        {
             //pause screen fade
             if (coveredByOtherScreen)
                 pauseAlpha = Math.Min(pauseAlpha + 1f / 32, 1);
@@ -590,14 +768,20 @@ namespace Prototype2
                 HandleKeyboard();
                 HandleMouse();
 
-
-                //test printouts go here
-                if (gameTime.TotalGameTime.Milliseconds % 10 == 0)
-                {
-                    //Console.WriteLine("PLAYER POS: " + box.Position.X + "," + box.Position.Y + "   Bear POS: " + enemies[0].Position.X + "," + enemies[0].Position.Y);
-                }
-
                 handleAttacks();
+                handleDeadZones();
+
+                //manage vibration
+                if (vibrationTime <= 0 && vibrationTime != -1000)
+                {
+                    GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+
+                    vibrationTime = -1000;
+                }
+                else if (vibrationTime != -1000)
+                {
+                    vibrationTime -= gameTime.ElapsedGameTime.Milliseconds;
+                }
 
                 //handle main player animations
                 if (box.activity == Activity.Idle && oldActivity != Activity.Idle)
@@ -621,6 +805,10 @@ namespace Prototype2
                     playerAnimation.Initialize(playerDead, temp, 103, 140, 37, 80, Color.White, 1f, false, new Vector2(0, 0));
 
                     GameStateManagementGame.dieSound.Play();
+
+                    GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
+
+                    vibrationTime = 600;
                 }
                 else if (box.activity == Activity.Knife && oldActivity != Activity.Knife)
                 {
@@ -628,6 +816,10 @@ namespace Prototype2
                     playerAnimation.Initialize(playerKnife, temp, 175, 160, 14, 40, Color.White, 1f, false, new Vector2(0, 0));
 
                     GameStateManagementGame.hammerSound.Play();
+
+                    GamePad.SetVibration(PlayerIndex.One, 0.6f, 0.6f);
+
+                    vibrationTime = 150;
                 }
 
                 //if the knife animation is finished 
@@ -639,16 +831,55 @@ namespace Prototype2
                 //control bear actions
                 if (firstGameUpdate)
                 {
-                    System.Diagnostics.Debug.WriteLine("BEFORE SCRIPTS");
-                    enemies[0].runScript3();
-                    enemies[1].runScript3();
-                    enemies[2].runScript3();
+                    for (int i = 0; i < enemies.Count; i++)
+                    {
+                        enemies[i].runScript3();
+                    }
 
-                    enemies2[0].runScript3();
-                    enemies2[1].runScript3();
-                    System.Diagnostics.Debug.WriteLine("AFTER SCRIPTS");
+                    for (int i = 0; i < enemies2.Count; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            enemies2[i].runScript3();
+                        }
+                        else
+                        {
+                            enemies2[i].runScript4();
+                        }
+                    }
+
+                    totalEnemies = enemies.Count + enemies2.Count;
 
                     firstGameUpdate = false;
+                }
+
+                //change hud colors on certain events
+                if (ammo == 3)
+                {
+                    ammoHudColor = Color.Red;
+                }
+
+                if (GameStateManagementGame.enemiesKilled == totalEnemies)
+                {
+                    enemyHudColor = new Color(0f, 1f, 0f);    //green
+                }
+
+                //check for level finish
+                if (box.Position.X > 8300)
+                {
+                    GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+
+                    ScreenManager.AddScreen(new LevelCompleteScreen(true, ammo, totalEnemies, ammoHudColor, enemyHudColor, gameClock, ammoHudPos, clockPos, enemyHudPos), ControllingPlayer);
+
+                    levelFinished = true;
+                }
+                else
+                {
+                    //update game clock
+                    if (gameTime.TotalGameTime.Milliseconds % 1000 == 0)
+                    {
+                        gameClock++;
+                    }
                 }
 
                 oldActivity = box.activity;
@@ -672,11 +903,22 @@ namespace Prototype2
                 //We update the world
                 _world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
             }
-                      
+
             base.Update(gameTime, otherScreenHasFocus, false);
         }
 
         #endregion
+
+        private void handleDeadZones()
+        {
+            for (int i = 0; i < deadZones.Count; i++)
+            {
+                if (box.Position.X + 30 > deadZones[i].X && box.Position.X - 30 < deadZones[i].X + deadZones[i].Width && box.Position.Y + 65 > deadZones[i].Y && box.Position.Y - 65 < deadZones[i].Y + deadZones[i].Height)
+                {
+                    box.activity = Activity.Dead;
+                }
+            }
+        }
 
         #region handleAttacks
 
@@ -685,9 +927,8 @@ namespace Prototype2
             //handle enemy player hammer attacks - can only knife melee bears from behind
             for (int i = 0; i < enemies.Count; i++)
             {
-
                 if (Math.Abs(enemies[i].Position.X - box.Position.X) < 100 && Math.Abs(enemies[i].Position.Y - box.Position.Y) < 100 && box.activity == Activity.Knife && playerAnimation.currentFrame > 8 && playerAnimation.myEffect.ToString() != enemies[i].animation.myEffect.ToString())
-                {                   
+                {
                     enemies[i].stopScript();
 
                     enemies[i].activity = EnemyActivity.enemyDead;
@@ -698,7 +939,7 @@ namespace Prototype2
 
             //handle enemy2 player hammer attacks - can knife shoot bears from the front and behind
             for (int i = 0; i < enemies2.Count; i++)
-            {                
+            {
                 if (Math.Abs(enemies2[i].Position.X - box.Position.X) < 100 && Math.Abs(enemies2[i].Position.Y - box.Position.Y) < 100 && box.activity == Activity.Knife && playerAnimation.currentFrame > 8)
                 {
                     enemies2[i].stopScript();
@@ -711,7 +952,7 @@ namespace Prototype2
 
             //handle enemy player pistol attacks
             for (int i = 0; i < enemies.Count; i++)
-            {                
+            {
                 for (int j = 0; j < tempBulletArray.Length; j++)
                 {
                     if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies[i].Position.X) < 50 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies[i].Position.Y) < 95 && enemies[i].activity != EnemyActivity.enemyDead)
@@ -727,7 +968,7 @@ namespace Prototype2
 
             //handle enemy2 player pistol attacks
             for (int i = 0; i < enemies2.Count; i++)
-            {                
+            {
                 for (int j = 0; j < tempBulletArray.Length; j++)
                 {
                     if (Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.X - enemies2[i].Position.X) < 50 && Math.Abs(((Bullet)tempBulletArray.GetValue(j)).CurrentPos.Y - enemies2[i].Position.Y) < 95 && enemies2[i].activity != EnemyActivity2.enemyDead)
@@ -752,10 +993,10 @@ namespace Prototype2
                     {
                         box.activity = Activity.Dead;
 
-                        bulletHit.Play();
+                        GameStateManagementGame.bulletHit.Play();
 
                         breaker = true;
-                        
+
                         break;
                     }
                 }
@@ -764,7 +1005,7 @@ namespace Prototype2
                 {
                     break;
                 }
-            }   
+            }
         }
 
         #endregion
@@ -773,7 +1014,7 @@ namespace Prototype2
 
         private void HandleGamePad()
         {
-            GamePadState padState = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.Circular);                    
+            GamePadState padState = GamePad.GetState(PlayerIndex.One, GamePadDeadZone.Circular);
 
             //bullet stuff
             if (bulletQueue.Count > 0)
@@ -797,100 +1038,97 @@ namespace Prototype2
             }
 
             //back button resets the player
-            if (box.activity == Activity.Dead && padState.Buttons.Back == ButtonState.Pressed && _oldPadState.Buttons.Back == ButtonState.Released && padState.IsConnected)   
+            if (box.activity == Activity.Dead && padState.Buttons.Back == ButtonState.Pressed && _oldPadState.Buttons.Back == ButtonState.Released && padState.IsConnected)
             {
+                GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+
+                MainMenuScreen.gamePlayScreen2.killAllEnemyThreads();
+
                 MainMenuScreen.gamePlayScreen2 = new GameplayScreen2();
 
-                LoadingScreen.Load(ScreenManager, true, 0, MainMenuScreen.gamePlayScreen2);                
-                
-                /*box.body.Dispose();
-                box.wheel.Dispose();  //delete old bodys
-
-                box = new CompositeCharacter(_world, new Vector2(300f, 600f), 64, 128, 0.3f, squareTex);
-                box.forcePower = 100;
-
-                //player ignore collisions with enemies
-                box.body.CollisionGroup = -1;
-                box.wheel.CollisionGroup = -1;
-
-                for (int i = 0; i < enemies.Count; i++)
-                {
-                    enemies[i].body.CollisionGroup = -1;
-                    enemies[i].wheel.CollisionGroup = -1;
-                }
-
-                for (int i = 0; i < enemies2.Count; i++)
-                {
-                    enemies2[i].body.CollisionGroup = -1;
-                    enemies2[i].wheel.CollisionGroup = -1;
-                }
-
-                playerAnimation.myEffect = SpriteEffects.None;
-                armgunEffects = SpriteEffects.None;*/
+                LoadingScreen.Load(ScreenManager, true, 0, MainMenuScreen.gamePlayScreen2);
             }
 
-            if (padState.IsConnected && box.activity != Activity.Dead)       
+            if (padState.IsConnected && box.activity != Activity.Dead)
             {
-                /*if (padState.Buttons.Back == ButtonState.Pressed)
-                    Exit();*/
-                                
 
                 if (padState.Buttons.B == ButtonState.Pressed && _oldPadState.Buttons.B == ButtonState.Released)
                 {
-                    if (showBox == true)
+                    /*if (showBox == true)
                     {
                         showBox = false;
                     }
                     else
                     {
                         showBox = true;
-                    }                    
+                    }   */
                 }
 
                 if (padState.Triggers.Right > 0.5 && _oldPadState.Triggers.Right < 0.5)
                 {
-                    GameStateManagementGame.pistolSound.Play();
-
-                    Bullet bullet = new Bullet();
-                    bullet.Texture = bulletTex;                    
-
-                    if (padState.ThumbSticks.Right.X > 0.50 || padState.ThumbSticks.Right.X < -0.50 || padState.ThumbSticks.Right.Y > 0.50 || padState.ThumbSticks.Right.Y < -0.50)
+                    if (ammo > 0)
                     {
-                        bullet.DirectionIncrement = (padState.ThumbSticks.Right * new Vector2(1, -1));
-                    }
-                    else
-                    {
+                        GameStateManagementGame.pistolSound.Play();
+
+                        //vibration to the side of shooting
+                        if (padState.ThumbSticks.Right.X < 0)
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, Math.Abs(padState.ThumbSticks.Right.X / 2), 0.0f);
+                        }
+                        else
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, 0.0f, (padState.ThumbSticks.Right.X / 2));
+                        }
+
+                        vibrationTime = 300;
+
+                        Bullet bullet = new Bullet();
+                        bullet.Texture = bulletTex;
+
+                        if (padState.ThumbSticks.Right.X > 0.50 || padState.ThumbSticks.Right.X < -0.50 || padState.ThumbSticks.Right.Y > 0.50 || padState.ThumbSticks.Right.Y < -0.50)
+                        {
+                            bullet.DirectionIncrement = (padState.ThumbSticks.Right * new Vector2(1, -1));
+                        }
+                        else
+                        {
+                            if (armgunEffects == SpriteEffects.None)
+                            {
+                                bullet.DirectionIncrement = new Vector2(1, 0);
+                            }
+                            else if (armgunEffects == SpriteEffects.FlipHorizontally)
+                            {
+                                bullet.DirectionIncrement = new Vector2(-1, 0);
+                            }
+                        }
+
+                        Vector2 perpToDirection;
+
+                        //arm pivot point + direction multiplyed by guess number to bring the bullet origin to the tip of the pistol. 
+                        //also moved a few pixels 90 degrees perpendicular to direction to match the tip of the gun  
                         if (armgunEffects == SpriteEffects.None)
                         {
-                            bullet.DirectionIncrement = new Vector2(1, 0);
+                            perpToDirection = new Vector2(bullet.DirectionIncrement.Y, bullet.DirectionIncrement.X * -1) * 12;
+
+                            bullet.Origin = new Vector2(box.Position.X + 10, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
                         }
                         else if (armgunEffects == SpriteEffects.FlipHorizontally)
                         {
-                            bullet.DirectionIncrement = new Vector2(-1, 0);
+                            perpToDirection = new Vector2(bullet.DirectionIncrement.Y * -1, bullet.DirectionIncrement.X) * 12;
+
+                            bullet.Origin = new Vector2(box.Position.X - 20, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
                         }
+
+                        bullet.CurrentPos = bullet.Origin;
+                        bullet.DirectionIncrement *= bullet.Speed;
+
+                        bulletQueue.Enqueue(bullet);    //add the bullet to the queue of bullets
+
+                        ammo--;
                     }
-
-                    Vector2 perpToDirection;
-
-                    //arm pivot point + direction multiplyed by guess number to bring the bullet origin to the tip of the pistol. 
-                    //also moved a few pixels 90 degrees perpendicular to direction to match the tip of the gun  
-                    if (armgunEffects == SpriteEffects.None)
+                    else
                     {
-                        perpToDirection = new Vector2(bullet.DirectionIncrement.Y, bullet.DirectionIncrement.X * -1) * 12;
-
-                        bullet.Origin = new Vector2(box.Position.X + 10, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
+                        GameStateManagementGame.clickSound.Play();
                     }
-                    else if (armgunEffects == SpriteEffects.FlipHorizontally)
-                    {
-                        perpToDirection = new Vector2(bullet.DirectionIncrement.Y * -1, bullet.DirectionIncrement.X) * 12;
-
-                        bullet.Origin = new Vector2(box.Position.X - 20, box.Position.Y - 20) + (bullet.DirectionIncrement * 55) + perpToDirection;
-                    }
-
-                    bullet.CurrentPos = bullet.Origin;
-                    bullet.DirectionIncrement *= bullet.Speed; 
-
-                    bulletQueue.Enqueue(bullet);    //add the bullet to the queue of bullets
                 }
 
                 if (padState.ThumbSticks.Right.X > 0.50 || padState.ThumbSticks.Right.X < -0.50 || padState.ThumbSticks.Right.Y > 0.50 || padState.ThumbSticks.Right.Y < -0.50)
@@ -911,25 +1149,88 @@ namespace Prototype2
                     }
                 }
                 else
-                {                   
+                {
                     armgunAngle = 0.0f;
-                    headAngle = 0.0f;                   
-                }                
+                    headAngle = 0.0f;
+                }
 
                 //run animation speed is determined by the degree to which the analog stick is tilted
-                if(box.activity == Activity.Running)
-                {                    
+                if (box.activity == Activity.Running)
+                {
                     if (padState.ThumbSticks.Left.X < -0.1f || padState.ThumbSticks.Left.X > 0.1f)
                     {
                         playerAnimation.frameTime = (int)(playerAnimation.minFrameTime * (1 / Math.Abs(padState.ThumbSticks.Left.X)));
-                    }                    
-                } 
+                    }
+                }
 
                 //camera follow player  
                 if (freeViewOn == false)
                 {
                     _cameraPosition = (box.Position - _screenCenter) * -1;
-                    _cameraPosition += new Vector2(-130,130); 
+                    _cameraPosition += new Vector2(-130, 130);
+
+                    //BG stuff..
+                    bgPos.X += (_cameraPosition.X - oldCameraPos.X) / 9;           //move the bg slower then the foreground
+
+                    if (bgPos.X > 1f)
+                    {
+                        bgPosB = bgPos - new Vector2(bg.Width, 0f);
+                    }
+                    else
+                    {
+                        bgPosB = bgPos + new Vector2(bg.Width, 0f);
+                    }
+
+                    if (bgPosB.X > 1f)
+                    {
+                        bgPos = bgPosB - new Vector2(bg.Width, 0f);
+                    }
+                    else
+                    {
+                        bgPos = bgPosB + new Vector2(bg.Width, 0f);
+                    }
+
+                    //Middle Ground Stuff...
+                    mgPos.X += (_cameraPosition.X - oldCameraPos.X) / 4;
+
+                    if (mgPos.X > 1f)
+                    {
+                        mgPosB = mgPos - new Vector2(mg.Width, 0f);
+                    }
+                    else
+                    {
+                        mgPosB = mgPos + new Vector2(mg.Width, 0f);
+                    }
+
+                    if (mgPosB.X > 1f)
+                    {
+                        mgPos = mgPosB - new Vector2(mg.Width, 0f);
+                    }
+                    else
+                    {
+                        mgPos = mgPosB + new Vector2(mg.Width, 0f);
+                    }
+
+                    bgPos.Y += (_cameraPosition.Y - oldCameraPos.Y) / 5;
+                    bgPosB.Y = bgPos.Y;
+
+                    mgYOffset += (_cameraPosition.Y - oldCameraPos.Y) / 10;
+                    mgPos.Y = bgPos.Y + 920 + mgYOffset;
+                    mgPosB.Y = mgPos.Y;
+
+                    //move clouds                    
+                    cloudsPos.X = (bgPos.X + 1280) + cloudIncrement;
+                    cloudYOffset -= (_cameraPosition.Y - oldCameraPos.Y) / 30;
+                    cloudsPos.Y = bgPos.Y + 200 + cloudYOffset;
+
+                    cloudIncrement -= 0.4f;
+
+                    if (cloudsPos.X < (-GameStateManagementGame.clouds.Width + -200))           //rest clouds once all shown
+                    {
+                        cloudIncrement = 300;
+                    }
+
+                    oldCameraPos = _cameraPosition;
                 }
 
                 _view = Matrix.CreateTranslation(new Vector3(_cameraPosition - _screenCenter, 0f)) * Matrix.CreateTranslation(new Vector3(_screenCenter, 0f));
@@ -938,7 +1239,7 @@ namespace Prototype2
             }
         }
 
-        #endregion  
+        #endregion
 
         #region handleKeyboard
 
@@ -963,19 +1264,6 @@ namespace Prototype2
             _view = Matrix.CreateTranslation(new Vector3(_cameraPosition - _screenCenter, 0f)) *
                     Matrix.CreateTranslation(new Vector3(_screenCenter, 0f));
 
-
-            /*if (state.IsKeyDown(Keys.Left))
-            {
-                playerAnimation.myEffect = SpriteEffects.FlipHorizontally;
-                shootAnimation.myEffect = SpriteEffects.FlipHorizontally;
-                armgunEffects = SpriteEffects.FlipHorizontally;
-            }
-            else if (state.IsKeyDown(Keys.Right))
-            {
-                playerAnimation.myEffect = SpriteEffects.None;
-                shootAnimation.myEffect = SpriteEffects.None;
-                armgunEffects = SpriteEffects.None;
-            }*/
 
             if (state.IsKeyDown(Keys.B) && _oldKeyState.IsKeyDown(Keys.B) == false)
             {
@@ -1025,8 +1313,7 @@ namespace Prototype2
 
                     Console.WriteLine("FixtureFactory.AttachEdge(new Vector2(" + previousClickWorldPos.X / MeterInPixels + "f, " + previousClickWorldPos.Y / MeterInPixels + "f), new Vector2(" + worldPos.X / MeterInPixels + "f, " + worldPos.Y / MeterInPixels + "f), impassableEdge);");
 
-                    //markers.Add(new Vector2(worldPos.X - 4, worldPos.Y - 4));
-
+                    markers.Add(new Vector2(worldPos.X - 4, worldPos.Y - 4));
                     previousClickWorldPos = worldPos;
                 }
             }
@@ -1058,41 +1345,61 @@ namespace Prototype2
 
             if (input.IsPauseGame(ControllingPlayer) || gamePadDisconnected)
             {
-                ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
-            }            
+                ScreenManager.AddScreen(new PauseMenuScreen(true), ControllingPlayer);
+            }
         }
 
-        #endregion  
+        #endregion
 
 
         #region Draw
- 
+
         /// <summary>
         /// Draws the gameplay screen.
         /// </summary>
         public override void Draw(GameTime gameTime)
-        {            
+        {
             GameStateManagementGame.graphics.GraphicsDevice.Clear(Color.SkyBlue);
+
+            viewport = GameStateManagementGame.graphics.GraphicsDevice.Viewport;
+            viewportSize = new Vector2(viewport.Width, viewport.Height);
+
+            //draw parralax bg
+            _batch.Begin();
+
+            _batch.Draw(bg, bgPos, Color.LightPink);
+            _batch.Draw(bg, bgPosB, Color.LightPink);
+
+            _batch.Draw(mg, mgPos, Color.LightPink);
+            _batch.Draw(mg, mgPosB, Color.LightPink);
+
+            //draw clouds
+            _batch.Draw(GameStateManagementGame.clouds, cloudsPos, Color.LightPink);
+
+            _batch.End();
+
 
             _batch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _view);
 
-            Color color = Color.Purple;
-            color.A = 2;
+            _batch.Draw(A_0_0, new Vector2(0, 0), Color.LemonChiffon);
+            _batch.Draw(A_0_720, new Vector2(0, 720), Color.LemonChiffon);
+            _batch.Draw(A_1280_0, new Vector2(1280, 0), Color.LemonChiffon);
+            _batch.Draw(A_1280_720, new Vector2(1280, 720), Color.LemonChiffon);
+            _batch.Draw(A_2560_1440, new Vector2(2560, 1440), Color.LemonChiffon);
+            _batch.Draw(A_2560_720, new Vector2(2560, 720), Color.LemonChiffon);
+            _batch.Draw(A_3840_1440, new Vector2(3840, 1440), Color.LemonChiffon);
+            _batch.Draw(A_3840_720, new Vector2(3840, 720), Color.LemonChiffon);
+            _batch.Draw(A_5120_1440, new Vector2(5120, 1440), Color.LemonChiffon);
+            _batch.Draw(A_5120_720, new Vector2(5120, 720), Color.LemonChiffon);
+            _batch.Draw(A_M1280_0, new Vector2(-1280, 0), Color.LemonChiffon);
+            _batch.Draw(A_M1280_720, new Vector2(-1280, 720), Color.LemonChiffon);
+            _batch.Draw(A_5120_2160, new Vector2(5120, 2160), Color.LemonChiffon);
+            _batch.Draw(A_6400_1440, new Vector2(6400, 1440), Color.LemonChiffon);
+            _batch.Draw(A_6400_2160, new Vector2(6400, 2160), Color.LemonChiffon);
+            _batch.Draw(A_7680_1440, new Vector2(7680, 1440), Color.LemonChiffon);
+            _batch.Draw(A_7680_2160, new Vector2(7680, 2160), Color.LemonChiffon);
 
-            _batch.Draw(A_0_0, new Vector2(0, 0), color);
-            _batch.Draw(A_0_720, new Vector2(0, 720), color);
-            _batch.Draw(A_1280_0, new Vector2(1280, 0), color);
-            _batch.Draw(A_1280_720, new Vector2(1280, 720), color);
-            _batch.Draw(A_2560_1440, new Vector2(2560, 1440), color);
-            _batch.Draw(A_2560_720, new Vector2(2560, 720), color);
-            _batch.Draw(A_3840_1440, new Vector2(3840, 1440), color);
-            _batch.Draw(A_3840_720, new Vector2(3840, 720), color);
-            _batch.Draw(A_5120_1440, new Vector2(5120, 1440), color);
-            _batch.Draw(A_5120_720, new Vector2(5120, 720), color);
-            _batch.Draw(A_M1280_0, new Vector2(-1280, 0), color);
-            _batch.Draw(A_M1280_720, new Vector2(-1280, 720), color);
-
-            if (showBox == true)
+            if (freeViewOn)
             {
                 box.Draw(_batch);
 
@@ -1104,6 +1411,12 @@ namespace Prototype2
                 for (int i = 0; i < enemies2.Count; i++)
                 {
                     enemies2[i].Draw(_batch);
+                }
+
+                //test deadzones
+                for (int i = 0; i < deadZones.Count; i++)
+                {
+                    _batch.Draw(squareTex, deadZones[i], Color.DarkRed);
                 }
             }
 
@@ -1150,7 +1463,7 @@ namespace Prototype2
                 }
 
                 headAngle = armgunAngle / 3;             //head rotates with analog stick but 3 times slower
-            }           
+            }
 
             if (box.activity != Activity.Dead)
             {
@@ -1191,23 +1504,43 @@ namespace Prototype2
                 }
             }
 
+            if (freeViewOn)
+            {
+                //draw markers
+                for (int i = 0; i < markers.Count; i++)
+                {
+                    _batch.Draw(marker, (Vector2)markers[i], Color.White);
+                }
+            }
+
             _batch.End();
 
             //draw items attached to screen as aposed to world
             _batch.Begin();
 
-            //Text = "FPS: " + fpsCounter.frameRate + "    player effect: " + playerAnimation.myEffect;
+            if (!levelFinished)
+            {
+                //draw hud
+                _batch.Draw(GameStateManagementGame.ammoHUD, ammoHudPos, Color.White);
+                _batch.DrawString(_font, "" + ammo, ammoHudPos + new Vector2(62 + 1, 6 + 1), Color.Black);
+                _batch.DrawString(_font, "" + ammo, ammoHudPos + new Vector2(62, 6), ammoHudColor);
 
-            // Display instructions
-            //_batch.DrawString(_font, Text, new Vector2(34f, 34f), Color.Black);
-            //_batch.DrawString(_font, Text, new Vector2(32f, 32f), Color.White);
+                clockPos = new Vector2(((viewportSize.X - bigFont.MeasureString(gameClock.ToString()).X) / 2), 50f);
 
-            //_batch.DrawString(_font, box.activity.ToString(), new Vector2(90, 105), Color.Red);
+                _batch.DrawString(bigFont, gameClock.ToString(), clockPos + new Vector2(1, 1), Color.Black);
+                _batch.DrawString(bigFont, gameClock.ToString(), clockPos, Color.White);
+
+                _batch.Draw(GameStateManagementGame.bearHUD, enemyHudPos, Color.White);
+                _batch.DrawString(_font, "" + GameStateManagementGame.enemiesKilled + "/" + totalEnemies, enemyHudPos + new Vector2(63 + 1, 10 + 1), Color.Black);
+                _batch.DrawString(_font, "" + GameStateManagementGame.enemiesKilled + "/" + totalEnemies, enemyHudPos + new Vector2(63, 10), enemyHudColor);
+            }
 
             if (box.activity == Activity.Dead && playerAnimation.currentFrame == 36)   //if on last frame of dead animation
             {
+                _batch.DrawString(bigFont, "YOU DIED!", new Vector2(501, 301), Color.Black);
                 _batch.DrawString(bigFont, "YOU DIED!", new Vector2(500, 300), Color.Red);
 
+                _batch.DrawString(_font, "Press BACK to retry", new Vector2(491, 371), Color.Black);
                 _batch.DrawString(_font, "Press BACK to retry", new Vector2(490, 370), Color.White);
             }
 
@@ -1261,7 +1594,7 @@ namespace Prototype2
 
             for (int i = 0; i < enemies2.Count; i++)
             {
-                enemies[i].stopScript();
+                enemies2[i].stopScript();
             }
         }
 

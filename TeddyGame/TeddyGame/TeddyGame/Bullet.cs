@@ -23,7 +23,7 @@ namespace Prototype2
             this.currentPos = Vector2.Zero;
             this.directionIncrement = Vector2.Zero;
             this.speed = 17;
-            this.maxDistanceFromOrigin = 2560;    //bullet disappears once outside the screen (1280 pixels wide)
+            this.maxDistanceFromOrigin = 1280;    //bullet disappears once outside the screen (1280 pixels wide)
         }
 
         public void Initialise(Texture2D texture, Vector2 origin, Vector2 currentPos, Vector2 directionIncrement, int speed, int maxDistanceFromOrigin)
