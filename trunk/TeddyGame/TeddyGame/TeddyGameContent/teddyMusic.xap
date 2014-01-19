@@ -310,7 +310,7 @@ Wave Bank
     Wave
     {
         Name = creditsMusic;
-        File = ..\..\..\..\Users\Hugh\Downloads\prototype1 art\sound\creditsMusic.wav;
+        File = creditsMusic.wav;
         Build Settings Last Modified Low = 264802917;
         Build Settings Last Modified High = 30296781;
 

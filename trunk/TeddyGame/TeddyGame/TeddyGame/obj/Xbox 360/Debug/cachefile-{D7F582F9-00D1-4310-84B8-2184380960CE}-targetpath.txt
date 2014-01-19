@@ -66,6 +66,15 @@ Content\gradeB.xnb
 Content\gradeC.xnb
 Content\gradeD.xnb
 Content\gradeF.xnb
+Content\CreditsBox.xnb
+Content\level1bg.xnb
+Content\clouds.xnb
+Content\level1mg.xnb
+Content\level tiles\A_5120_2160.xnb
+Content\level tiles\A_6400_1440.xnb
+Content\level tiles\A_6400_2160.xnb
+Content\level tiles\A_7680_1440.xnb
+Content\level tiles\A_7680_2160.xnb
 Content\font.xnb
 Content\bigFont.xnb
 Content\gamefont.xnb
@@ -97,17 +106,9 @@ Content\click.xnb
 Content\tot.xnb
 Content\finLevel.xnb
 Content\gradeTot.xnb
-Content\CreditsBox.xnb
 Content\wipeSound.xnb
 Content\wooshSound.xnb
-Content\level1bg.xnb
-Content\clouds.xnb
-Content\level1mg.xnb
-Content\level tiles\A_5120_2160.xnb
-Content\level tiles\A_6400_1440.xnb
-Content\level tiles\A_6400_2160.xnb
-Content\level tiles\A_7680_1440.xnb
-Content\level tiles\A_7680_2160.xnb
+Content\creditsMusic.xnb
 Content\teddyMusic.xgs
 Content\playlist.xwb
 Content\playlist.xsb
