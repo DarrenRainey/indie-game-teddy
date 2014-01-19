@@ -180,7 +180,11 @@ namespace Prototype2
             controls = Content.Load<Texture2D>("controls");
             levelCompleteBox = Content.Load<Texture2D>("LevelCompleteBox");
             levelCompleteBanner = Content.Load<Texture2D>("levelCompleteBanner");
+#if XBOX
             pressstart = Content.Load<Texture2D>("pressstart");
+#elif WINDOWS
+            pressstart = Content.Load<Texture2D>("pressenter");
+#endif            
             menuman = Content.Load<Texture2D>("menuman");
             menutitle = Content.Load<Texture2D>("menutitle");
             menusubtitle = Content.Load<Texture2D>("menusubtitle");
