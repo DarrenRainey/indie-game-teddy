@@ -1,0 +1,1 @@
+This as a small run and gun platformer for Xbox live indie games marketplace. This project is for my final year in software development in Cork institute of Technology. The game is written in c# using visual studio with XNA games studio, developed for and tested on the Microsoft xbox360 games console.
